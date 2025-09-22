@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpujgew3a8rx8"]
+
+[ext_resource type="Material" uid="uid://c45ounqnx7c2o" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="1_p34hk"]
+[ext_resource type="Material" uid="uid://2tsdqpogesqb" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="2_v20am"]
+[ext_resource type="Material" uid="uid://bjln2ovgooo2l" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="3_51nf0"]
+[ext_resource type="Material" uid="uid://7wl8n2wh5jxt" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="4_51nf0"]
+
+[node name="FlowerwallCRT" type="CanvasLayer"]
+layer = 100
+
+[node name="dither" type="ColorRect" parent="."]
+material = ExtResource("1_p34hk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="x_blur" type="ColorRect" parent="."]
+material = ExtResource("2_v20am")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="y_blur" type="ColorRect" parent="."]
+material = ExtResource("3_51nf0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="crt_shader" type="ColorRect" parent="."]
+material = ExtResource("4_51nf0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
