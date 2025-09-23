@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://fovfgo3aawcr"]
+
+[ext_resource type="Texture2D" uid="uid://blkey5vpbi3qr" path="res://Assets/Textures/WoodPlanks.png" id="1_k5f4k"]
+[ext_resource type="PackedScene" uid="uid://b0h31e31x4qxt" path="res://Scenes/player.tscn" id="2_6phgx"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Floor" type="Sprite2D" parent="."]
+texture_repeat = 3
+texture = ExtResource("1_k5f4k")
+offset = Vector2(128, 120)
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 240)
+
+[node name="Player" parent="." instance=ExtResource("2_6phgx")]
+position = Vector2(128, 120)
