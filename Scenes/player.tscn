@@ -1,14 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0h31e31x4qxt"]
+[gd_scene load_steps=5 format=3 uid="uid://b0h31e31x4qxt"]
 
 [ext_resource type="Script" uid="uid://b8qbei4yf7ns2" path="res://Scripts/PlayerController.gd" id="1_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://u3g70bl8qiac" path="res://Assets/Textures/PlayerWalk.png" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://cm7pksxgdloiq" path="res://Scripts/CharacterSprite.gd" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://dhl6ytceool0g" path="res://Scripts/WrapSprite.gd" id="4_vgqql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f60y1"]
 radius = 6.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_6t5aa")
 
@@ -17,46 +17,7 @@ texture = ExtResource("2_6t5aa")
 hframes = 4
 vframes = 4
 script = ExtResource("2_cvnsp")
-
-[node name="WrapSprite1" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(256, 0)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite2" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(256, 240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite3" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(0, 240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite4" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(-256, 240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite5" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(-256, 0)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite6" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(-256, -240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite7" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(0, -240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
-
-[node name="WrapSprite8" type="Sprite2D" parent="CharacterSprite"]
-position = Vector2(256, -240)
-script = ExtResource("4_vgqql")
-metadata/_custom_type_script = "uid://dhl6ytceool0g"
+metadata/_custom_type_script = "uid://cm7pksxgdloiq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

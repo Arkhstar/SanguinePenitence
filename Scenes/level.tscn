@@ -1,16 +1,128 @@
-[gd_scene load_steps=3 format=3 uid="uid://fovfgo3aawcr"]
+[gd_scene load_steps=12 format=4 uid="uid://fovfgo3aawcr"]
 
-[ext_resource type="Texture2D" uid="uid://blkey5vpbi3qr" path="res://Assets/Textures/WoodPlanks.png" id="1_k5f4k"]
+[ext_resource type="Texture2D" uid="uid://bgfusustr70hf" path="res://Assets/Textures/Planks.png" id="1_81xng"]
 [ext_resource type="PackedScene" uid="uid://b0h31e31x4qxt" path="res://Scenes/player.tscn" id="2_6phgx"]
+[ext_resource type="Script" uid="uid://btvgqo2troqyv" path="res://Scripts/BoardScrollingCamera.gd" id="2_81xng"]
+[ext_resource type="Texture2D" uid="uid://cwu2aubsuotn6" path="res://Assets/Textures/Bar.png" id="2_wqkje"]
+[ext_resource type="PackedScene" uid="uid://dil1lggnq1vts" path="res://Scenes/table.tscn" id="4_81xng"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6phgx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81xng"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wqkje"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0f350"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqkje"]
+texture = ExtResource("2_wqkje")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 2, 6, 2, 6, -8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 2, -6, 2)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 2, -6, 2)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_0f350"]
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_wqkje")
 
 [node name="Level" type="Node2D"]
 
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(0, 120)
+shape = SubResource("WorldBoundaryShape2D_6phgx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(0, -120)
+shape = SubResource("WorldBoundaryShape2D_81xng")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-128, 0)
+shape = SubResource("WorldBoundaryShape2D_wqkje")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(128, 0)
+shape = SubResource("WorldBoundaryShape2D_0f350")
+
 [node name="Floor" type="Sprite2D" parent="."]
-texture_repeat = 3
-texture = ExtResource("1_k5f4k")
-offset = Vector2(128, 120)
+texture_repeat = 2
+texture = ExtResource("1_81xng")
 region_enabled = true
 region_rect = Rect2(0, 0, 256, 240)
 
+[node name="Table0" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-88, -16)
+
+[node name="Table1" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-32, -16)
+
+[node name="Table2" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(32, -16)
+
+[node name="Table3" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(88, -16)
+
+[node name="Table4" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-88, 32)
+
+[node name="Table5" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-32, 32)
+
+[node name="Table6" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(32, 32)
+
+[node name="Table7" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(88, 32)
+
+[node name="Table8" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-88, 80)
+
+[node name="Table9" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(-32, 80)
+
+[node name="TableA" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(32, 80)
+
+[node name="TableB" parent="." instance=ExtResource("4_81xng")]
+position = Vector2(88, 80)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAABAPv/AAABAAAAAAD7//r/AAADAAAAAAD7//v/AAAEAAEAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAACAPv/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAFAPv/AAABAAAAAAAHAPv/AAAAAAIAAAAHAPr/AAACAAEAAAAHAPn/AAACAAEAAAAHAPj/AAACAAEAAAAGAPv/AAABAAAAAAA=")
+tile_set = SubResource("TileSet_0f350")
+
 [node name="Player" parent="." instance=ExtResource("2_6phgx")]
-position = Vector2(128, 120)
+
+[node name="BoardScrollingCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("2_81xng")
+player = NodePath("../Player")
+metadata/_custom_type_script = "uid://btvgqo2troqyv"

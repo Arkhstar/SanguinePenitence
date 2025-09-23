@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blkey5vpbi3qr"
-path="res://.godot/imported/WoodPlanks.png-9c5c17d969a194c98bf0c0b1f9227c14.ctex"
+uid="uid://cwu2aubsuotn6"
+path="res://.godot/imported/Bar.png-1d6455d32c769fd5a146f2fd75157e40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/WoodPlanks.png"
-dest_files=["res://.godot/imported/WoodPlanks.png-9c5c17d969a194c98bf0c0b1f9227c14.ctex"]
+source_file="res://Assets/Textures/Bar.png"
+dest_files=["res://.godot/imported/Bar.png-1d6455d32c769fd5a146f2fd75157e40.ctex"]
 
 [params]
 
