@@ -32,9 +32,9 @@ window/stretch/mode="viewport"
 window/snap/snap_2d_vertices_to_pixel=false
 window/max_fps=60
 
-[editor_plugins]
+[gui]
 
-enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
+theme/custom_font="uid://dcbngb7xtme8w"
 
 [input]
 
