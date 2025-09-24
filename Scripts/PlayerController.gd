@@ -2,7 +2,7 @@ class_name PlayerController
 extends CharacterBody2D
 
 var ignore_input : bool = false
-const SPEED = 75.0
+const SPEED : float = 75.0
 
 func _physics_process(_delta: float) -> void:
 	if ignore_input:

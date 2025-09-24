@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://5nu3wlycdqs2"]
+
+[ext_resource type="Script" uid="uid://cgfcyfsuefjye" path="res://Scripts/Points.gd" id="1_jxero"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Points" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "$000.00"
+script = ExtResource("1_jxero")
+
+[node name="ColorRect" type="ColorRect" parent="Points"]
+show_behind_parent = true
+layout_mode = 0
+offset_top = -1.0
+offset_right = 56.0
+offset_bottom = 8.0
+color = Color(0, 0, 0, 1)

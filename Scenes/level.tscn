@@ -1,50 +1,43 @@
-[gd_scene load_steps=12 format=4 uid="uid://fovfgo3aawcr"]
+[gd_scene load_steps=16 format=3 uid="uid://fovfgo3aawcr"]
 
 [ext_resource type="Texture2D" uid="uid://bgfusustr70hf" path="res://Assets/Textures/Planks.png" id="1_81xng"]
 [ext_resource type="PackedScene" uid="uid://b0h31e31x4qxt" path="res://Scenes/player.tscn" id="2_6phgx"]
-[ext_resource type="Script" uid="uid://btvgqo2troqyv" path="res://Scripts/BoardScrollingCamera.gd" id="2_81xng"]
-[ext_resource type="Texture2D" uid="uid://cwu2aubsuotn6" path="res://Assets/Textures/Bar.png" id="2_wqkje"]
+[ext_resource type="Texture2D" uid="uid://b85rxtha85jys" path="res://Assets/Textures/Bar.png" id="3_wqkje"]
 [ext_resource type="PackedScene" uid="uid://dil1lggnq1vts" path="res://Scenes/table.tscn" id="4_81xng"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6phgx"]
+[ext_resource type="PackedScene" uid="uid://8j26eem35yy5" path="res://Scenes/entry.tscn" id="5_0f350"]
+[ext_resource type="PackedScene" uid="uid://d311t8g7gh85l" path="res://Scenes/register.tscn" id="6_0f350"]
+[ext_resource type="PackedScene" uid="uid://5nu3wlycdqs2" path="res://Scenes/ui.tscn" id="7_8c0lf"]
+[ext_resource type="PackedScene" uid="uid://doyivctjxdgsk" path="res://Scenes/client.tscn" id="8_754fn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_81xng"]
 normal = Vector2(0, 1)
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wqkje"]
-normal = Vector2(1, 0)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6phgx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0f350"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wqkje"]
+normal = Vector2(1, 0)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_754fn"]
+vertices = PackedVector2Array(120, 112, -120, 112, -72, 91, -48, 91, 104, 16, 72, 16, -72, -5, -48, -5, 104, 64, 72, 64, -72, 43, -48, 43, 104, -5, 104, -32, 120, -112, 104, -53, 104, -80, -104, 91, -120, -74, -104, 64, -42, -112, 72, -80, 6, -96, -42, -96, 72, -53, 48, -53, 48, -80, 16, -80, 6, -70, 16, -53, 72, -32, 48, -32, 72, -5, 48, -5, 16, -32, 72, 43, 48, 43, 48, 16, 16, 16, 72, 91, 48, 91, 48, 64, 16, 64, -186, -74, -186, -112, -70, -112, -70, -70, 104, 91, 104, 43, 16, 43, -16, 43, -16, 16, -48, 16, -72, 16, -16, -32, 16, 91, -16, 91, -16, 64, -48, 64, -72, 64, 16, -5, -16, -5, -48, -32, -72, -32, -104, -32, -104, -5, -104, 16, -104, 43)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(12, 13, 14, 0), PackedInt32Array(15, 14, 13), PackedInt32Array(14, 15, 16), PackedInt32Array(17, 2, 1), PackedInt32Array(17, 1, 18, 19), PackedInt32Array(20, 14, 16, 21, 22), PackedInt32Array(22, 23, 20), PackedInt32Array(21, 24, 25, 26), PackedInt32Array(22, 21, 26), PackedInt32Array(22, 26, 27), PackedInt32Array(28, 22, 27, 29), PackedInt32Array(24, 15, 13, 30), PackedInt32Array(25, 24, 30, 31), PackedInt32Array(30, 32, 33, 31), PackedInt32Array(29, 25, 31, 34), PackedInt32Array(5, 35, 36, 37), PackedInt32Array(6, 5, 37), PackedInt32Array(6, 37, 38), PackedInt32Array(9, 39, 40, 41), PackedInt32Array(10, 9, 41), PackedInt32Array(10, 41, 42), PackedInt32Array(18, 43, 44, 45), PackedInt32Array(18, 45, 46), PackedInt32Array(46, 28, 29, 34), PackedInt32Array(39, 47, 0), PackedInt32Array(0, 47, 8), PackedInt32Array(48, 0, 8), PackedInt32Array(35, 48, 8), PackedInt32Array(36, 35, 8), PackedInt32Array(40, 39, 0), PackedInt32Array(49, 36, 8), PackedInt32Array(49, 8, 50), PackedInt32Array(38, 49, 50, 51), PackedInt32Array(6, 38, 51), PackedInt32Array(6, 51, 52), PackedInt32Array(6, 52, 11, 53), PackedInt32Array(18, 46, 34, 54), PackedInt32Array(55, 40, 0), PackedInt32Array(55, 0, 56), PackedInt32Array(42, 55, 56, 57), PackedInt32Array(10, 42, 57), PackedInt32Array(10, 57, 58), PackedInt32Array(10, 58, 3, 59), PackedInt32Array(0, 48, 4), PackedInt32Array(12, 0, 4), PackedInt32Array(32, 12, 4), PackedInt32Array(33, 32, 4), PackedInt32Array(60, 33, 4), PackedInt32Array(60, 4, 61), PackedInt32Array(34, 60, 61, 54), PackedInt32Array(18, 54, 62), PackedInt32Array(7, 61, 4), PackedInt32Array(62, 7, 6, 63), PackedInt32Array(18, 62, 63), PackedInt32Array(18, 63, 64), PackedInt32Array(18, 64, 65), PackedInt32Array(11, 50, 8), PackedInt32Array(11, 10, 53), PackedInt32Array(65, 6, 53, 66), PackedInt32Array(18, 65, 66), PackedInt32Array(18, 66, 67), PackedInt32Array(19, 18, 67), PackedInt32Array(19, 67, 10, 59), PackedInt32Array(2, 59, 3), PackedInt32Array(0, 3, 56)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(128, -120, 128, 120, -128, 120, -128, -66, -194, -66, -194, -120)])
+parsed_geometry_type = 1
+parsed_collision_mask = 4294967042
+agent_radius = 8.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqkje"]
-texture = ExtResource("2_wqkje")
+texture = ExtResource("3_wqkje")
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 2, -6, 2)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 8, -8, 8)
 0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, 2, 6, 2, 6, -8)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 6, -8, 6, 8, -6, 8)
 1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 8, -6, 8)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 2, -6, 2)
-4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, -8, 8, -8, 8, 2, -6, 2)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 2, -8, 2)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 6, -8, 6, 2, -8, 2)
 
 [sub_resource type="TileSet" id="TileSet_0f350"]
 physics_layer_0/collision_layer = 2
@@ -52,77 +45,98 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_wqkje")
 
 [node name="Level" type="Node2D"]
+y_sort_enabled = true
 
-[node name="WorldBorder" type="StaticBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(0, 120)
-shape = SubResource("WorldBoundaryShape2D_6phgx")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(0, -120)
-shape = SubResource("WorldBoundaryShape2D_81xng")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(-128, 0)
-shape = SubResource("WorldBoundaryShape2D_wqkje")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="WorldBorder"]
-position = Vector2(128, 0)
-shape = SubResource("WorldBoundaryShape2D_0f350")
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Floor" type="Sprite2D" parent="."]
+z_index = -2
 texture_repeat = 2
 texture = ExtResource("1_81xng")
 region_enabled = true
 region_rect = Rect2(0, 0, 256, 240)
 
-[node name="Table0" parent="." instance=ExtResource("4_81xng")]
+[node name="WorldBorder" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="North" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(0, -116.5)
+shape = SubResource("WorldBoundaryShape2D_81xng")
+
+[node name="South" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(0, 120)
+shape = SubResource("WorldBoundaryShape2D_6phgx")
+
+[node name="East" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(128, 0)
+shape = SubResource("WorldBoundaryShape2D_0f350")
+
+[node name="West" type="CollisionShape2D" parent="WorldBorder"]
+position = Vector2(-128, 0)
+shape = SubResource("WorldBoundaryShape2D_wqkje")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_754fn")
+use_edge_connections = false
+
+[node name="Table0" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-88, -16)
 
-[node name="Table1" parent="." instance=ExtResource("4_81xng")]
+[node name="Table1" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-32, -16)
 
-[node name="Table2" parent="." instance=ExtResource("4_81xng")]
+[node name="Table2" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(32, -16)
 
-[node name="Table3" parent="." instance=ExtResource("4_81xng")]
+[node name="Table3" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(88, -16)
 
-[node name="Table4" parent="." instance=ExtResource("4_81xng")]
+[node name="Table4" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-88, 32)
 
-[node name="Table5" parent="." instance=ExtResource("4_81xng")]
+[node name="Table5" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-32, 32)
 
-[node name="Table6" parent="." instance=ExtResource("4_81xng")]
+[node name="Table6" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(32, 32)
 
-[node name="Table7" parent="." instance=ExtResource("4_81xng")]
+[node name="Table7" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(88, 32)
 
-[node name="Table8" parent="." instance=ExtResource("4_81xng")]
+[node name="Table8" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-88, 80)
 
-[node name="Table9" parent="." instance=ExtResource("4_81xng")]
+[node name="Table9" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(-32, 80)
 
-[node name="TableA" parent="." instance=ExtResource("4_81xng")]
+[node name="TableA" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(32, 80)
 
-[node name="TableB" parent="." instance=ExtResource("4_81xng")]
+[node name="TableB" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
 position = Vector2(88, 80)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TableC" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
+position = Vector2(32, -64)
+
+[node name="TableD" parent="NavigationRegion2D" instance=ExtResource("4_81xng")]
+position = Vector2(88, -64)
+
+[node name="Bar" type="TileMapLayer" parent="NavigationRegion2D"]
+z_index = 1
 position = Vector2(0, 8)
-tile_map_data = PackedByteArray("AAABAPv/AAABAAAAAAD7//r/AAADAAAAAAD7//v/AAAEAAEAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAACAPv/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAFAPv/AAABAAAAAAAHAPv/AAAAAAIAAAAHAPr/AAACAAEAAAAHAPn/AAACAAEAAAAHAPj/AAACAAEAAAAGAPv/AAABAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 252, 255, 250, 255, 0, 0, 0, 0, 0, 0, 0, 0, 253, 255, 250, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 250, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 250, 255, 0, 0, 1, 0, 1, 0, 0, 0, 252, 255, 249, 255, 0, 0, 0, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_0f350")
+
+[node name="Entry" parent="." instance=ExtResource("5_0f350")]
+position = Vector2(-72, -88)
 
 [node name="Player" parent="." instance=ExtResource("2_6phgx")]
 
-[node name="BoardScrollingCamera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
-script = ExtResource("2_81xng")
-player = NodePath("../Player")
-metadata/_custom_type_script = "uid://btvgqo2troqyv"
+[node name="Register" parent="." instance=ExtResource("6_0f350")]
+position = Vector2(-24, -88)
+
+[node name="Client" parent="." instance=ExtResource("8_754fn")]
+position = Vector2(-144, -88)
+
+[node name="UI" parent="." instance=ExtResource("7_8c0lf")]
