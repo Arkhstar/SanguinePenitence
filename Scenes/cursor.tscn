@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbpqtriyq81pn"]
+
+[ext_resource type="Texture2D" uid="uid://vkiu0qanqw1a" path="res://Assets/Textures/Cursor.png" id="1_8pp82"]
+[ext_resource type="Script" uid="uid://cpy8ffi3kpgs4" path="res://Scripts/Cursor.gd" id="2_i7fis"]
+
+[node name="Cursor" type="CanvasLayer"]
+layer = 99
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+texture = ExtResource("1_8pp82")
+script = ExtResource("2_i7fis")

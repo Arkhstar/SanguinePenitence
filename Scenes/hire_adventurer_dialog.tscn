@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://cum8fv2rtftjo"]
+
+[ext_resource type="Texture2D" uid="uid://dij5opk35v755" path="res://Assets/Textures/NinePatch.png" id="1_0acm6"]
+[ext_resource type="Script" uid="uid://s41fpsqrel2x" path="res://Scripts/HireAdventurerDialog.gd" id="2_c7exq"]
+[ext_resource type="Texture2D" uid="uid://pd0wiljr3hj4" path="res://Assets/Textures/Button.png" id="2_njwx6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_21xkr"]
+texture = ExtResource("2_njwx6")
+region_rect = Rect2(0, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jjvhh"]
+texture = ExtResource("2_njwx6")
+region_rect = Rect2(0, 16, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kry3j"]
+texture = ExtResource("2_njwx6")
+region_rect = Rect2(32, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bp64"]
+texture = ExtResource("2_njwx6")
+region_rect = Rect2(32, 16, 32, 16)
+
+[node name="HireAdventurerDialog" type="NinePatchRect"]
+offset_right = 144.0
+offset_bottom = 48.0
+texture = ExtResource("1_0acm6")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+script = ExtResource("2_c7exq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 9.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+text = "HIRE ADVENTURER?"
+
+[node name="Accept" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 56.0
+offset_bottom = 40.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+theme_override_colors/font_pressed_color = Color(0.31764707, 0.30980393, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.9882353, 0.9882353, 0.9882353, 1)
+theme_override_colors/font_disabled_color = Color(0.14901961, 0.15294118, 0.14901961, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_21xkr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jjvhh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kry3j")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6bp64")
+text = "YES"
+
+[node name="Decline" type="Button" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 24.0
+offset_right = 120.0
+offset_bottom = 40.0
+focus_mode = 0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+theme_override_colors/font_pressed_color = Color(0.31764707, 0.30980393, 0.29803923, 1)
+theme_override_colors/font_hover_color = Color(0.9882353, 0.9882353, 0.9882353, 1)
+theme_override_colors/font_disabled_color = Color(0.14901961, 0.15294118, 0.14901961, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_21xkr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jjvhh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kry3j")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_6bp64")
+text = "NO"

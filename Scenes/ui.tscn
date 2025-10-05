@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://5nu3wlycdqs2"]
+
+[ext_resource type="Texture2D" uid="uid://dkbiuhe8w1864" path="res://Assets/Textures/Bar.png" id="1_jxero"]
+[ext_resource type="Script" uid="uid://1bv5nj8d2lc0" path="res://Scripts/UI.gd" id="1_qdvrb"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_qdvrb")
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(128, 220)
+texture = ExtResource("1_jxero")
+
+[node name="Adventurers" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 240.0
+offset_bottom = 224.0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+text = "ADVENTURERS  A99 B99 C99 D99"
+autowrap_mode = 3
+
+[node name="Currency" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 208.0
+offset_right = 120.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+text = "CURRENCY 99999"
+autowrap_mode = 3
+
+[node name="Reputation" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 208.0
+offset_right = 248.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.5882353, 0.03137255, 0.06666667, 1)
+text = "REPUTATION 999"
+autowrap_mode = 3

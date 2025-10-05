@@ -18,23 +18,28 @@ config/icon="res://icon.svg"
 [autoload]
 
 FlowerwallCRT="*res://Scenes/flowerwall_crt.tscn"
+Cursor="*res://Scenes/cursor.tscn"
 
 [debug]
 
 gdscript/warnings/untyped_declaration=2
 gdscript/warnings/integer_division=0
+gdscript/warnings/narrowing_conversion=0
 
 [display]
 
 window/size/viewport_width=256
 window/size/viewport_height=240
+window/size/sharp_corners=true
+window/size/minimize_disabled=true
+window/size/maximize_disabled=true
 window/stretch/mode="viewport"
 window/snap/snap_2d_vertices_to_pixel=false
 window/max_fps=60
 
 [gui]
 
-theme/custom_font="uid://dcbngb7xtme8w"
+theme/custom="uid://c1c85oipdlos2"
 
 [rendering]
 

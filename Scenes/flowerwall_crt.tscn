@@ -50,6 +50,7 @@ mouse_filter = 2
 copy_mode = 2
 
 [node name="crt_shader" type="ColorRect" parent="."]
+visible = false
 material = ExtResource("4_51nf0")
 anchors_preset = 15
 anchor_right = 1.0
