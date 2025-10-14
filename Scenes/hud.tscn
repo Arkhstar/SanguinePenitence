@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dy3fwlaih3lye"]
+
+[ext_resource type="Texture2D" uid="uid://62meuv4xwmql" path="res://Textures/HealthBar0.png" id="1_bjfho"]
+[ext_resource type="Script" uid="uid://b4uykub13lvw8" path="res://Scripts/HUD.gd" id="1_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://dnakr1151n4un" path="res://Textures/HealthBar1.png" id="2_6fbih"]
+[ext_resource type="Texture2D" uid="uid://bta3bxruycr65" path="res://Textures/HealthBarIcon.png" id="3_t1xeu"]
+[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="4_6fbih"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_t1xeu")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 21.0
+offset_top = 335.0
+offset_right = 261.0
+offset_bottom = 351.0
+max_value = 240.0
+value = 240.0
+rounded = true
+texture_under = ExtResource("1_bjfho")
+texture_progress = ExtResource("2_6fbih")
+
+[node name="Icon" type="TextureRect" parent="HealthBar"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -2.0
+offset_right = 3.0
+offset_bottom = 18.0
+texture = ExtResource("3_t1xeu")
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 135.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.44705883, 0.62352943, 0.62352943, 1)
+theme_override_fonts/font = ExtResource("4_6fbih")
+theme_override_font_sizes/font_size = 10

@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://dmlw8sxuor4bi"
+path="res://.godot/imported/OldeCaps_10.png-ece18dd70ce1bd978a50818c272a4367.fontdata"
+
+[deps]
+
+source_file="res://Textures/OldeCaps_10.png"
+dest_files=["res://.godot/imported/OldeCaps_10.png-ece18dd70ce1bd978a50818c272a4367.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("32-34", "36", "39", "44", "46", "48-59", "63", "65-90", "126")
+kerning_pairs=PackedStringArray("0123456789 0123456789 -2")
+columns=7
+rows=7
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2
