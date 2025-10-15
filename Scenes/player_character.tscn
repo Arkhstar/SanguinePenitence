@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dm1udv6rybf35" path="res://Textures/HunterSlash.png" id="3_o0f8b"]
 [ext_resource type="PackedScene" uid="uid://dy3fwlaih3lye" path="res://Scenes/hud.tscn" id="4_wko77"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wko77"]
-size = Vector2(30, 30)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pb3n0"]
+radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cmdk4"]
-size = Vector2(16, 32)
+size = Vector2(24, 40)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ons1q"]
 shader = ExtResource("2_pb3n0")
@@ -113,11 +113,11 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("RectangleShape2D_wko77")
+shape = SubResource("CircleShape2D_pb3n0")
 debug_color = Color(0.20273593, 0.6883833, 0.49515826, 0.41960785)
 
 [node name="HitBox" type="Area2D" parent="."]
-position = Vector2(-24, 0)
+position = Vector2(-28, 0)
 collision_layer = 2
 collision_mask = 4
 
@@ -139,6 +139,7 @@ sprite_frames = SubResource("SpriteFrames_ons1q")
 autoplay = "default"
 
 [node name="Slash" type="AnimatedSprite2D" parent="."]
+z_index = 1
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_4pbxa")
 frame = 5

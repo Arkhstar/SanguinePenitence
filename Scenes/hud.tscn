@@ -1,39 +1,73 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy3fwlaih3lye"]
+[gd_scene load_steps=8 format=3 uid="uid://dy3fwlaih3lye"]
 
-[ext_resource type="Texture2D" uid="uid://62meuv4xwmql" path="res://Textures/HealthBar0.png" id="1_bjfho"]
 [ext_resource type="Script" uid="uid://b4uykub13lvw8" path="res://Scripts/HUD.gd" id="1_t1xeu"]
-[ext_resource type="Texture2D" uid="uid://dnakr1151n4un" path="res://Textures/HealthBar1.png" id="2_6fbih"]
-[ext_resource type="Texture2D" uid="uid://bta3bxruycr65" path="res://Textures/HealthBarIcon.png" id="3_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://ceigiopjb77tw" path="res://Textures/EmptyBar.png" id="2_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://bqirttyca1dgj" path="res://Textures/ShieldBar.png" id="3_36asn"]
 [ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="4_6fbih"]
+[ext_resource type="Texture2D" uid="uid://byiq5dwa8p673" path="res://Textures/SwordBar.png" id="4_36asn"]
+[ext_resource type="Texture2D" uid="uid://dvl8xbgb8n2k1" path="res://Textures/SwordIcon.png" id="6_8jye8"]
+[ext_resource type="Texture2D" uid="uid://dj8egvadh6i5u" path="res://Textures/ShieldIcon.png" id="7_8jye8"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_t1xeu")
+metadata/_custom_type_script = "uid://b4uykub13lvw8"
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 21.0
-offset_top = 335.0
-offset_right = 261.0
-offset_bottom = 351.0
-max_value = 240.0
-value = 240.0
+[node name="SwordBar" type="TextureProgressBar" parent="."]
+offset_left = 20.0
+offset_top = 34.0
+offset_right = 148.0
+offset_bottom = 50.0
+max_value = 128.0
+value = 128.0
 rounded = true
-texture_under = ExtResource("1_bjfho")
-texture_progress = ExtResource("2_6fbih")
+texture_under = ExtResource("2_t1xeu")
+texture_progress = ExtResource("4_36asn")
+tint_under = Color(0.13333334, 0.039215688, 0.039215688, 1)
 
-[node name="Icon" type="TextureRect" parent="HealthBar"]
+[node name="Icon" type="TextureRect" parent="SwordBar"]
 layout_mode = 0
-offset_left = -13.0
-offset_top = -2.0
-offset_right = 3.0
-offset_bottom = 18.0
-texture = ExtResource("3_t1xeu")
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = 30.0
+texture = ExtResource("6_8jye8")
 
-[node name="Label" type="Label" parent="HealthBar"]
+[node name="Label" type="Label" parent="SwordBar"]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 5.0
 offset_top = 4.0
-offset_right = 135.0
+offset_right = 31.0
 offset_bottom = 14.0
-theme_override_colors/font_color = Color(0.44705883, 0.62352943, 0.62352943, 1)
+theme_override_colors/font_color = Color(0.87, 0.5916, 0.71687996, 1)
+theme_override_fonts/font = ExtResource("4_6fbih")
+theme_override_font_sizes/font_size = 10
+
+[node name="ShieldBar" type="TextureProgressBar" parent="."]
+offset_left = 36.0
+offset_top = 12.0
+offset_right = 164.0
+offset_bottom = 28.0
+max_value = 128.0
+value = 128.0
+rounded = true
+texture_under = ExtResource("2_t1xeu")
+texture_progress = ExtResource("3_36asn")
+tint_under = Color(0.05882353, 0.06666667, 0.15294118, 1)
+
+[node name="Icon" type="TextureRect" parent="ShieldBar"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 20.0
+texture = ExtResource("7_8jye8")
+
+[node name="Label" type="Label" parent="ShieldBar"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 31.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0.624, 0.78, 0.7306, 1)
 theme_override_fonts/font = ExtResource("4_6fbih")
 theme_override_font_sizes/font_size = 10

@@ -14,7 +14,7 @@ var slash_cd : float = 0.0
 @onready var slash_hitbox : Area2D = $HitBox
 
 var durability : Vector2i = Vector2i(50, 20)
-var durability_max : Vector2i = Vector2i(50, 20)
+var durability_max : Vector2i = Vector2i(50, 20) # 325
 var iframes : float = 0.0
 
 signal died
