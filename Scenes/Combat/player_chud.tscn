@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://dldg4rxtuca5x"]
+
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_s0u3u"]
+[ext_resource type="Script" uid="uid://b48yovg8pvcoj" path="res://Scripts/Combat/PlayerCHUD.gd" id="2_1l4fw"]
+[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="3_v6o36"]
+[ext_resource type="Texture2D" uid="uid://dsu4yogkuc7vk" path="res://Textures/ATBEmpty.png" id="4_lj535"]
+[ext_resource type="Texture2D" uid="uid://sbfjpsxuepnw" path="res://Textures/ATBFull.png" id="5_k08j5"]
+[ext_resource type="Texture2D" uid="uid://sf1ulw7wu1nk" path="res://Textures/ATBQTE.png" id="6_k08j5"]
+
+[node name="PlayerCHUD" type="NinePatchRect"]
+custom_minimum_size = Vector2(128, 71)
+offset_right = 128.0
+offset_bottom = 71.0
+texture = ExtResource("1_s0u3u")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_1l4fw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -96.0
+offset_right = 128.0
+
+[node name="Container" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 5.0
+offset_right = 5.0
+
+[node name="Name" type="Label" parent="Container"]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 120.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("3_v6o36")
+theme_override_font_sizes/font_size = 10
+text = "PLACEHOLDER"
+
+[node name="Health" type="Label" parent="Container"]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 120.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("3_v6o36")
+theme_override_font_sizes/font_size = 10
+text = "HP:"
+
+[node name="Sharpness" type="Label" parent="Container"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 120.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("3_v6o36")
+theme_override_font_sizes/font_size = 10
+text = "ES:"
+
+[node name="Reagent" type="Label" parent="Container"]
+layout_mode = 0
+offset_top = 44.0
+offset_right = 120.0
+offset_bottom = 54.0
+theme_override_fonts/font = ExtResource("3_v6o36")
+theme_override_font_sizes/font_size = 10
+text = "RG:"
+
+[node name="Status" type="Label" parent="Container"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 120.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("3_v6o36")
+theme_override_font_sizes/font_size = 10
+text = "SS:"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 73.0
+offset_top = -44.0
+offset_right = 105.0
+offset_bottom = -12.0
+fill_mode = 5
+texture_under = ExtResource("5_k08j5")
+texture_progress = ExtResource("4_lj535")
+
+[node name="QTE" type="Sprite2D" parent="TextureProgressBar"]
+visible = false
+position = Vector2(16, 16)
+texture = ExtResource("6_k08j5")
+hframes = 2
+vframes = 2

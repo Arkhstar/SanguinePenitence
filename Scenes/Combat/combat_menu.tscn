@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cd8xwmmujj05j"]
+
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_pk84r"]
+[ext_resource type="Script" uid="uid://cicglm8a2l44b" path="res://Scripts/Combat/CombatMenu.gd" id="2_gjyk2"]
+[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="2_rglwu"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Selector.png" id="3_rglwu"]
+
+[node name="CombatMenu" type="NinePatchRect"]
+offset_right = 78.0
+offset_bottom = 58.0
+texture = ExtResource("1_pk84r")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_gjyk2")
+
+[node name="Attack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 75.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("2_rglwu")
+theme_override_font_sizes/font_size = 10
+text = "ATTACK"
+
+[node name="Cast" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 18.0
+offset_right = 75.0
+offset_bottom = 28.0
+theme_override_fonts/font = ExtResource("2_rglwu")
+theme_override_font_sizes/font_size = 10
+text = "CAST"
+
+[node name="Sharpen" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 75.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_rglwu")
+theme_override_font_sizes/font_size = 10
+text = "SHARPEN"
+
+[node name="Item" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 44.0
+offset_right = 75.0
+offset_bottom = 54.0
+theme_override_colors/font_color = Color(0.42352942, 0.45490196, 0.4745098, 1)
+theme_override_fonts/font = ExtResource("2_rglwu")
+theme_override_font_sizes/font_size = 10
+text = "ITEM"
+
+[node name="Selector" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 5.0
+offset_right = 82.0
+offset_bottom = 13.0
+texture = ExtResource("3_rglwu")
+
+[node name="Timer" type="Timer" parent="Selector"]
+wait_time = 0.167
+one_shot = true
