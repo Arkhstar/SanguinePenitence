@@ -1,6 +1,20 @@
 class_name CombatMain
 extends Control
 
+var state : int = 0 :
+	set(v):
+		state = v
+		if state > 0:
+			_enemy_cycle_timer.start(2.0)
+			while _enemy_cycle_timer.time_left > 0:
+				await RenderingServer.frame_post_draw
+			print("VICTORY")
+		elif state < 0:
+			_enemy_cycle_timer.start(1.0)
+			while _enemy_cycle_timer.time_left > 0:
+				await RenderingServer.frame_post_draw
+			print("FAILURE")
+
 @onready var _enemy_combat_huds : Array[EnemyCHUD] = [ $"Enemy/0", $"Enemy/1", $"Enemy/2", $"Enemy/3" ]
 @onready var _player_combat_huds : Array[PlayerCHUD] = [ $"Player/0", $"Player/1", $"Player/2", $"Player/3" ]
 @onready var _menu : CombatMenu = $CombatMenu
@@ -40,7 +54,14 @@ func _player_attack(target : int) -> void:
 	_player_units[_acting].sharpness -= randi_range(1, 5)
 	_player_combat_huds[_acting].update_sharpness(_player_units[_acting].sharpness)
 	_player_combat_huds[_acting].wiggle_sharpness(-1, 5)
-	await _enemy_combat_huds[target].wiggle(3, 5)
+	if _enemy_units[target].health <= 0:
+		await _enemy_combat_huds[target].wiggle(5, 10)
+		_enemy_units[target] = null
+		_enemy_combat_huds[target].dissolve(1.667)
+		if _enemy_units.filter(func(element : EnemyUnit) -> bool: return not element == null).size() == 0:
+			state = 1
+	else:
+		await _enemy_combat_huds[target].wiggle(3, 5)
 	_actor_timers[_acting] = 150.0
 
 func _process_player_selection(idx : int) -> void:
@@ -86,7 +107,7 @@ func _process_player_selection(idx : int) -> void:
 		_menu.fail_selection()
 		return
 		#endregion
-		_menu.hide()
+		@warning_ignore("unreachable_code") _menu.hide()
 		_actor_timers[_acting] = 50.0
 		_player_combat_huds[_acting].atb_bar.max_value = _actor_timers[_acting]
 		_acting = -1
@@ -97,19 +118,24 @@ func _ready() -> void:
 	
 	var p : PlayerUnit = PlayerUnit.new()
 	p.dname = "MY NAME"
-	p.health = 999
+	p.max_health = 15
+	p.health = 15
 	p.sharpness = 100
 	p.strength = 10
 	p.texture = preload("res://Textures/HunterPortrait.png")
-	var e : EnemyUnit = EnemyUnit.new()
-	e.health = 999999
-	e.dname = "ENEMY NAME"
-	e.texture = preload("res://icon.svg")
-	e.strength = 10
-	init([p], [e, e])
-	print(_enemy_units.rfind_custom(func(element : EnemyUnit) -> bool: return not element == null, (1 + 3) % 4))
+	var e : Array[EnemyUnit]
+	for i : int in 2:
+		var ee : EnemyUnit = EnemyUnit.new()
+		ee.health = 5
+		ee.dname = "ENEMY NAME"
+		ee.texture = preload("res://icon.svg")
+		ee.strength = 10
+		e.append(ee)
+	init([p], e)
 
 func _physics_process(delta: float) -> void:
+	if not state == 0:
+		return
 	if run_timers:
 		for i : int in 8:
 			_actor_timers[i] = maxi(_actor_timers[i] - delta * (
@@ -122,13 +148,20 @@ func _physics_process(delta: float) -> void:
 				_acting = i
 		if _acting >= 0:
 			run_timers = false
-			if _acting >= 4:
+			if _acting >= 4: # ENEMY ACTION
 				await _enemy_combat_huds[_acting & 3].wiggle(1, 15)
 				var target : int = randi_range(0, 3) % _player_units.filter(func(element : PlayerUnit) -> bool: return not element == null).size()
 				_player_units[target].health -= _player_units[target].calculate_damage_taken(_enemy_units[_acting & 3])
 				_player_combat_huds[target].update_health(_player_units[target].health)
 				_player_combat_huds[target].wiggle_health(-1, 5)
-				await _player_combat_huds[target].wiggle_texture(3, 5)
+				if _player_units[target].health <= 0:
+					await _player_combat_huds[target].wiggle_texture(5, 10)
+					_player_combat_huds[target].trigger_qte()
+					_player_combat_huds[target].desaturate(0.5)
+					if _player_units.filter(func(element : PlayerUnit) -> bool: return not element == null and element.health > 0).size() == 0:
+						state = -1
+				else:
+					await _player_combat_huds[target].wiggle_texture(3, 5)
 				_actor_timers[_acting] = 165.0
 				_acting = -1
 				run_timers = true

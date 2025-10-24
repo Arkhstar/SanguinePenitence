@@ -4,9 +4,12 @@ extends Resource
 var dname : String
 var texture : Texture2D
 
+var max_health : int :
+	set(v):
+		max_health = clampi(v, 1, 999999)
 var health : int :
 	set(v):
-		health = clampi(v, 0, 999999)
+		health = clampi(v, 0, max_health)
 var strength : int :
 	set(v):
 		strength = clampi(v, 1, 99999)

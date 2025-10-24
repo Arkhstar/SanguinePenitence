@@ -9,6 +9,7 @@ extends NinePatchRect
 @onready var _texture : TextureRect = $TextureRect
 @onready var atb_bar : TextureProgressBar = $TextureProgressBar
 @onready var _qte : Sprite2D = $TextureProgressBar/QTE
+var _mat : ShaderMaterial
 
 func init(n : String, h : int, s : int, r : int, u : int, t : Texture2D) -> void:
 	_name_label.text = n
@@ -17,6 +18,7 @@ func init(n : String, h : int, s : int, r : int, u : int, t : Texture2D) -> void
 	update_reagent(r)
 	update_status(u)
 	_texture.texture = t
+	_mat = _texture.get_material()
 
 func update_health(h : int) -> void:
 	_health_label.text = "HP: %d" % h
@@ -55,3 +57,16 @@ func set_qte(x : int) -> void:
 
 func trigger_qte() -> void:
 	_qte.hide()
+
+func _desaturate(p : float) -> void:
+	_mat.set_shader_parameter("strength", p)
+
+func desaturate(time : float) -> void:
+	var t : Tween = create_tween()
+	t.tween_method(_desaturate, 0.0, 1.0, time)
+	t.play()
+	while t.is_running():
+		await RenderingServer.frame_post_draw
+
+func set_saturation(p : float) -> void:
+	_desaturate(p)
