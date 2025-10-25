@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccmnh3kp4sqx6"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_1rggb"]
-[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="2_3pri7"]
+[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/Fonts/OldeCaps_10.png" id="2_3pri7"]
 [ext_resource type="Script" uid="uid://bgik3ty23wg4c" path="res://Scripts/Combat/EnemyCHUD.gd" id="2_cbkrh"]
 [ext_resource type="Shader" uid="uid://b71rhh2rnueck" path="res://Shaders/Dissolve.gdshader" id="4_6os0j"]
 

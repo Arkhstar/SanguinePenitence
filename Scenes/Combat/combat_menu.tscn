@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_pk84r"]
 [ext_resource type="Script" uid="uid://cicglm8a2l44b" path="res://Scripts/Combat/CombatMenu.gd" id="2_gjyk2"]
-[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="2_rglwu"]
+[ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/Fonts/OldeCaps_10.png" id="2_rglwu"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Selector.png" id="3_rglwu"]
 
 [node name="CombatMenu" type="NinePatchRect"]
