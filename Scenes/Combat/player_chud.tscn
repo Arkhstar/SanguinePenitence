@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_s0u3u"]
 [ext_resource type="Script" uid="uid://b48yovg8pvcoj" path="res://Scripts/Combat/PlayerCHUD.gd" id="2_1l4fw"]
-[ext_resource type="Shader" uid="uid://vflc2xvgxpuc" path="res://Shaders/kingtoot_grayscale.gdshader" id="3_06wjx"]
+[ext_resource type="Shader" uid="uid://vflc2xvgxpuc" path="res://Shaders/Grayscale.gdshader" id="3_06wjx"]
 [ext_resource type="FontFile" uid="uid://dmlw8sxuor4bi" path="res://Textures/OldeCaps_10.png" id="3_v6o36"]
 [ext_resource type="Texture2D" uid="uid://efo5aodtpv4f" path="res://Textures/HunterPortrait.png" id="4_1jvxi"]
 [ext_resource type="Texture2D" uid="uid://dsu4yogkuc7vk" path="res://Textures/ATBEmpty.png" id="4_lj535"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8256cbiq6ert"]
+
+[ext_resource type="Script" uid="uid://dumqr2w76iscr" path="res://Scripts/Battle/BattleMain.gd" id="1_dqhr1"]
+
+[node name="BattleMain" type="Node"]
+script = ExtResource("1_dqhr1")
+metadata/_custom_type_script = "uid://dumqr2w76iscr"
