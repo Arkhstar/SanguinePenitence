@@ -9,6 +9,10 @@ var pulses : int = 0
 var epsilon : float = 0.1
 var qte_step : float = 2.0
 
+static var momentum : float = 0.0 :
+	set(v):
+		momentum = clampf(v, 0.0, 1000.0)
+
 func reset(s : float = qte_step, m : float = maximum) -> void:
 	super(step, m)
 	qte_input = -1
@@ -27,12 +31,14 @@ func on_pulse() -> void:
 	if qte_input >= 0 and pulses >= 8:
 		qte_input = -1
 		pulses = 0
+		momentum *= 0.75
 		return
 	elif qte_input < 0 and pulses >= 4:
 		qte_input = randi_range(0, 9)
 		pulses = 0
 		return
 	pulses += 1
+	momentum -= 0.25
 
 func _physics_process(delta: float) -> void:
 	if qte_input >= 0 and Input.is_action_just_pressed("qte_%d" % qte_input):
@@ -41,7 +47,9 @@ func _physics_process(delta: float) -> void:
 		if recency < epsilon:
 			value = move_toward(value, maximum, qte_step)
 			hit_qte.emit(true)
+			momentum += qte_step
 		else:
 			value = move_toward(value, maximum, qte_step / 2.0)
 			hit_qte.emit(false)
+			momentum += qte_step / 2.0
 	recency += delta

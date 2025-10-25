@@ -41,6 +41,7 @@ func init_enemy_timers() -> void:
 			add_child(timers[i + 4])
 
 func init_combat() -> void:
+	ATBTimerQTE.momentum = 0.0
 	BattleTimer.i = BattleTimer.new()
 	add_child(BattleTimer.i)
 	init_player_timers()

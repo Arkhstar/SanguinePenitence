@@ -4,6 +4,11 @@ extends BattleUnit
 enum TargetingType { RANDOM, LOW_HEALTH, HIGH_HEALTH, LOW_SHARPNESS, HIGH_SHARPNESS, LEAST_EFFECTS, MOST_EFFECTS }
 var targeting : TargetingType = TargetingType.RANDOM
 
+func take_damage(amount : int) -> void:
+	if ATBTimerQTE.momentum > 100.0:
+		amount *= (1.1) ** ((ATBTimerQTE.momentum - 100.0) / 100.0)
+	super(amount)
+
 func find_target(player_units : Array[PlayerUnit]) -> int:
 	if targeting == TargetingType.RANDOM:
 		var idx : int = randi_range(0, 3)
