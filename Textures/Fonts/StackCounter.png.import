@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://geqgq2iws2l2"
+path="res://.godot/imported/StackCounter.png-f2bf14991af803a5c09c2187d38b694f.fontdata"
+
+[deps]
+
+source_file="res://Textures/Fonts/StackCounter.png"
+dest_files=["res://.godot/imported/StackCounter.png-f2bf14991af803a5c09c2187d38b694f.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("32", "48-57", "65")
+kerning_pairs=PackedStringArray()
+columns=4
+rows=3
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

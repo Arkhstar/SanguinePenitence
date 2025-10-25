@@ -3,12 +3,12 @@
 importer="font_data_image"
 type="FontFile"
 uid="uid://dmlw8sxuor4bi"
-path="res://.godot/imported/OldeCaps_10.png-ece18dd70ce1bd978a50818c272a4367.fontdata"
+path="res://.godot/imported/OldeCaps_10.png-b466378ca255bcb2a6ac7b69070d59fd.fontdata"
 
 [deps]
 
-source_file="res://Textures/OldeCaps_10.png"
-dest_files=["res://.godot/imported/OldeCaps_10.png-ece18dd70ce1bd978a50818c272a4367.fontdata"]
+source_file="res://Textures/Fonts/OldeCaps_10.png"
+dest_files=["res://.godot/imported/OldeCaps_10.png-b466378ca255bcb2a6ac7b69070d59fd.fontdata"]
 
 [params]
 
