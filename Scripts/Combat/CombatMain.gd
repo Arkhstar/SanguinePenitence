@@ -45,7 +45,7 @@ func init(players : Array[PlayerUnit], enemies : Array[EnemyUnit]) -> void:
 			_enemy_combat_huds[i].init(enemies[i].dname, enemies[i].texture)
 		else:
 			_enemy_combat_huds[i].hide()
-	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.FIGHT)
+	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.BATTLE)
 	run_timers = true
 
 func _player_attack(target : int) -> void:
