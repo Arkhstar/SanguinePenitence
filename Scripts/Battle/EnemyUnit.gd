@@ -62,12 +62,12 @@ func attempt_attack(player_units : Array[PlayerUnit]) -> int:
 		return -(target_index + 1)
 	return -5
 
-func do_hit(attacker : PlayerUnit, power : int, spell : int = -1) -> void:
+func is_hit(attacker : PlayerUnit, power : int, spell : int = -1) -> void:
 	var damage : int = calculate_damage_taken(attacker, power)
 	if spell < 0: # Basic Attack
 		damage *= attacker.get_sharpness_damage_modifier()
 		attacker.sharpness -= floori(defense / 2.0)
 	else:
 		determine_spell_effects(spell)
-	print("%s took %d damage!" % [display_name, damage])
+	print("Enemy %s took %d damage!" % [display_name, damage])
 	take_damage(damage)

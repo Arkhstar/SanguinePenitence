@@ -1,11 +1,10 @@
 class_name BattleUnit
 extends Resource
 
-var display_name : String
-var max_health : int
+var display_name : String = "UNIT NAME"
+var max_health : int = 100
 var health : int = 100 :
 	set(v):
-		print("HEALTH : %d-%d" % [health, v])
 		health = v
 var strength : int = 1
 var defense : int
@@ -13,7 +12,7 @@ var crit_chance : float
 var crit_damage : float
 var speed : float = 1.0 :
 	get:
-		return speed / (effects[StatusEffect.HEAVY] + 1)
+		return speed / (effects[StatusEffect.HEAVY] + 1.0)
 
 enum StatusEffect { BURN, BLEED, CURSE, GREED, FAITHLESS, HEAVY }
 var effects : PackedInt32Array = [ 0, 0, 0, 0, 0, 0 ]
@@ -38,8 +37,8 @@ func apply_effect(effect : StatusEffect, stacks : int) -> void:
 	effects[effect] += stacks
 
 func tick_effects() -> void:
-	if effects[StatusEffect.BURN] > 0:
-		take_damage(randi_range(effects[StatusEffect.BURN], effects[StatusEffect.BURN] * 5))
+	if effects[StatusEffect.BLEED] > 0:
+		take_damage(randi_range(effects[StatusEffect.BLEED], effects[StatusEffect.BLEED] * 3))
 	for effect : StatusEffect in [ StatusEffect.BURN, StatusEffect.CURSE, StatusEffect.HEAVY ]:
 		effects[effect] = maxi(effects[effect] - 1, 0)
 	for effect : StatusEffect in [ StatusEffect.BLEED, StatusEffect.GREED, StatusEffect.FAITHLESS ]:

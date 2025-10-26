@@ -1,6 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8256cbiq6ert"]
+[gd_scene load_steps=7 format=3 uid="uid://b8256cbiq6ert"]
 
 [ext_resource type="Script" uid="uid://dumqr2w76iscr" path="res://Scripts/Battle/BattleMain.gd" id="1_dqhr1"]
+[ext_resource type="Script" uid="uid://d4khfsrd4rgfk" path="res://Scripts/Battle/PulseVFX.gd" id="2_5rqxd"]
+[ext_resource type="PackedScene" uid="uid://bgygg6h1hrqa3" path="res://Scenes/Battle/enemy_display.tscn" id="2_jgkco"]
+[ext_resource type="PackedScene" uid="uid://bpn4jf4yb63oi" path="res://Scenes/Battle/player_display.tscn" id="4_uee53"]
+
+[sub_resource type="Gradient" id="Gradient_jgkco"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.4862745, 0.4862745, 0.4862745, 0, 0.28627452, 0.3137255, 0.34509805, 0.24705882)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5rqxd"]
+gradient = SubResource("Gradient_jgkco")
+width = 640
+height = 640
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="BattleMain" type="Node"]
 script = ExtResource("1_dqhr1")
+
+[node name="PulseVFX" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_5rqxd")
+script = ExtResource("2_5rqxd")
+
+[node name="EnemyDisplays" type="HBoxContainer" parent="."]
+offset_left = 77.0
+offset_top = 16.0
+offset_right = 563.0
+offset_bottom = 51.0
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="EnemyDisplay1" parent="EnemyDisplays" instance=ExtResource("2_jgkco")]
+layout_mode = 2
+
+[node name="EnemyDisplay2" parent="EnemyDisplays" instance=ExtResource("2_jgkco")]
+layout_mode = 2
+
+[node name="EnemyDisplay3" parent="EnemyDisplays" instance=ExtResource("2_jgkco")]
+layout_mode = 2
+
+[node name="EnemyDisplay4" parent="EnemyDisplays" instance=ExtResource("2_jgkco")]
+layout_mode = 2
+
+[node name="PlayerDisplays" type="HBoxContainer" parent="."]
+offset_left = 77.0
+offset_top = 289.0
+offset_right = 563.0
+offset_bottom = 344.0
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="PlayerDisplay1" parent="PlayerDisplays" instance=ExtResource("4_uee53")]
+layout_mode = 2
+
+[node name="PlayerDisplay2" parent="PlayerDisplays" instance=ExtResource("4_uee53")]
+layout_mode = 2
+
+[node name="PlayerDisplay3" parent="PlayerDisplays" instance=ExtResource("4_uee53")]
+layout_mode = 2
+
+[node name="PlayerDisplay4" parent="PlayerDisplays" instance=ExtResource("4_uee53")]
+layout_mode = 2

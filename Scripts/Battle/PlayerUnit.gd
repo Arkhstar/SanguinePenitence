@@ -33,9 +33,9 @@ func get_sharpness_damage_modifier() -> float:
 		return 0.5
 	return 0.25
 
-func do_hit(attacker : EnemyUnit, power : int, spell : int = -1) -> void:
+func is_hit(attacker : EnemyUnit, power : int, spell : int = -1) -> void:
 	var damage : int = calculate_damage_taken(attacker, power)
 	if spell >= 0:
 		determine_spell_effects(spell)
-	print("%s took %d damage!" % [display_name, damage])
+	print("Player %s took %d damage!" % [display_name, damage])
 	take_damage(damage)
