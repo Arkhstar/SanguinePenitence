@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpn4jf4yb63oi"]
+[gd_scene load_steps=16 format=3 uid="uid://bpn4jf4yb63oi"]
 
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_qqa1e"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_qqa1e"]
 [ext_resource type="Script" uid="uid://ijtbfjwtkvkq" path="res://Scripts/Battle/PlayerBattleDisplay.gd" id="2_uyyq0"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_2ctrw"]
 [ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/status_icon.tscn" id="3_uyyq0"]
 [ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1Bit.gdshader" id="4_q1ej7"]
-[ext_resource type="Texture2D" uid="uid://dqjket30mlljk" path="res://Textures/ATBBarEmpty.png" id="4_uyyq0"]
-[ext_resource type="Texture2D" uid="uid://bxxg4daw1shba" path="res://Textures/ATBBarFull.png" id="5_q1ej7"]
-[ext_resource type="Texture2D" uid="uid://iwk3jrmjp3jm" path="res://Textures/ATBBarCap.png" id="6_kpfor"]
+[ext_resource type="Texture2D" uid="uid://dqjket30mlljk" path="res://Textures/UI/ATBBarEmpty.png" id="4_uyyq0"]
+[ext_resource type="Texture2D" uid="uid://bxxg4daw1shba" path="res://Textures/UI/ATBBarFull.png" id="5_q1ej7"]
+[ext_resource type="Texture2D" uid="uid://iwk3jrmjp3jm" path="res://Textures/UI/ATBBarCap.png" id="6_kpfor"]
+[ext_resource type="PackedScene" uid="uid://dkcdbxaqepfh8" path="res://Scenes/Battle/target_indicator.tscn" id="9_4vkxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpfor"]
 resource_local_to_scene = true
@@ -141,3 +142,36 @@ frame = 4
 material = SubResource("ShaderMaterial_ja4e2")
 position = Vector2(105, 59)
 frame = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -22.0
+offset_right = 103.0
+offset_bottom = 8.0
+theme_override_constants/separation = 29
+alignment = 1
+
+[node name="Control1" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TargetIndicator" parent="HBoxContainer/Control1" instance=ExtResource("9_4vkxw")]
+layout_mode = 0
+
+[node name="Control2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TargetIndicator" parent="HBoxContainer/Control2" instance=ExtResource("9_4vkxw")]
+layout_mode = 0
+
+[node name="Control3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TargetIndicator" parent="HBoxContainer/Control3" instance=ExtResource("9_4vkxw")]
+layout_mode = 0
+
+[node name="Control4" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="TargetIndicator" parent="HBoxContainer/Control4" instance=ExtResource("9_4vkxw")]
+layout_mode = 0

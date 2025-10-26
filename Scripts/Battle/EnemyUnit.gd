@@ -4,6 +4,8 @@ extends BattleUnit
 enum TargetingType { RANDOM, LOW_HEALTH, HIGH_HEALTH, LOW_SHARPNESS, HIGH_SHARPNESS, LEAST_EFFECTS, MOST_EFFECTS }
 var targeting : TargetingType = TargetingType.RANDOM
 
+var next_target : int = -1
+
 func take_damage(amount : int) -> void:
 	if ATBTimerQTE.momentum > 100.0:
 		amount *= (1.1) ** ((ATBTimerQTE.momentum - 100.0) / 100.0)
@@ -12,10 +14,10 @@ func take_damage(amount : int) -> void:
 func find_target(player_units : Array[PlayerUnit]) -> int:
 	if targeting == TargetingType.RANDOM:
 		var idx : int = randi_range(0, 3)
-		while (not player_units[idx]) or player_units[idx].health <= 0:
-			idx = (idx + 1) % 4
-			await RenderingServer.frame_pre_draw
-		return idx
+		for i : int in 4:
+			if player_units[(i + idx) % 4] and player_units[(i + idx) % 4].health > 0:
+				return (i + idx) % 4
+		return -1
 	elif targeting == TargetingType.LOW_HEALTH:
 		var idx : int = 0
 		for i : int in 4:
@@ -53,14 +55,6 @@ func find_target(player_units : Array[PlayerUnit]) -> int:
 				idx = i
 		return idx
 	return -1
-
-func attempt_attack(player_units : Array[PlayerUnit]) -> int:
-	var target_index : int = await find_target(player_units)
-	if target_index >= 0 and target_index < 4:
-		if determine_attack_hits(player_units[target_index]):
-			return target_index
-		return -(target_index + 1)
-	return -5
 
 func is_hit(attacker : PlayerUnit, power : int, spell : int = -1) -> void:
 	var damage : int = calculate_damage_taken(attacker, power)

@@ -6,6 +6,7 @@ extends NinePatchRect
 @onready var _sharpness : Label = $Sharpness
 @onready var _icons : Array[StatusIcon] = [ $StatusIcon1, $StatusIcon2, $StatusIcon3, $StatusIcon4, $StatusIcon5, $StatusIcon6 ]
 @onready var _timer : TextureProgressBar = $ATB
+@onready var _indicators : Array[TargetIndicator] = [ $HBoxContainer/Control1/TargetIndicator, $HBoxContainer/Control2/TargetIndicator, $HBoxContainer/Control3/TargetIndicator, $HBoxContainer/Control4/TargetIndicator ]
 
 var unit : PlayerUnit = null :
 	set(v):
@@ -33,3 +34,16 @@ func update() -> void:
 			_icons[i].set_icon_colors(Color("394047"), Color.TRANSPARENT)
 	_timer.max_value = atb.maximum
 	_timer.value = atb.value
+
+func hide_indicators(is_null : Array[bool]) -> void:
+	for i : int in 4:
+		_indicators[i].get_parent().visible = is_null[i]
+
+func set_targeted(by : int) -> void:
+	_indicators[by].enqueue(1)
+
+func release_targeted(by : int) -> void:
+	_indicators[by].enqueue(0)
+
+func cancel_targeted(by : int) -> void:
+	_indicators[by].enqueue(2)

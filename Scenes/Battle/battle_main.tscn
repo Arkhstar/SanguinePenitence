@@ -35,7 +35,7 @@ offset_left = 77.0
 offset_top = 16.0
 offset_right = 563.0
 offset_bottom = 51.0
-theme_override_constants/separation = 2
+theme_override_constants/separation = 4
 alignment = 1
 
 [node name="EnemyDisplay1" parent="EnemyDisplays" instance=ExtResource("2_jgkco")]

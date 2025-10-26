@@ -5,8 +5,8 @@ signal died
 signal revived
 
 var display_name : String = "UNIT NAME"
-var max_health : int = 5
-var health : int = 5 :
+var max_health : int = 500
+var health : int = 500 :
 	set(v):
 		if health <= 0 and v > 0:
 			revived.emit()

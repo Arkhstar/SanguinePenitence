@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bgygg6h1hrqa3"]
 
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_bpscj"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_bpscj"]
 [ext_resource type="Script" uid="uid://ckqc8hbb0qk6m" path="res://Scripts/Battle/EnemyBattleDisplay.gd" id="2_g6r1n"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_bpscj"]
 [ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/status_icon.tscn" id="4_01v7x"]
