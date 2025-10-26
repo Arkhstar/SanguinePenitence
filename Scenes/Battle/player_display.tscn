@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpn4jf4yb63oi"]
+[gd_scene load_steps=15 format=3 uid="uid://bpn4jf4yb63oi"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_qqa1e"]
 [ext_resource type="Script" uid="uid://ijtbfjwtkvkq" path="res://Scripts/Battle/PlayerBattleDisplay.gd" id="2_uyyq0"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1Bit.gdshader" id="4_q1ej7"]
 [ext_resource type="Texture2D" uid="uid://dqjket30mlljk" path="res://Textures/ATBBarEmpty.png" id="4_uyyq0"]
 [ext_resource type="Texture2D" uid="uid://bxxg4daw1shba" path="res://Textures/ATBBarFull.png" id="5_q1ej7"]
+[ext_resource type="Texture2D" uid="uid://iwk3jrmjp3jm" path="res://Textures/ATBBarCap.png" id="6_kpfor"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpfor"]
 resource_local_to_scene = true
@@ -95,6 +96,22 @@ offset_bottom = 51.0
 step = 0.001
 texture_under = ExtResource("4_uyyq0")
 texture_progress = ExtResource("5_q1ej7")
+
+[node name="LeftEnd" type="TextureRect" parent="ATB"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 1.0
+offset_bottom = 15.0
+texture = ExtResource("6_kpfor")
+flip_h = true
+
+[node name="RightEnd" type="TextureRect" parent="ATB"]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 15.0
+texture = ExtResource("6_kpfor")
 
 [node name="StatusIcon1" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_kpfor")

@@ -1,7 +1,7 @@
 class_name BattleMain
 extends Node
 
-var units : Array[BattleUnit] = [ PlayerUnit.new(), null, PlayerUnit.new(), null, null, EnemyUnit.new(), null, null ]
+var units : Array[BattleUnit] = [ PlayerUnit.new(), null, null, null, null, EnemyUnit.new(), null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
@@ -15,8 +15,22 @@ func enemy_ai(acting_index : int) -> void:
 	elif target >= -4:
 		print("MISS: %d" % -(target + 1))
 
+func on_unit_death(index : int) -> void:
+	timers[index].allow_update = false
+	timers[index].reset()
+	for i : int in 6:
+		units[index].effects[i] = 0
+	await get_tree().create_timer(1.0).timeout
+	units[index].health = units[index].max_health
+
+func on_unit_revive(index : int) -> void:
+	timers[index].allow_update = true
+
 func on_atb_timeout(index : int) -> void:
 	print(index)
+	units[index].tick_effects()
+	if units[index].health <= 0:
+		return
 	if index < 4:
 		BattleTimer.i.slow_mode = true
 		BattleTimer.i.slow_mode = false #TODO
@@ -33,6 +47,8 @@ func init_players() -> void:
 			timers[i].step = 0.05
 			timers[i].maximum = randf_range(4.0, 8.0)
 			timers[i].timeout.connect(on_atb_timeout.bind(i))
+			units[i].died.connect(on_unit_death.bind(i))
+			units[i].revived.connect(on_unit_revive.bind(i))
 			add_child(timers[i])
 		player_displays[i].atb = timers[i]
 
@@ -44,6 +60,7 @@ func init_enemies() -> void:
 			timers[i + 4].step = units[i + 4].speed
 			timers[i + 4].maximum = randf_range(8.0, 16.0)
 			timers[i + 4].timeout.connect(on_atb_timeout.bind(i + 4))
+			units[i + 4].died.connect(on_unit_death.bind(i + 4))
 			add_child(timers[i + 4])
 
 func init_combat() -> void:

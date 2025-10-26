@@ -1,12 +1,19 @@
 class_name BattleUnit
 extends Resource
 
+signal died
+signal revived
+
 var display_name : String = "UNIT NAME"
-var max_health : int = 100
-var health : int = 100 :
+var max_health : int = 5
+var health : int = 5 :
 	set(v):
+		if health <= 0 and v > 0:
+			revived.emit()
 		health = v
-var strength : int = 1
+		if health <= 0:
+			died.emit()
+var strength : int = 5
 var defense : int
 var crit_chance : float
 var crit_damage : float

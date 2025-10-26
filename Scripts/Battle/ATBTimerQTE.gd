@@ -21,24 +21,24 @@ func reset(s : float = qte_step, m : float = maximum) -> void:
 	recency = 0.0
 
 func on_pulse() -> void:
-	value = move_toward(value, maximum, step)
-	recency = 0.0
-	if value == maximum:
-		timeout.emit()
-		qte_input = -1
-		pulses = 0
-		return
-	if qte_input >= 0 and pulses >= 8:
-		qte_input = -1
-		pulses = 0
-		momentum *= 0.75
-		return
-	elif qte_input < 0 and pulses >= 4:
-		qte_input = randi_range(0, 9)
-		pulses = 0
-		return
-	pulses += 1
-	momentum -= 0.25
+	if allow_update:
+		value = move_toward(value, maximum, step)
+		recency = 0.0
+		if value == maximum:
+			timeout.emit()
+			qte_input = -1
+			pulses = 0
+			return
+		if qte_input >= 0 and pulses >= 8:
+			qte_input = -1
+			pulses = 0
+			momentum *= 0.75
+			return
+		elif qte_input < 0 and pulses >= 4:
+			qte_input = randi_range(0, 9)
+			pulses = 0
+			return
+		pulses += 1
 
 func _physics_process(delta: float) -> void:
 	if qte_input >= 0 and Input.is_action_just_pressed("qte_%d" % qte_input):
