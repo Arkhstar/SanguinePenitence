@@ -30,10 +30,11 @@ func init_players() -> void:
 		if units[i]:
 			timers[i] = ATBTimerQTE.new()
 			(timers[i] as ATBTimerQTE).qte_step = units[i].speed
-			timers[i].step = 0.25
+			timers[i].step = 0.05
 			timers[i].maximum = randf_range(4.0, 8.0)
 			timers[i].timeout.connect(on_atb_timeout.bind(i))
 			add_child(timers[i])
+		player_displays[i].atb = timers[i]
 
 func init_enemies() -> void:
 	for i : int in 4:
@@ -57,3 +58,9 @@ func init_combat() -> void:
 
 func _ready() -> void:
 	init_combat()
+
+func _process(_delta: float) -> void:
+	for display : PlayerBattleDisplay in player_displays:
+		display.update()
+	for display : EnemyBattleDisplay in enemy_displays:
+		display.update()

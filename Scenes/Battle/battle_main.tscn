@@ -52,7 +52,7 @@ layout_mode = 2
 
 [node name="PlayerDisplays" type="HBoxContainer" parent="."]
 offset_left = 77.0
-offset_top = 289.0
+offset_top = 273.0
 offset_right = 563.0
 offset_bottom = 344.0
 theme_override_constants/separation = 2

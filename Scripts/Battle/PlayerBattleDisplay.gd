@@ -5,14 +5,20 @@ extends NinePatchRect
 @onready var _health : Label = $Health
 @onready var _sharpness : Label = $Sharpness
 @onready var _icons : Array[StatusIcon] = [ $StatusIcon1, $StatusIcon2, $StatusIcon3, $StatusIcon4, $StatusIcon5, $StatusIcon6 ]
+@onready var _timer : TextureProgressBar = $ATB
 
 var unit : PlayerUnit = null :
 	set(v):
 		unit = v
 		update()
 
+var atb : ATBTimer = null :
+	set(v):
+		atb = v
+		update()
+
 func update() -> void:
-	if unit == null:
+	if unit == null or atb == null:
 		hide()
 		return
 	show()
@@ -25,3 +31,5 @@ func update() -> void:
 			_icons[i].set_icon_colors(Color("8a9094"), Color("495058"))
 		else:
 			_icons[i].set_icon_colors(Color("394047"), Color.TRANSPARENT)
+	_timer.max_value = atb.maximum
+	_timer.value = atb.value

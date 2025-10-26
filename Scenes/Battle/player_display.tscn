@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpn4jf4yb63oi"]
+[gd_scene load_steps=14 format=3 uid="uid://bpn4jf4yb63oi"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/NinePatch.png" id="1_qqa1e"]
 [ext_resource type="Script" uid="uid://ijtbfjwtkvkq" path="res://Scripts/Battle/PlayerBattleDisplay.gd" id="2_uyyq0"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_2ctrw"]
 [ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/status_icon.tscn" id="3_uyyq0"]
 [ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1Bit.gdshader" id="4_q1ej7"]
+[ext_resource type="Texture2D" uid="uid://dqjket30mlljk" path="res://Textures/ATBBarEmpty.png" id="4_uyyq0"]
+[ext_resource type="Texture2D" uid="uid://bxxg4daw1shba" path="res://Textures/ATBBarFull.png" id="5_q1ej7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpfor"]
 resource_local_to_scene = true
@@ -43,7 +45,7 @@ shader_parameter/off = Color(0, 0, 0, 1)
 shader_parameter/on = Color(1, 1, 1, 1)
 
 [node name="PlayerDisplay" type="NinePatchRect"]
-custom_minimum_size = Vector2(120, 55)
+custom_minimum_size = Vector2(120, 71)
 offset_right = 120.0
 offset_bottom = 35.0
 texture = ExtResource("1_qqa1e")
@@ -84,31 +86,41 @@ theme_override_fonts/font = ExtResource("3_2ctrw")
 theme_override_font_sizes/font_size = 10
 text = "SHARPNESS:S"
 
+[node name="ATB" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 35.0
+offset_right = 112.0
+offset_bottom = 51.0
+step = 0.001
+texture_under = ExtResource("4_uyyq0")
+texture_progress = ExtResource("5_q1ej7")
+
 [node name="StatusIcon1" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_kpfor")
-position = Vector2(15, 43)
+position = Vector2(15, 59)
 
 [node name="StatusIcon2" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_4vkxw")
-position = Vector2(33, 43)
+position = Vector2(33, 59)
 frame = 1
 
 [node name="StatusIcon3" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_2fg6k")
-position = Vector2(51, 43)
+position = Vector2(51, 59)
 frame = 2
 
 [node name="StatusIcon4" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_pecjv")
-position = Vector2(69, 43)
+position = Vector2(69, 59)
 frame = 3
 
 [node name="StatusIcon5" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_k2wqu")
-position = Vector2(87, 43)
+position = Vector2(87, 59)
 frame = 4
 
 [node name="StatusIcon6" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_ja4e2")
-position = Vector2(105, 43)
+position = Vector2(105, 59)
 frame = 5
