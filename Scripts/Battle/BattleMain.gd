@@ -7,6 +7,8 @@ var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
 @onready var enemy_displays : Array[EnemyBattleDisplay] = [ $EnemyDisplays/EnemyDisplay1, $EnemyDisplays/EnemyDisplay2, $EnemyDisplays/EnemyDisplay3, $EnemyDisplays/EnemyDisplay4 ]
 
+@onready var menu : BattleMenu = $BattleMenu
+
 func enemy_ai(acting_index : int) -> void:
 	var actor : EnemyUnit = units[acting_index]
 	var player_units : Array[PlayerUnit] = [ units[0], units[1], units[2], units[3] ]
@@ -46,10 +48,17 @@ func on_atb_timeout(index : int) -> void:
 		return
 	if index < 4:
 		BattleTimer.i.slow_mode = true
-		BattleTimer.i.slow_mode = false #TODO
-		timers[index].reset()
+		menu.reparent(player_displays[index])
+		menu.show()
+		menu.ignore_input = false
+		#TODO
+		#BattleTimer.i.slow_mode = false
+		#timers[index].reset()
 	else:
 		enemy_ai(index)
+
+func menu_selection(option : int) -> void:
+	print("OPTION %d" % option)
 
 func init_players() -> void:
 	for i : int in 4:
@@ -88,6 +97,7 @@ func init_combat() -> void:
 	BattleTimer.i.pulse.connect($PulseVFX.pulse)
 
 func _ready() -> void:
+	menu.selection.connect(menu_selection)
 	init_combat()
 
 func _process(_delta: float) -> void:

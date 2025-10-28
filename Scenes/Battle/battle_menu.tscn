@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu63tcrki8836"]
+
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_0gpxh"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="2_6k22c"]
+[ext_resource type="Script" uid="uid://c1f7elid4ybgu" path="res://Scripts/Battle/BattleMenu.gd" id="2_qlj7u"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Selector.png" id="3_qlj7u"]
+
+[node name="BattleMenu" type="NinePatchRect"]
+custom_minimum_size = Vector2(120, 58)
+offset_right = 120.0
+offset_bottom = 58.0
+texture = ExtResource("1_0gpxh")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_qlj7u")
+
+[node name="Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 5.0
+offset_right = 122.0
+offset_bottom = 13.0
+texture = ExtResource("3_qlj7u")
+
+[node name="Highlight" type="ColorRect" parent="Cursor"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -110.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 9.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Attack" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("2_6k22c")
+theme_override_font_sizes/font_size = 10
+text = "ATTACK"
+horizontal_alignment = 1
+
+[node name="Cast" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_6k22c")
+theme_override_font_sizes/font_size = 10
+text = "CAST"
+horizontal_alignment = 1
+
+[node name="Reagent" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 115.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("2_6k22c")
+theme_override_font_sizes/font_size = 10
+text = "REAGENT"
+horizontal_alignment = 1
+
+[node name="Item" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 35.0
+offset_right = 115.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_6k22c")
+theme_override_font_sizes/font_size = 10
+text = "ITEM"
+horizontal_alignment = 1
+
+[node name="Support" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 115.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_6k22c")
+theme_override_font_sizes/font_size = 10
+text = "SUPPORT"
+horizontal_alignment = 1
