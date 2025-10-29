@@ -8,6 +8,8 @@ var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null 
 @onready var enemy_displays : Array[EnemyBattleDisplay] = [ $EnemyDisplays/EnemyDisplay1, $EnemyDisplays/EnemyDisplay2, $EnemyDisplays/EnemyDisplay3, $EnemyDisplays/EnemyDisplay4 ]
 
 @onready var menu : BattleMenu = $BattleMenu
+var ready_to_act : PackedInt32Array = []
+var acting : int = -1
 
 func enemy_ai(acting_index : int) -> void:
 	var actor : EnemyUnit = units[acting_index]
@@ -42,23 +44,20 @@ func on_unit_revive(index : int) -> void:
 	timers[index].allow_update = true
 
 func on_atb_timeout(index : int) -> void:
-	print(index)
 	units[index].tick_effects()
 	if units[index].health <= 0:
 		return
 	if index < 4:
-		BattleTimer.i.slow_mode = true
-		menu.reparent(player_displays[index])
-		menu.show()
-		menu.ignore_input = false
-		#TODO
-		#BattleTimer.i.slow_mode = false
-		#timers[index].reset()
+		ready_to_act.append(index)
 	else:
 		enemy_ai(index)
 
 func menu_selection(option : int) -> void:
 	print("OPTION %d" % option)
+	menu.hide()
+	timers[acting].reset() # vary with selected option
+	BattleTimer.i.paused = false
+	acting = -1
 
 func init_players() -> void:
 	for i : int in 4:
@@ -95,6 +94,11 @@ func init_combat() -> void:
 	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.BATTLE)
 	BattleTimer.i.resync()
 	BattleTimer.i.pulse.connect($PulseVFX.pulse)
+	for u : BattleUnit in units:
+		BattleTimer.i.pulse.connect(func() -> void:
+			if u.effects[BattleUnit.StatusEffect.BURN] > 0:
+				u.take_damage(randi_range(u.effects[BattleUnit.StatusEffect.BURN] / 4, u.effects[BattleUnit.StatusEffect.BURN]))
+			return)
 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
@@ -105,3 +109,13 @@ func _process(_delta: float) -> void:
 		display.update()
 	for display : EnemyBattleDisplay in enemy_displays:
 		display.update()
+
+func _physics_process(_delta: float) -> void:
+	if acting == -1 and ready_to_act.size() > 0:
+		BattleTimer.i.paused = true
+		acting = ready_to_act[0]
+		ready_to_act.remove_at(0)
+		menu.index = 0
+		menu.reparent(player_displays[acting], false)
+		menu.show()
+		menu.ignore_input = false
