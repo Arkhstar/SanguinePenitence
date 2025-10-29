@@ -22,6 +22,3 @@ func _physics_process(delta: float) -> void:
 		time_left += tempo
 		pulse.emit()
 		ATBTimerQTE.momentum -= 0.25
-
-func _ready() -> void:
-	i = self

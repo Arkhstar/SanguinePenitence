@@ -6,6 +6,8 @@ var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null 
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
 @onready var enemy_displays : Array[EnemyBattleDisplay] = [ $EnemyDisplays/EnemyDisplay1, $EnemyDisplays/EnemyDisplay2, $EnemyDisplays/EnemyDisplay3, $EnemyDisplays/EnemyDisplay4 ]
+@onready var selector : BattleSelector = $Selector
+var selection : int = -1
 
 @onready var menu : BattleMenu = $BattleMenu
 var ready_to_act : PackedInt32Array = []
@@ -54,6 +56,14 @@ func on_atb_timeout(index : int) -> void:
 
 func menu_selection(option : int) -> void:
 	print("OPTION %d" % option)
+	
+	if option <= 1:
+		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].any(func(element : bool) -> bool: return element):
+			selector.set_targeting_enemies()
+			menu.ignore_input = true
+	
+	#TODO respond to action
+	
 	menu.hide()
 	timers[acting].reset() # vary with selected option
 	BattleTimer.i.paused = false
@@ -85,20 +95,23 @@ func init_enemies() -> void:
 			units[i + 4].died.connect(on_unit_death.bind(i + 4))
 			add_child(timers[i + 4])
 
-func init_combat() -> void:
+func init_combat(tempo : float = 180.0) -> void:
 	ATBTimerQTE.momentum = 0.0
 	BattleTimer.i = BattleTimer.new()
+	BattleTimer.i.tempo = tempo
 	add_child(BattleTimer.i)
 	init_enemies()
 	init_players()
 	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.BATTLE)
 	BattleTimer.i.resync()
-	BattleTimer.i.pulse.connect($PulseVFX.pulse)
 	for u : BattleUnit in units:
 		BattleTimer.i.pulse.connect(func() -> void:
 			if u.effects[BattleUnit.StatusEffect.BURN] > 0:
 				u.take_damage(randi_range(u.effects[BattleUnit.StatusEffect.BURN] / 4, u.effects[BattleUnit.StatusEffect.BURN]))
 			return)
+	BattleTimer.i.pulse.connect($PulseVFX.pulse)
+	BattleTimer.i.pulse.connect(selector.pulse_anim)
+	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
