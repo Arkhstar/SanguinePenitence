@@ -1,7 +1,7 @@
 class_name BattleMain
 extends Node
 
-var units : Array[BattleUnit] = [ PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), EnemyUnit.new(), EnemyUnit.new(), EnemyUnit.new(), EnemyUnit.new() ]
+var units : Array[BattleUnit] = [ PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), null, EnemyUnit.new(), null, EnemyUnit.new() ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
@@ -58,9 +58,14 @@ func menu_selection(option : int) -> void:
 	print("OPTION %d" % option)
 	
 	if option <= 1:
-		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].any(func(element : bool) -> bool: return element):
-			selector.set_targeting_enemies()
+		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].filter(func(element : bool) -> bool: return element).size() > 1:
+			selection = option
+			await selector.set_targeting_enemies()
+			selector.show()
 			menu.ignore_input = true
+			return
+		else:
+			print("auto", option)
 	
 	#TODO respond to action
 	
@@ -68,6 +73,14 @@ func menu_selection(option : int) -> void:
 	timers[acting].reset() # vary with selected option
 	BattleTimer.i.paused = false
 	acting = -1
+
+func selector_selection(index : int) -> void:
+	if index == -1:
+		selector.ignore_input = true
+		menu.ignore_input = false
+		selector.hide()
+	else:
+		print(index, selection)
 
 func init_players() -> void:
 	for i : int in 4:
@@ -105,16 +118,18 @@ func init_combat(tempo : float = 180.0) -> void:
 	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.BATTLE)
 	BattleTimer.i.resync()
 	for u : BattleUnit in units:
-		BattleTimer.i.pulse.connect(func() -> void:
-			if u.effects[BattleUnit.StatusEffect.BURN] > 0:
-				u.take_damage(randi_range(u.effects[BattleUnit.StatusEffect.BURN] / 4, u.effects[BattleUnit.StatusEffect.BURN]))
-			return)
+		if u:
+			BattleTimer.i.pulse.connect(func() -> void:
+				if u.effects[BattleUnit.StatusEffect.BURN] > 0:
+					u.take_damage(randi_range(u.effects[BattleUnit.StatusEffect.BURN] / 4, u.effects[BattleUnit.StatusEffect.BURN]))
+				return)
 	BattleTimer.i.static_pulse.connect($PulseVFX.pulse)
 	BattleTimer.i.static_pulse.connect(selector.pulse_anim)
 	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
+	selector.selection.connect(selector_selection)
 	init_combat()
 
 func _process(_delta: float) -> void:

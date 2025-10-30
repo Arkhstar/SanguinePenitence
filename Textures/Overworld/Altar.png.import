@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf5k5nf06d5pp"
-path="res://.godot/imported/Obol.png-2d6bddff5a79247455fac94f0e6da58d.ctex"
+uid="uid://ci8dhi6oxa3ho"
+path="res://.godot/imported/Altar.png-55942f817b8693234b34abadb061c35b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Overworld/Obol.png"
-dest_files=["res://.godot/imported/Obol.png-2d6bddff5a79247455fac94f0e6da58d.ctex"]
+source_file="res://Textures/Overworld/Altar.png"
+dest_files=["res://.godot/imported/Altar.png-55942f817b8693234b34abadb061c35b.ctex"]
 
 [params]
 

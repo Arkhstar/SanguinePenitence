@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cqv1fn4ar3ckj"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_3w67x"]
-[ext_resource type="Texture2D" uid="uid://bf5k5nf06d5pp" path="res://Textures/UI/Overworld/Obol.png" id="2_3w67x"]
+[ext_resource type="Texture2D" uid="uid://bf5k5nf06d5pp" path="res://Textures/UI/Obol.png" id="2_3w67x"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_rd5xf"]
 
 [node name="OverworldHUD" type="CanvasLayer"]
@@ -33,5 +33,5 @@ offset_right = 68.0
 offset_bottom = 16.0
 theme_override_fonts/font = ExtResource("3_rd5xf")
 theme_override_font_sizes/font_size = 10
-text = "00000"
+text = "0"
 horizontal_alignment = 2

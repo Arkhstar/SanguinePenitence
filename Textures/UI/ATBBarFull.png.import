@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqjket30mlljk"
-path="res://.godot/imported/ATBBarEmpty.png-17fa4b76c39ea4c9726af04f3f7670b2.ctex"
+uid="uid://bxxg4daw1shba"
+path="res://.godot/imported/ATBBarFull.png-87ec7c19e21a3abdccb814fb2b3dc4c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Battle/ATBBarEmpty.png"
-dest_files=["res://.godot/imported/ATBBarEmpty.png-17fa4b76c39ea4c9726af04f3f7670b2.ctex"]
+source_file="res://Textures/UI/ATBBarFull.png"
+dest_files=["res://.godot/imported/ATBBarFull.png-87ec7c19e21a3abdccb814fb2b3dc4c0.ctex"]
 
 [params]
 
