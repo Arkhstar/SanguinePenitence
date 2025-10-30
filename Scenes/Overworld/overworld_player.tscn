@@ -1,16 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbtglvvw04xgn"]
+[gd_scene load_steps=9 format=3 uid="uid://cbtglvvw04xgn"]
 
 [ext_resource type="Script" uid="uid://dvme00jwhh4lx" path="res://Scripts/Overworld/OverworldPlayer.gd" id="1_vcsme"]
-[ext_resource type="Texture2D" uid="uid://q30hrukmof42" path="res://Textures/TheHunter.png" id="2_t5fdh"]
+[ext_resource type="PackedScene" uid="uid://cqv1fn4ar3ckj" path="res://Scenes/Overworld/overworld_hud.tscn" id="2_q1fdx"]
+[ext_resource type="Texture2D" uid="uid://bww5yqrqkgdfy" path="res://Textures/Characters/Charon.png" id="2_t5fdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5fdh"]
+atlas = ExtResource("2_t5fdh")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1fdx"]
+atlas = ExtResource("2_t5fdh")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki5gr"]
+atlas = ExtResource("2_t5fdh")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dojy3"]
+atlas = ExtResource("2_t5fdh")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x4c3f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5fdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1fdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki5gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dojy3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="OverworldPlayer" type="Node2D"]
 script = ExtResource("1_vcsme")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_t5fdh")
-hframes = 2
-vframes = 2
+[node name="OverworldHUD" parent="." instance=ExtResource("2_q1fdx")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x4c3f")
+autoplay = "default"
+frame_progress = 0.61360455
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = false

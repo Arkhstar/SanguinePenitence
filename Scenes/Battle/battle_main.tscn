@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dumqr2w76iscr" path="res://Scripts/Battle/BattleMain.gd" id="1_dqhr1"]
 [ext_resource type="Script" uid="uid://d4khfsrd4rgfk" path="res://Scripts/Battle/PulseVFX.gd" id="2_5rqxd"]
 [ext_resource type="PackedScene" uid="uid://bgygg6h1hrqa3" path="res://Scenes/Battle/enemy_display.tscn" id="2_jgkco"]
-[ext_resource type="Texture2D" uid="uid://cebg481cko066" path="res://Textures/UI/SelectorLarge.png" id="4_kn1ym"]
+[ext_resource type="Texture2D" uid="uid://cebg481cko066" path="res://Textures/UI/Battle/SelectorLarge.png" id="4_kn1ym"]
 [ext_resource type="PackedScene" uid="uid://bpn4jf4yb63oi" path="res://Scenes/Battle/player_display.tscn" id="4_uee53"]
 [ext_resource type="Script" uid="uid://cy5uw7ijrs0q0" path="res://Scripts/Battle/BattleSelector.gd" id="5_afmo2"]
 [ext_resource type="PackedScene" uid="uid://cu63tcrki8836" path="res://Scenes/Battle/battle_menu.tscn" id="5_ms5iv"]
@@ -79,7 +79,6 @@ offset_top = -82.0
 offset_bottom = -24.0
 
 [node name="Selector" type="TextureRect" parent="."]
-visible = false
 offset_right = 16.0
 offset_bottom = 16.0
 texture = ExtResource("4_kn1ym")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_0gpxh"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="2_6k22c"]
 [ext_resource type="Script" uid="uid://c1f7elid4ybgu" path="res://Scripts/Battle/BattleMenu.gd" id="2_qlj7u"]
-[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="3_qlj7u"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/Battle/SelectorSmall.png" id="3_qlj7u"]
 
 [node name="BattleMenu" type="NinePatchRect"]
 custom_minimum_size = Vector2(120, 58)

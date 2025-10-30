@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv1vw3x6seg3g"
-path="res://.godot/imported/TargetIndicator2.png-3a744693827a769d8455de44344dedeb.ctex"
+uid="uid://iwk3jrmjp3jm"
+path="res://.godot/imported/ATBBarCap.png-4bbf93fdc7647815381745a05c0cefa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/TargetIndicator2.png"
-dest_files=["res://.godot/imported/TargetIndicator2.png-3a744693827a769d8455de44344dedeb.ctex"]
+source_file="res://Textures/UI/Battle/ATBBarCap.png"
+dest_files=["res://.godot/imported/ATBBarCap.png-4bbf93fdc7647815381745a05c0cefa2.ctex"]
 
 [params]
 

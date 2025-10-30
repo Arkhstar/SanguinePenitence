@@ -109,8 +109,8 @@ func init_combat(tempo : float = 180.0) -> void:
 			if u.effects[BattleUnit.StatusEffect.BURN] > 0:
 				u.take_damage(randi_range(u.effects[BattleUnit.StatusEffect.BURN] / 4, u.effects[BattleUnit.StatusEffect.BURN]))
 			return)
-	BattleTimer.i.pulse.connect($PulseVFX.pulse)
-	BattleTimer.i.pulse.connect(selector.pulse_anim)
+	BattleTimer.i.static_pulse.connect($PulseVFX.pulse)
+	BattleTimer.i.static_pulse.connect(selector.pulse_anim)
 	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
 
 func _ready() -> void:

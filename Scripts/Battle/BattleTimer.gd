@@ -2,6 +2,7 @@ class_name BattleTimer
 extends Node
 
 signal pulse
+signal static_pulse
 
 static var i : BattleTimer
 
@@ -15,10 +16,11 @@ func resync() -> void:
 	time_left = tempo
 
 func _physics_process(delta: float) -> void:
-	if paused:
-		return
 	time_left -= delta
 	while time_left < 0:
 		time_left += tempo
+		static_pulse.emit()
+		if paused:
+			return
 		pulse.emit()
 		ATBTimerQTE.momentum -= 0.25
