@@ -8,8 +8,7 @@
 y_sort_enabled = true
 script = ExtResource("1_gepc6")
 
-[node name="OverworldPlayer" parent="." instance=ExtResource("1_ir0rx")]
-position = Vector2(320, 228)
-
 [node name="Altar" parent="." instance=ExtResource("2_ir0rx")]
-position = Vector2(320, 180)
+position = Vector2(0, -96)
+
+[node name="OverworldPlayer" parent="." instance=ExtResource("1_ir0rx")]

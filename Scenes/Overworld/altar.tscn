@@ -1,45 +1,117 @@
-[gd_scene load_steps=8 format=3 uid="uid://g606dv0vxtae"]
+[gd_scene load_steps=11 format=3 uid="uid://g606dv0vxtae"]
 
+[ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/npc.tscn" id="1_4lteb"]
 [ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Shaders/Format.gdshader" id="1_fqxwd"]
 [ext_resource type="Texture2D" uid="uid://ci8dhi6oxa3ho" path="res://Textures/Overworld/Altar.png" id="2_4lteb"]
-[ext_resource type="Script" uid="uid://cwrf8y5vc402q" path="res://Scripts/Overworld/Altar.gd" id="3_4lteb"]
-[ext_resource type="Texture2D" uid="uid://blxb3x2y8v3mn" path="res://Textures/UI/SelectorAlt.png" id="3_fk53m"]
+[ext_resource type="Script" uid="uid://b3b3jpl85x3yu" path="res://Scripts/Overworld/NPCMenu/AltarMenu.gd" id="4_difho"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="5_fk53m"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="6_44e25"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="6_difho"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmw6v"]
+resource_local_to_scene = true
 shader = ExtResource("1_fqxwd")
 shader_parameter/colors = PackedColorArray(0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.14509805, 0.1764706, 0.20392157, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir0rx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqxwd"]
 size = Vector2(16, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gepc6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lteb"]
 size = Vector2(16, 16)
 
-[node name="Altar" type="Sprite2D"]
+[node name="Altar" node_paths=PackedStringArray("menu") instance=ExtResource("1_4lteb")]
+menu = NodePath("NPCMenu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_hmw6v")
 texture = ExtResource("2_4lteb")
-script = ExtResource("3_4lteb")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_mask = 0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_fqxwd")
+debug_color = Color(0.15025258, 0.5402352, 0.9324259, 0.41960785)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_ir0rx")
-debug_color = Color(0.28274867, 0.4997064, 1, 0.41960785)
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" index="0"]
 position = Vector2(0, 24)
-shape = SubResource("RectangleShape2D_gepc6")
-debug_color = Color(0.23966143, 0.62439764, 0.36894798, 0.41960785)
+shape = SubResource("RectangleShape2D_4lteb")
+debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
+[node name="Prompt" parent="." index="3"]
 position = Vector2(0, -24)
-texture = ExtResource("3_fk53m")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_exited"]
+[node name="NPCMenu" type="CanvasLayer" parent="." index="4"]
+visible = false
+script = ExtResource("4_difho")
+metadata/_custom_type_script = "uid://bssy0u2hawra7"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="NPCMenu" index="0"]
+offset_left = 258.0
+offset_top = 154.0
+offset_right = 384.0
+offset_bottom = 206.0
+texture = ExtResource("5_fk53m")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Cursor" type="TextureRect" parent="NPCMenu/NinePatchRect" index="0"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 28.0
+offset_right = 128.0
+offset_bottom = 36.0
+texture = ExtResource("6_44e25")
+
+[node name="Highlight" type="ColorRect" parent="NPCMenu/NinePatchRect/Cursor" index="0"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -116.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 9.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Prompt" type="Label" parent="NPCMenu/NinePatchRect" index="1"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 125.0
+offset_bottom = 15.0
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("6_difho")
+theme_override_font_sizes/font_size = 10
+text = "OFFER OBOLS?"
+horizontal_alignment = 1
+
+[node name="Amount" type="Label" parent="NPCMenu/NinePatchRect" index="2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("6_difho")
+theme_override_font_sizes/font_size = 10
+text = "XXXXXX"
+horizontal_alignment = 1
+
+[node name="Agree" type="Label" parent="NPCMenu/NinePatchRect" index="3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 28.0
+offset_right = 125.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("6_difho")
+theme_override_font_sizes/font_size = 10
+text = "YES"
+horizontal_alignment = 1
+
+[node name="Disagree" type="Label" parent="NPCMenu/NinePatchRect" index="4"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 38.0
+offset_right = 125.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("6_difho")
+theme_override_font_sizes/font_size = 10
+text = "NO"
+horizontal_alignment = 1

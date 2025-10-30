@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cqv1fn4ar3ckj" path="res://Scenes/Overworld/overworld_hud.tscn" id="2_q1fdx"]
 [ext_resource type="Texture2D" uid="uid://bww5yqrqkgdfy" path="res://Textures/Characters/Charon.png" id="2_t5fdh"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_t5fdh"]
+radius = 4.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5fdh"]
 atlas = ExtResource("2_t5fdh")
 region = Rect2(0, 0, 24, 24)
@@ -20,7 +23,7 @@ region = Rect2(0, 24, 24, 24)
 atlas = ExtResource("2_t5fdh")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_x4c3f"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1fdx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -40,29 +43,23 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q1fdx"]
-radius = 4.0
-
-[node name="OverworldPlayer" type="Node2D"]
+[node name="OverworldPlayer" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("1_vcsme")
 
-[node name="OverworldHUD" parent="." instance=ExtResource("2_q1fdx")]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_x4c3f")
-autoplay = "default"
-frame_progress = 0.61360455
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t5fdh")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = false
 collision_mask = 9
 collide_with_areas = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 2
-collision_mask = 0
-motion_mode = 1
-platform_floor_layers = 4294967040
+[node name="OverworldHUD" parent="." instance=ExtResource("2_q1fdx")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CircleShape2D_q1fdx")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_q1fdx")
+autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]

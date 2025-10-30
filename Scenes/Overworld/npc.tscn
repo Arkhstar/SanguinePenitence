@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcey3mxb68md1"]
+
+[ext_resource type="Texture2D" uid="uid://blxb3x2y8v3mn" path="res://Textures/UI/SelectorAlt.png" id="1_8lrdi"]
+[ext_resource type="Script" uid="uid://cmfds30bx1kbi" path="res://Scripts/Overworld/NPC.gd" id="1_gw2f3"]
+
+[node name="NPC" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_gw2f3")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Prompt" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_8lrdi")

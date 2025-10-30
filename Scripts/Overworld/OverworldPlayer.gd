@@ -1,5 +1,7 @@
 class_name OverworldPlayer
-extends Node2D
+extends CharacterBody2D
+
+static var i : OverworldPlayer
 
 var ignore_input : bool = false
 var is_moving : bool = false
@@ -37,3 +39,6 @@ func _physics_process(_delta: float) -> void:
 				sprite.flip_h = true
 			elif direction.x > 0:
 				sprite.flip_h = false
+
+func _ready() -> void:
+	i = self
