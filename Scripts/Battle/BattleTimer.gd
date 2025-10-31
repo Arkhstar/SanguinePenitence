@@ -13,11 +13,11 @@ var time_left : float = 0.0
 var paused : bool = false
 
 func resync() -> void:
-	time_left = tempo
+	time_left = 0
 
 func _physics_process(delta: float) -> void:
 	time_left -= delta
-	while time_left < 0:
+	while time_left <= 0:
 		time_left += tempo
 		static_pulse.emit()
 		if paused:

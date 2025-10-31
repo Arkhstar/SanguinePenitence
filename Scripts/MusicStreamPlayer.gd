@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-enum Song { SILENCE, BATTLE, TOWN, FOREST }
+enum Song { SILENCE, BATTLE, BATTLE2, TOWN, FOREST }
 
 var _current : Vector3 = Vector3(Song.SILENCE, 0, 0)
 var _cached_playback : Vector2 = Vector2(Song.SILENCE, 0)
@@ -11,7 +11,7 @@ func _get_playback_position() -> float:
 func play_music(music : Song) -> void:
 	if music == _current.x:
 		return
-	elif music in [ Song.BATTLE ]:
+	elif music in [ Song.BATTLE, Song.BATTLE2 ]:
 		_cached_playback = Vector2(_current.x, _get_playback_position())
 	
 	var audio_stream : AudioStreamOggVorbis = null
@@ -20,6 +20,9 @@ func play_music(music : Song) -> void:
 	if music == Song.BATTLE:
 		audio_stream = preload("res://Audio/Music/Battle.ogg")
 		intro_seconds = 5.324
+	elif music == Song.BATTLE2:
+		audio_stream = preload("res://Audio/Music/Battle2.ogg")
+		intro_seconds = 2.928
 	elif music == Song.TOWN:
 		audio_stream = preload("res://Audio/Music/Town.ogg")
 		intro_seconds = 3.194

@@ -108,14 +108,17 @@ func init_enemies() -> void:
 			units[i + 4].died.connect(on_unit_death.bind(i + 4))
 			add_child(timers[i + 4])
 
-func init_combat(tempo : float = 180.0) -> void:
+func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) -> void:
 	ATBTimerQTE.momentum = 0.0
 	BattleTimer.i = BattleTimer.new()
-	BattleTimer.i.tempo = tempo
+	BattleTimer.i.tempo = {
+		MusicStreamPlayer.Song.BATTLE : 180.0, # Wyrmchaser
+		MusicStreamPlayer.Song.BATTLE2 : 163.6 # Dona eis Requiem
+	}[song]
 	add_child(BattleTimer.i)
 	init_enemies()
 	init_players()
-	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.BATTLE)
+	MusicStreamPlayer.play_music(song)
 	BattleTimer.i.resync()
 	for u : BattleUnit in units:
 		if u:
@@ -130,7 +133,7 @@ func init_combat(tempo : float = 180.0) -> void:
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
 	selector.selection.connect(selector_selection)
-	init_combat()
+	init_combat(MusicStreamPlayer.Song.BATTLE)
 
 func _process(_delta: float) -> void:
 	for display : PlayerBattleDisplay in player_displays:
