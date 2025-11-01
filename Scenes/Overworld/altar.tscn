@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://g606dv0vxtae"]
+[gd_scene load_steps=9 format=3 uid="uid://g606dv0vxtae"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/npc.tscn" id="1_4lteb"]
 [ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Shaders/Format.gdshader" id="1_fqxwd"]
 [ext_resource type="Texture2D" uid="uid://ci8dhi6oxa3ho" path="res://Textures/Overworld/Altar.png" id="2_4lteb"]
 [ext_resource type="Script" uid="uid://b3b3jpl85x3yu" path="res://Scripts/Overworld/NPCMenu/AltarMenu.gd" id="4_difho"]
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="5_fk53m"]
-[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="6_44e25"]
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="6_difho"]
+[ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="8_trp3a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hmw6v"]
 resource_local_to_scene = true
@@ -43,75 +41,8 @@ visible = false
 script = ExtResource("4_difho")
 metadata/_custom_type_script = "uid://bssy0u2hawra7"
 
-[node name="NinePatchRect" type="NinePatchRect" parent="NPCMenu" index="0"]
-offset_left = 258.0
-offset_top = 154.0
-offset_right = 384.0
-offset_bottom = 206.0
-texture = ExtResource("5_fk53m")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
-
-[node name="Cursor" type="TextureRect" parent="NPCMenu/NinePatchRect" index="0"]
-layout_mode = 0
-offset_left = 120.0
-offset_top = 28.0
-offset_right = 128.0
-offset_bottom = 36.0
-texture = ExtResource("6_44e25")
-
-[node name="Highlight" type="ColorRect" parent="NPCMenu/NinePatchRect/Cursor" index="0"]
-show_behind_parent = true
-layout_mode = 1
-offset_left = -116.0
-offset_top = -1.0
-offset_right = 2.0
-offset_bottom = 9.0
-color = Color(0.22352941, 0.2509804, 0.2784314, 1)
-
-[node name="Prompt" type="Label" parent="NPCMenu/NinePatchRect" index="1"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 125.0
-offset_bottom = 15.0
-theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("6_difho")
-theme_override_font_sizes/font_size = 10
-text = "OFFER OBOLS?"
-horizontal_alignment = 1
-
-[node name="Amount" type="Label" parent="NPCMenu/NinePatchRect" index="2"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 15.0
-offset_right = 125.0
-offset_bottom = 25.0
-theme_override_fonts/font = ExtResource("6_difho")
-theme_override_font_sizes/font_size = 10
-text = "XXXXXX"
-horizontal_alignment = 1
-
-[node name="Agree" type="Label" parent="NPCMenu/NinePatchRect" index="3"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 28.0
-offset_right = 125.0
-offset_bottom = 38.0
-theme_override_fonts/font = ExtResource("6_difho")
-theme_override_font_sizes/font_size = 10
-text = "YES"
-horizontal_alignment = 1
-
-[node name="Disagree" type="Label" parent="NPCMenu/NinePatchRect" index="4"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 38.0
-offset_right = 125.0
-offset_bottom = 48.0
-theme_override_fonts/font = ExtResource("6_difho")
-theme_override_font_sizes/font_size = 10
-text = "NO"
-horizontal_alignment = 1
+[node name="DialogueMenu" parent="NPCMenu" index="0" instance=ExtResource("8_trp3a")]
+offset_left = 64.0
+offset_top = 276.0
+offset_right = 576.0
+offset_bottom = 344.0

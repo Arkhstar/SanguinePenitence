@@ -2,5 +2,9 @@ class_name SaveData
 extends Resource
 
 static var altar_level : int = 0
-static var obols : int = 500
+static var obols : int = 0
 static var coinpurse : int = 1000
+
+static var hunter_name : String = "THE HUNTER"
+
+static var text_speed : float = 0.025
