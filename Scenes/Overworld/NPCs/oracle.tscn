@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://b1t20gm3a2mfw"]
+
+[ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_2kmc6"]
+[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/New Piskel (64).png" id="2_e0ju8"]
+[ext_resource type="Script" uid="uid://cs6iwq12pliol" path="res://Scripts/Overworld/NPCs/OracleMenu.gd" id="3_8i5tn"]
+[ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="4_qarlh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]
+atlas = ExtResource("2_e0ju8")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n671y"]
+atlas = ExtResource("2_e0ju8")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfn4u"]
+atlas = ExtResource("2_e0ju8")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7abx"]
+atlas = ExtResource("2_e0ju8")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2lgdb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbirl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n671y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfn4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7abx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uptt4"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_364ia"]
+size = Vector2(16, 16)
+
+[node name="Oracle" node_paths=PackedStringArray("menu") instance=ExtResource("1_2kmc6")]
+menu = NodePath("NPCMenu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_2lgdb")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_uptt4")
+debug_color = Color(0.15025258, 0.5402352, 0.9324259, 0.41960785)
+
+[node name="Front" type="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_364ia")
+debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
+
+[node name="Down" type="CollisionShape2D" parent="InteractArea" index="1"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_364ia")
+debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
+
+[node name="Up" type="CollisionShape2D" parent="InteractArea" index="2"]
+position = Vector2(0, -24)
+shape = SubResource("RectangleShape2D_364ia")
+debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
+
+[node name="Prompt" parent="." index="3"]
+position = Vector2(0, -16)
+
+[node name="NPCMenu" type="CanvasLayer" parent="." index="4"]
+visible = false
+script = ExtResource("3_8i5tn")
+metadata/_custom_type_script = "uid://bssy0u2hawra7"
+
+[node name="DialogueMenu" parent="NPCMenu" index="0" instance=ExtResource("4_qarlh")]
+offset_left = 64.0
+offset_top = 276.0
+offset_right = 576.0
+offset_bottom = 344.0
