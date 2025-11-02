@@ -12,14 +12,14 @@
 y_sort_enabled = true
 script = ExtResource("1_gepc6")
 
-[node name="Altar" parent="." instance=ExtResource("2_ir0rx")]
-position = Vector2(0, -96)
-
-[node name="OverworldPlayer" parent="." instance=ExtResource("1_ir0rx")]
-
-[node name="EnvironmentalSFXPlayer" type="AudioStreamPlayer" parent="."]
+[node name="WindSFX" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 script = ExtResource("4_kq7k0")
 sfx_variants = Array[AudioStreamOggVorbis]([ExtResource("5_q51a2"), ExtResource("6_vfogn"), ExtResource("7_rrfqv")])
 delay_range = Vector2(2.994, 4.989)
 metadata/_custom_type_script = "uid://cv3w3tcwu0mb8"
+
+[node name="Altar" parent="." instance=ExtResource("2_ir0rx")]
+position = Vector2(0, -96)
+
+[node name="OverworldPlayer" parent="." instance=ExtResource("1_ir0rx")]

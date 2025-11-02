@@ -29,3 +29,6 @@ func init() -> void:
 		elif option == 1:
 			print("GO HUNTING")
 		close()
+
+func update(_delta : float) -> void:
+	return

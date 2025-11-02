@@ -7,7 +7,8 @@ func init() -> void:
 	return
 
 func update(_delta : float) -> void:
-	return
+	if Input.is_action_just_pressed("menu_cancel"):
+		close()
 
 func open() -> void:
 	OverworldPlayer.i.ignore_input = true
@@ -26,8 +27,5 @@ func close() -> void:
 
 func _physics_process(delta: float) -> void:
 	if ignore_input:
-		return
-	if Input.is_action_just_pressed("menu_cancel"):
-		close()
 		return
 	update(delta)
