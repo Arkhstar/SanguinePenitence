@@ -11,6 +11,10 @@ extends NinePatchRect
 
 @onready var continue_texture : TextureRect = $Continue
 
+@onready var speak_sfx : AudioStreamPlayer = $Speak
+@onready var nav_sfx : AudioStreamPlayer = $Nav
+@onready var select_sfx : AudioStreamPlayer = $Select
+
 func speak(speaker : String, message : String, responses : PackedStringArray = []) -> int:
 	response_panel.hide()
 	continue_texture.hide()
@@ -41,10 +45,12 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 	var t : Tween = create_tween()
 	t.tween_property(message_label, "visible_ratio", 1.0, message.length() * SaveData.text_speed + message.count(".") * 2.0 * SaveData.text_speed)
 	t.play()
+	speak_sfx.play()
 	while message_label.visible_ratio < 1:
 		if Input.is_action_just_pressed("menu_select"):
 			t.custom_step(message.length() * 2.0)
 		await RenderingServer.frame_post_draw
+	speak_sfx.stop()
 	
 	if has_responses:
 		response_panel.show()
@@ -53,10 +59,13 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 		while true:
 			if Input.is_action_just_pressed("menu_up") or Input.is_action_just_pressed("menu_left"):
 				selection_index = (selection_index + response_count - 1) % response_count
+				nav_sfx.play()
 			if Input.is_action_just_pressed("menu_down") or Input.is_action_just_pressed("menu_right"):
 				selection_index = (selection_index + 1) % response_count
+				nav_sfx.play()
 			response_cursor.position.y = selection_index * 10 + 5
 			if Input.is_action_just_pressed("menu_select"):
+				select_sfx.play()
 				return selection_index
 			await RenderingServer.frame_post_draw
 	

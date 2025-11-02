@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cu63tcrki8836"]
+[gd_scene load_steps=7 format=3 uid="uid://cu63tcrki8836"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_0gpxh"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="2_6k22c"]
 [ext_resource type="Script" uid="uid://c1f7elid4ybgu" path="res://Scripts/Battle/BattleMenu.gd" id="2_qlj7u"]
+[ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/MenuNav.ogg" id="3_eq0h1"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="3_qlj7u"]
+[ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="4_2vk2f"]
 
 [node name="BattleMenu" type="NinePatchRect"]
 custom_minimum_size = Vector2(120, 58)
@@ -15,6 +17,14 @@ patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 script = ExtResource("2_qlj7u")
+
+[node name="Nav" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eq0h1")
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2vk2f")
+bus = &"SFX"
 
 [node name="Cursor" type="TextureRect" parent="."]
 layout_mode = 0
