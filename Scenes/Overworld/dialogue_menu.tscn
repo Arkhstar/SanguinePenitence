@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://7x8rt51478gl"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_yrffc"]
-[ext_resource type="Script" uid="uid://dp8cy17q7u8ch" path="res://DialogueMenu.gd" id="2_fkl7o"]
+[ext_resource type="Script" uid="uid://dp8cy17q7u8ch" path="res://Scripts/Overworld/DialogueMenu.gd" id="2_fkl7o"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_0hb4q"]
 [ext_resource type="AudioStream" uid="uid://budd0g77uroxe" path="res://Audio/SFX/Text.ogg" id="3_3sdso"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="4_3sdso"]
