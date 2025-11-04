@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=3 uid="uid://blewtsmqtxc4h"]
+
+[ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_ti7jp"]
+[ext_resource type="Script" uid="uid://b2x7f1vm3row3" path="res://Scripts/Overworld/NPCs/ObeliskNPC.gd" id="2_3hmdj"]
+[ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Shaders/Format.gdshader" id="2_68xkt"]
+[ext_resource type="Texture2D" uid="uid://dy507chy3bw1r" path="res://Textures/Overworld/Obelisk.png" id="3_ig6tg"]
+[ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="5_3peca"]
+[ext_resource type="Script" uid="uid://dae4cqcp4vr5u" path="res://Scripts/Overworld/NPCs/ObeliskMenu.gd" id="5_68xkt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hmw6v"]
+resource_local_to_scene = true
+shader = ExtResource("2_68xkt")
+shader_parameter/colors = PackedColorArray(0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.105882354, 0.1254902, 0.14509805, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ca1f"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmdj"]
+size = Vector2(16, 16)
+
+[node name="Obelisk" node_paths=PackedStringArray("menu") instance=ExtResource("1_ti7jp")]
+script = ExtResource("2_3hmdj")
+id = -1
+menu = NodePath("NPCMenu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_hmw6v")
+texture = ExtResource("3_ig6tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_4ca1f")
+debug_color = Color(0.15025258, 0.5402352, 0.9324259, 0.41960785)
+
+[node name="Down" type="CollisionShape2D" parent="InteractArea" index="0"]
+position = Vector2(0, 24)
+shape = SubResource("RectangleShape2D_3hmdj")
+debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
+
+[node name="Prompt" parent="." index="3"]
+position = Vector2(0, -16)
+
+[node name="NPCMenu" type="CanvasLayer" parent="." index="4"]
+visible = false
+script = ExtResource("5_68xkt")
+metadata/_custom_type_script = "uid://bssy0u2hawra7"
+
+[node name="DialogueMenu" parent="NPCMenu" index="0" instance=ExtResource("5_3peca")]
+offset_left = 64.0
+offset_top = 276.0
+offset_right = 576.0
+offset_bottom = 344.0

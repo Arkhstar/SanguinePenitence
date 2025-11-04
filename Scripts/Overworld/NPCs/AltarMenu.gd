@@ -6,11 +6,10 @@ extends NPCMenu
 func init() -> void:
 	if SaveData.altar_level <= 0:
 		await dialogue.speak("", "A LARGE STONE OBELISK STANDS BEFORE YOU, STARING WITH ITS DARK, STONE-CUT EYE.")
-		await dialogue.speak("", "ITS WHISPERS FLOWING THROUGH THE WIND, PERMEATING YOUR MIND.", [ "PRAY" ])
+		await dialogue.speak("", "ITS WHISPERS FLOW THROUGH THE WIND, PERMEATING YOUR MIND.", [ "PRAY" ])
 		await dialogue.speak("", "A COLD FEELING FLOWS THROUGH YOUR BODY... THOUGH IT IS STRANGELY COMFORTING.")
 		SaveData.altar_level = 1
 		MusicStreamPlayer.adjust_volume(1.0, 15.0)
-		close()
 	else:
 		var option : int = await dialogue.speak("", "YOU STAND BEFORE THE ALTAR.", [ "PRAY", "HUNT", "EXIT" ])
 		if option == 0:
@@ -30,8 +29,10 @@ func init() -> void:
 			await dialogue.speak(SaveData.hunter_name, "... ... ... ... ...")
 			await dialogue.speak(SaveData.hunter_name, "... DONA EIS REQUIEM.")
 		elif option == 1:
-			print("GO HUNTING")
-		close()
+			await MusicStreamPlayer.adjust_volume(0.0, 0.5)
+			get_tree().change_scene_to_file("res://Scenes/Overworld/wilds.tscn")
+			return
+	close()
 
 func update(_delta : float) -> void:
 	return

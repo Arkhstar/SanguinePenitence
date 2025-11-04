@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=3 uid="uid://cduk5m2h3yvpu"]
+
+[ext_resource type="Script" uid="uid://b8psrvx7ty6vu" path="res://Scripts/Overworld/Wilds.gd" id="1_fetjv"]
+[ext_resource type="PackedScene" uid="uid://blewtsmqtxc4h" path="res://Scenes/Overworld/NPCs/obelisk.tscn" id="1_mphsn"]
+[ext_resource type="Script" uid="uid://cv3w3tcwu0mb8" path="res://Scripts/Overworld/EnvironmentalSFXPlayer.gd" id="2_1w4wh"]
+[ext_resource type="PackedScene" uid="uid://cbtglvvw04xgn" path="res://Scenes/Overworld/overworld_player.tscn" id="2_fetjv"]
+[ext_resource type="AudioStream" uid="uid://djcd54onlaf6i" path="res://Audio/SFX/Wind1.ogg" id="3_iyytn"]
+[ext_resource type="AudioStream" uid="uid://dlktd8dcqp200" path="res://Audio/SFX/Wind2.ogg" id="4_tekcy"]
+[ext_resource type="AudioStream" uid="uid://bfwid2pinh53g" path="res://Audio/SFX/Wind3.ogg" id="5_vtncx"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5qddd"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8wsgh"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5tny2"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1w4wh"]
+normal = Vector2(-1, 0)
+
+[node name="Wilds" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_fetjv")
+
+[node name="WindSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+script = ExtResource("2_1w4wh")
+sfx_variants = Array[AudioStreamOggVorbis]([ExtResource("3_iyytn"), ExtResource("4_tekcy"), ExtResource("5_vtncx")])
+delay_range = Vector2(2.994, 4.989)
+metadata/_custom_type_script = "uid://cv3w3tcwu0mb8"
+
+[node name="Obelisk" parent="." instance=ExtResource("1_mphsn")]
+
+[node name="OverworldPlayer" parent="." instance=ExtResource("2_fetjv")]
+position = Vector2(0, 48)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="Floor" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 192)
+shape = SubResource("WorldBoundaryShape2D_5qddd")
+
+[node name="Ceiling" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -192)
+shape = SubResource("WorldBoundaryShape2D_8wsgh")
+
+[node name="Left" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-216, 0)
+shape = SubResource("WorldBoundaryShape2D_5tny2")
+
+[node name="Right" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(216, 0)
+shape = SubResource("WorldBoundaryShape2D_1w4wh")

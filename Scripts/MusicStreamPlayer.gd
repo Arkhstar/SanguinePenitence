@@ -4,6 +4,7 @@ enum Song { SILENCE, BATTLE, BATTLE2, TOWN, FOREST }
 
 var _current : Vector3 = Vector3(Song.SILENCE, 0, 0)
 var _cached_playback : Vector2 = Vector2(Song.SILENCE, 0)
+var _t : Tween
 
 func _get_playback_position() -> float:
 	return get_playback_position() + AudioServer.get_time_since_last_mix()
@@ -49,7 +50,12 @@ func _process(_delta : float) -> void:
 			seek(_current.z * 0.25 + _current.y)
 
 func adjust_volume(new_volume : float, change_time : float) -> void:
-	var t : Tween = create_tween()
-	t.tween_property(self, "volume_linear", new_volume, change_time)
-	t.play()
-	await t.finished
+	if _t:
+		_t.kill()
+	_t = create_tween()
+	_t.tween_property(self, "volume_linear", new_volume, change_time)
+	_t.play()
+	await _t.finished
+
+func get_playing() -> Song:
+	return int(_current.x) as Song
