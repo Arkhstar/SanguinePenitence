@@ -113,7 +113,8 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 	BattleTimer.i = BattleTimer.new()
 	BattleTimer.i.tempo = {
 		MusicStreamPlayer.Song.BATTLE : 180.0, # Wyrmchaser
-		MusicStreamPlayer.Song.BATTLE2 : 163.6 # Dona eis Requiem
+		MusicStreamPlayer.Song.BATTLE2 : 327.2, # Dona eis Requiem
+		MusicStreamPlayer.Song.BATTLE3 : 400.0 # 𝛂∧𝛚
 	}[song]
 	add_child(BattleTimer.i)
 	init_enemies()
