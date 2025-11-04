@@ -6,7 +6,7 @@ extends NPCMenu
 
 func init() -> void:
 	if npc.active:
-		if await dialogue.speak("", "RETURN TO TOWN?", ["YES", "NO"]) == 0:
+		if await dialogue.speak("", "RETURN TO TOWN?", ["NO", "YES"]) == 1:
 			await MusicStreamPlayer.adjust_volume(0.0, 0.5)
 			get_tree().change_scene_to_file("res://Scenes/Overworld/town.tscn")
 			return
