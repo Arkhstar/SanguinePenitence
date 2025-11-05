@@ -6,6 +6,13 @@ var targeting : TargetingType = TargetingType.RANDOM
 
 var next_target : int = -1
 
+func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, trgt : TargetingType) -> void:
+	super(dname, hp, strg, def, c_chance, c_dmg, spd)
+	targeting = trgt
+
+func clone() -> EnemyUnit:
+	return EnemyUnit.new(display_name, max_health, strength, defense, crit_chance, crit_damage, speed, targeting)
+
 func take_damage(amount : int) -> void:
 	if ATBTimerQTE.momentum > 100.0:
 		amount *= (1.1) ** ((ATBTimerQTE.momentum - 100.0) / 100.0)

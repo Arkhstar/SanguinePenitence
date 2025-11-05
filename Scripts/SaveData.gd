@@ -10,8 +10,20 @@ static var highest_altar_level : int = 0
 static var obols : int = 0
 static var coinpurse : int = 1000
 
-static var hunter_name : String = "THE HUNTER"
-
-static var text_speed : float = 0.025
+static var hunter_name : String = "THE HUNTER" :
+	set(v):
+		hunter_name = v
+		if hunter_unit:
+			hunter_unit.display_name = hunter_name
+static var hunter_unit : PlayerUnit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
 
 static var obelisks : int = 0
+
+static func load_defaults() -> void:
+	altar_level = 0
+	highest_altar_level = 0
+	obols = 0
+	coinpurse = 1000
+	hunter_name = "THE HUNTER"
+	hunter_unit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
+	obelisks = 0

@@ -24,6 +24,17 @@ var speed : float = 1.0 :
 enum StatusEffect { BURN, BLEED, CURSE, GREED, FAITHLESS, HEAVY }
 var effects : PackedInt32Array = [ 0, 0, 0, 0, 0, 0 ]
 
+func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float) -> void:
+	display_name = dname
+	max_health = hp
+	health = hp
+	strength = strg
+	defense = def
+	crit_chance = c_chance
+	crit_damage = c_dmg
+	speed = spd
+	effects = [ 0, 0, 0, 0, 0, 0 ]
+
 func calculate_damage_taken(attacker : BattleUnit, power : int = 0) -> int:
 	var damage : int = maxi(randi_range(attacker.strength, attacker.strength * 2 + power) - defense, 0)
 	if randf() < crit_chance:

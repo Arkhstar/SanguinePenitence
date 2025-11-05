@@ -3,6 +3,13 @@ extends BattleUnit
 
 var sharpness : int
 
+func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int) -> void:
+	super(dname, hp, strg, def, c_chance, c_dmg, spd)
+	sharpness = shrp
+
+func clone() -> PlayerUnit:
+	return PlayerUnit.new(display_name, max_health, strength, defense, crit_chance, crit_damage, speed, sharpness)
+
 func get_sharpness_rank() -> int:
 	if sharpness >= 250:
 		return 0x53

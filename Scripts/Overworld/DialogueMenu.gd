@@ -43,7 +43,7 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 		response_panel.position.y = -response_panel.size.y
 	
 	var t : Tween = create_tween()
-	t.tween_property(message_label, "visible_ratio", 1.0, message.length() * SaveData.text_speed + message.count(".") * 2.0 * SaveData.text_speed)
+	t.tween_property(message_label, "visible_ratio", 1.0, message.length() * Config.text_speed + message.count(".") * 2.0 * Config.text_speed)
 	t.play()
 	speak_sfx.play()
 	while message_label.visible_ratio < 1:
