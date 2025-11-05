@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://co8q15ud217x1"]
 
-[ext_resource type="Script" uid="uid://e070x7qg51s5" path="res://Monster.gd" id="1_xr5l1"]
+[ext_resource type="Script" uid="uid://e070x7qg51s5" path="res://Scripts/Overworld/Monsters/Monster.gd" id="1_xr5l1"]
 [ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/New Piskel (64).png" id="2_a8mf0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]

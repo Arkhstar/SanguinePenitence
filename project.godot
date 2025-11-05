@@ -14,7 +14,7 @@ config/name="Sanguine Penitence"
 run/main_scene="uid://s11apsamxq77"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="uid://1xlf3ok5umne"
 
 [autoload]
 
@@ -33,7 +33,6 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/sharp_corners=true
 window/size/minimize_disabled=true
-window/size/maximize_disabled=true
 window/stretch/mode="viewport"
 window/snap/snap_2d_vertices_to_pixel=false
 window/max_fps=60
