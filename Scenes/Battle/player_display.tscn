@@ -114,6 +114,15 @@ offset_right = 118.0
 offset_bottom = 15.0
 texture = ExtResource("6_kpfor")
 
+[node name="QTE" type="Label" parent="ATB"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 4.0
+offset_right = 58.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("3_2ctrw")
+theme_override_font_sizes/font_size = 10
+
 [node name="StatusIcon1" parent="." instance=ExtResource("3_uyyq0")]
 material = SubResource("ShaderMaterial_kpfor")
 position = Vector2(15, 59)

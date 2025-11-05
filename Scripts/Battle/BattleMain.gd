@@ -68,6 +68,11 @@ func on_atb_timeout(index : int) -> void:
 
 func menu_selection(option : int) -> void:
 	if option <= 1:
+		if option == 1:
+			if units[acting].reagent <= 0:
+				menu.fail_sfx.play()
+				return
+		menu.select_sfx.play()
 		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].filter(func(element : bool) -> bool: return element).size() > 1:
 			selection = option
 			await selector.set_targeting_enemies()

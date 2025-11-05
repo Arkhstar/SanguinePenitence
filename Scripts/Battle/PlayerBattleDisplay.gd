@@ -7,6 +7,7 @@ extends NinePatchRect
 @onready var _icons : Array[StatusIcon] = [ $StatusIcon1, $StatusIcon2, $StatusIcon3, $StatusIcon4, $StatusIcon5, $StatusIcon6 ]
 @onready var _timer : TextureProgressBar = $ATB
 @onready var _indicators : Array[TargetIndicator] = [ $HBoxContainer/Control1/TargetIndicator, $HBoxContainer/Control2/TargetIndicator, $HBoxContainer/Control3/TargetIndicator, $HBoxContainer/Control4/TargetIndicator ]
+@onready var _qte : Label = $ATB/QTE
 
 var unit : PlayerUnit = null :
 	set(v):
@@ -16,6 +17,8 @@ var unit : PlayerUnit = null :
 var atb : ATBTimer = null :
 	set(v):
 		atb = v
+		if atb:
+			atb.update_qte.connect(set_qte_popup)
 		update()
 
 func update() -> void:
@@ -47,3 +50,9 @@ func release_targeted(by : int) -> void:
 
 func cancel_targeted(by : int) -> void:
 	_indicators[by].enqueue(2)
+
+func set_qte_popup(qte : int) -> void:
+	if qte >= 0:
+		_qte.text = str(qte)
+	else:
+		_qte.text = ""

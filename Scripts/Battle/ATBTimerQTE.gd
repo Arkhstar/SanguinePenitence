@@ -2,8 +2,12 @@ class_name ATBTimerQTE
 extends ATBTimer
 
 signal hit_qte
+signal update_qte
 
-var qte_input : int = -1
+var qte_input : int = -1 :
+	set(v):
+		qte_input = v
+		update_qte.emit(qte_input)
 var recency : float = 0.0
 var pulses : int = 0
 var epsilon : float = 0.1

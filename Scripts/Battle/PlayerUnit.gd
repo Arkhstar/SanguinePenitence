@@ -2,6 +2,7 @@ class_name PlayerUnit
 extends BattleUnit
 
 var sharpness : int
+var reagent : int
 
 func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int) -> void:
 	super(dname, hp, strg, def, c_chance, c_dmg, spd)

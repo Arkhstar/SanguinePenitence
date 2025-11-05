@@ -7,6 +7,7 @@ var last : Node = null
 
 func _ready() -> void:
 	i = self
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	SaveData.load_defaults()
 	call_deferred("change_scene", "res://Scenes/Overworld/town.tscn")
 
