@@ -67,8 +67,6 @@ func on_atb_timeout(index : int) -> void:
 		enemy_ai(index)
 
 func menu_selection(option : int) -> void:
-	print("OPTION %d" % option)
-	
 	if option <= 1:
 		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].filter(func(element : bool) -> bool: return element).size() > 1:
 			selection = option
@@ -77,10 +75,16 @@ func menu_selection(option : int) -> void:
 			menu.ignore_input = true
 			return
 		else:
-			print("auto", option)
+			for i : int in 4:
+				if units[i + 4]:
+					if units[acting].determine_attack_hits(units[i + 4]):
+						print("Hit: %d" % (i + 4))
+						units[i + 4].is_hit(units[acting], 0)
+					else:
+						print("MISS: %d" % (i + 4))
 	
 	#TODO respond to action
-	
+	menu.ignore_input = true
 	menu.hide()
 	timers[acting].reset() # vary with selected option
 	BattleTimer.i.paused = false
