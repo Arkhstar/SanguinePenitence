@@ -1,7 +1,19 @@
 class_name BattleMain
 extends Node
 
-var units : Array[BattleUnit] = [ PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), PlayerUnit.new(), null, EnemyUnit.new(), null, EnemyUnit.new() ]
+enum VictoryState { INIT, UNDETERMINED, WIN, LOSE }
+var victory_state : VictoryState = VictoryState.INIT :
+	set(v):
+		victory_state = v
+		if v == VictoryState.LOSE:
+			var t : Tween = create_tween()
+			t.tween_property($LoseScreen/CanvasGroup, "modulate", Color.WHITE, 2.0).set_trans(Tween.TransitionType.TRANS_SINE)
+			t.play()
+		elif v == VictoryState.WIN:
+			SaveData.obols += randi_range(30, 150)
+			Main.i.change_to_overworld_from_battle()
+
+var units : Array[BattleUnit] = [ SaveData.hunter_unit, null, null, null, null, null, null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
@@ -131,11 +143,11 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 	BattleTimer.i.static_pulse.connect(selector.pulse_anim)
 	BattleTimer.i.static_pulse.connect($MetronomeVFX.pulse)
 	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
+	victory_state = VictoryState.UNDETERMINED
 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
 	selector.selection.connect(selector_selection)
-	init_combat(MusicStreamPlayer.Song.BATTLE)
 
 func _process(_delta: float) -> void:
 	for display : PlayerBattleDisplay in player_displays:
@@ -144,6 +156,18 @@ func _process(_delta: float) -> void:
 		display.update()
 
 func _physics_process(_delta: float) -> void:
+	if victory_state == VictoryState.UNDETERMINED:
+		var alive : Array[BattleUnit] = units.filter(func(element : BattleUnit) -> bool: return element and element.health > 0)
+		if not alive.any(func(element : BattleUnit) -> bool: return element is EnemyUnit):
+			victory_state = VictoryState.WIN
+			BattleTimer.i.paused = true
+			return
+		if not alive.any(func(element : BattleUnit) -> bool: return element is PlayerUnit):
+			victory_state = VictoryState.LOSE
+			BattleTimer.i.paused = true
+			return
+	else:
+		return
 	if acting == -1 and ready_to_act.size() > 0:
 		BattleTimer.i.paused = true
 		acting = ready_to_act[0]

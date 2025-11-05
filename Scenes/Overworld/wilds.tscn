@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cduk5m2h3yvpu"]
+[gd_scene load_steps=13 format=3 uid="uid://cduk5m2h3yvpu"]
 
 [ext_resource type="Script" uid="uid://b8psrvx7ty6vu" path="res://Scripts/Overworld/Wilds.gd" id="1_fetjv"]
 [ext_resource type="PackedScene" uid="uid://blewtsmqtxc4h" path="res://Scenes/Overworld/NPCs/obelisk.tscn" id="1_mphsn"]
 [ext_resource type="Script" uid="uid://cv3w3tcwu0mb8" path="res://Scripts/Overworld/EnvironmentalSFXPlayer.gd" id="2_1w4wh"]
 [ext_resource type="PackedScene" uid="uid://cbtglvvw04xgn" path="res://Scenes/Overworld/overworld_player.tscn" id="2_fetjv"]
+[ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="2_iyytn"]
 [ext_resource type="AudioStream" uid="uid://djcd54onlaf6i" path="res://Audio/SFX/Wind1.ogg" id="3_iyytn"]
 [ext_resource type="AudioStream" uid="uid://dlktd8dcqp200" path="res://Audio/SFX/Wind2.ogg" id="4_tekcy"]
 [ext_resource type="AudioStream" uid="uid://bfwid2pinh53g" path="res://Audio/SFX/Wind3.ogg" id="5_vtncx"]
@@ -22,6 +23,9 @@ normal = Vector2(-1, 0)
 [node name="Wilds" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_fetjv")
+
+[node name="Monster" parent="." instance=ExtResource("2_iyytn")]
+position = Vector2(48, -24)
 
 [node name="WindSFX" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"

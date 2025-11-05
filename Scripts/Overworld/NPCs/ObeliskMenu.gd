@@ -8,7 +8,7 @@ func init() -> void:
 	if npc.active:
 		if await dialogue.speak("", "RETURN TO TOWN?", ["NO", "YES"]) == 1:
 			await MusicStreamPlayer.adjust_volume(0.0, 0.5)
-			get_tree().change_scene_to_file("res://Scenes/Overworld/town.tscn")
+			Main.i.change_scene("res://Scenes/Overworld/town.tscn")
 			return
 	else:
 		if await dialogue.speak("", "A FAINT HUM CAN BE HEARD FROM THE STONE OBELISK...", [] if SaveData.obols < 50 else ["PAY 50 OBOLS", "EXIT"]) == 0:
