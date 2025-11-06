@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://co8q15ud217x1"]
 
 [ext_resource type="Script" uid="uid://e070x7qg51s5" path="res://Scripts/Overworld/Monsters/Monster.gd" id="1_xr5l1"]
-[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/New Piskel (64).png" id="2_a8mf0"]
+[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/TheOracle.png" id="2_a8mf0"]
 [ext_resource type="AudioStream" uid="uid://c0wns8xy557qn" path="res://Audio/SFX/InitiateCombat.ogg" id="2_hcxg1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]

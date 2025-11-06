@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b1t20gm3a2mfw"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_2kmc6"]
-[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/New Piskel (64).png" id="2_e0ju8"]
+[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/TheOracle.png" id="2_e0ju8"]
 [ext_resource type="Script" uid="uid://cs6iwq12pliol" path="res://Scripts/Overworld/NPCs/OracleMenu.gd" id="3_8i5tn"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="4_qarlh"]
 
