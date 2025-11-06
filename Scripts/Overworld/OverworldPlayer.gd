@@ -7,6 +7,7 @@ var ignore_input : bool = false
 var is_moving : bool = false
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var cam : Camera2D = $AnimatedSprite2D/Camera2D
 @onready var ray : RayCast2D = $RayCast2D
 
 func check_for_collision_by_ray(d : Vector2) -> bool:
@@ -33,12 +34,12 @@ func _physics_process(_delta: float) -> void:
 		var direction : Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 		direction = Vector2(signf(direction.x) * roundf(absf(direction.x)), signf(direction.y) * roundf(absf(direction.y)))
 		if direction:
-			if check_for_collision_by_ray(direction):
-				move(direction)
 			if direction.x < 0:
 				sprite.flip_h = true
 			elif direction.x > 0:
 				sprite.flip_h = false
+			if check_for_collision_by_ray(direction):
+				move(direction)
 
 func _ready() -> void:
 	i = self

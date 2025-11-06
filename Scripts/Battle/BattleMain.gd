@@ -165,6 +165,7 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 	BattleTimer.i.static_pulse.connect($MetronomeVFX.pulse)
 	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
 	victory_state = VictoryState.UNDETERMINED
+	TransitionScreen.fade_out(0.25)
 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)

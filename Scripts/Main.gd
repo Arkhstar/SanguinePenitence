@@ -40,6 +40,8 @@ func change_to_overworld_from_battle() -> void:
 	remove_child(current)
 	add_child(last)
 	current = last
+	OverworldPlayer.i.cam.rotation = 0.0;
+	OverworldPlayer.i.cam.zoom = Vector2(1.0, 1.0);
 	last = null
 	MusicStreamPlayer.adjust_volume(1.0, 0.5)
 	await TransitionScreen.fade_out()

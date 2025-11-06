@@ -56,10 +56,11 @@ enabled = false
 collision_mask = 9
 collide_with_areas = true
 
-[node name="OverworldHUD" parent="." instance=ExtResource("2_q1fdx")]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1fdx")
 autoplay = "default"
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
+ignore_rotation = false
+
+[node name="OverworldHUD" parent="." instance=ExtResource("2_q1fdx")]
