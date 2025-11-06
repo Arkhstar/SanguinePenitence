@@ -12,7 +12,7 @@ var index : int = 0
 
 @onready var nav_sfx : AudioStreamPlayer = $Nav
 @onready var select_sfx : AudioStreamPlayer = $Select
-@onready var fail_sfx : AudioStreamPlayer = $Select
+@onready var fail_sfx : AudioStreamPlayer = $Fail
 
 func _physics_process(_delta: float) -> void:
 	if ignore_input:

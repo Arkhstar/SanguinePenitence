@@ -11,43 +11,41 @@ var player : bool = false
 
 func set_targeting_players() -> void:
 	index = -1
-	inc_index()
 	player = true
+	flip_v = true
+	inc_index()
+	update_position()
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	ignore_input = false
 
 func set_targeting_enemies() -> void:
 	index = -1
-	inc_index()
 	player = false
+	flip_v = false
+	inc_index()
+	update_position()
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
 	ignore_input = false
 
 func dec_index() -> void:
-	if player:
-		for i : int in 4:
-			if not displays[(index + i + 3) % 4]._health.text.contains("HP: %3d" % 0):
-				index = (index + i + 3) % 4
-				return
-	else:
-		for i : int in 4:
-			if displays[(index + i * 3 + 3) % 4 + 4].visible:
-				index = (index + i * 3 + 3) % 4
-				return
+	for i : int in 4:
+		var next_idx : int = (index + i * 3 + 3) % 4
+		if not player:
+			next_idx += 4
+		if displays[next_idx].visible and displays[next_idx].unit and displays[next_idx].unit.health > 0:
+			index = next_idx
+			return
 
 func inc_index() -> void:
-	if player:
-		for i : int in 4:
-			if not displays[(index + i + 1) % 4]._health.text.contains("HP: %3d" % 0):
-				index = (index + i + 1) % 4
-				return
-	else:
-		for i : int in 4:
-			if displays[(index + i + 1) % 4 + 4].visible:
-				index = (index + i + 1) % 4
-				return
+	for i : int in 4:
+		var next_idx : int = (index + i + 1) % 4
+		if not player:
+			next_idx += 4
+		if displays[next_idx].visible and displays[next_idx].unit and displays[next_idx].unit.health > 0:
+			index = next_idx
+			return
 
 func _physics_process(_delta: float) -> void:
 	if ignore_input:
@@ -57,15 +55,20 @@ func _physics_process(_delta: float) -> void:
 		dec_index()
 	if Input.is_action_just_pressed("menu_down") or Input.is_action_just_pressed("menu_right"):
 		inc_index()
-	if player:
-		global_position = displays[index].global_position + Vector2(52.0, -18.0)
-	else:
-		global_position = displays[index + 4].global_position + Vector2(52.0, 37.0)
+	
+	update_position()
+	
 	if Input.is_action_just_pressed("menu_select"):
-		selection.emit(index if player else index + 4)
+		selection.emit(index)
 		return
 	if Input.is_action_just_pressed("menu_cancel"):
 		selection.emit(-1)
+
+func update_position() -> void:
+	if player:
+		global_position = displays[index].global_position + Vector2(52.0, -18.0)
+	else:
+		global_position = displays[index].global_position + Vector2(52.0, 37.0)
 
 func pulse_anim() -> void:
 	flip_h = not flip_h

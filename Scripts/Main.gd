@@ -26,12 +26,13 @@ func change_scene(file_name : String, in_vol : float = 1.0) -> void:
 func change_to_battle_from_overworld(encounter : Array, song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) -> void:
 	last = current
 	remove_child(last)
-	var scene : Node = preload("res://Scenes/Battle/battle_main.tscn").instantiate()
+	var scene : BattleMain = preload("res://Scenes/Battle/battle_main.tscn").instantiate()
 	current = scene
 	add_child(current)
 	for idx : int in mini(encounter.size(), 4):
-		(current as BattleMain).units[idx + 4] = encounter[idx].clone()
-	(current as BattleMain).init_combat(song)
+		if encounter[idx]:
+			scene.units[idx + 4] = encounter[idx].clone()
+	scene.init_combat(song)
 
 func change_to_overworld_from_battle() -> void:
 	MusicStreamPlayer.adjust_volume(0.0, 0.5)

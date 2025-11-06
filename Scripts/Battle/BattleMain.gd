@@ -85,8 +85,21 @@ func menu_selection(option : int) -> void:
 						units[i + 4].is_hit(units[acting], 0)
 					else:
 						print("MISS: %d" % (i + 4))
+	elif option == 4:
+		if [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1:
+			menu.select_sfx.play()
+			selection = option
+			await selector.set_targeting_players()
+			selector.show()
+			menu.ignore_input = true
+			return
+		menu.fail_sfx.play()
+		return
+	else:
+		#TODO: reagent &/| item was chosen
+		menu.fail_sfx.play() # for now, default to failure
+		return
 	
-	#TODO respond to action
 	menu.ignore_input = true
 	menu.hide()
 	timers[acting].reset() # vary with selected option
