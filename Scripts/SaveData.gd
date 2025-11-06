@@ -10,6 +10,8 @@ static var highest_altar_level : int = 0
 static var obols : int = 0
 static var coinpurse : int = 1000
 
+static var inventory : Inventory = Inventory.new()
+
 static var hunter_name : String = "THE HUNTER" :
 	set(v):
 		hunter_name = v
@@ -25,5 +27,5 @@ static func load_defaults() -> void:
 	obols = 0
 	coinpurse = 1000
 	hunter_name = "THE HUNTER"
-	hunter_unit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
+	hunter_unit = PlayerUnit.new(hunter_name, 5, 10, 10, 0.01, 1.5, 10, 99)
 	obelisks = 0

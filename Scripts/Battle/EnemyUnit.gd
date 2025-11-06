@@ -6,9 +6,12 @@ var targeting : TargetingType = TargetingType.RANDOM
 
 var next_target : int = -1
 
-func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, trgt : TargetingType) -> void:
+var grade : Inventory.MonsterPartGrade = Inventory.MonsterPartGrade.GRADE_D
+
+func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, trgt : TargetingType, grd : Inventory.MonsterPartGrade = Inventory.MonsterPartGrade.GRADE_D) -> void:
 	super(dname, hp, strg, def, c_chance, c_dmg, spd)
 	targeting = trgt
+	grade = grd
 
 func clone() -> EnemyUnit:
 	return EnemyUnit.new(display_name, max_health, strength, defense, crit_chance, crit_damage, speed, targeting)
@@ -72,3 +75,6 @@ func is_hit(attacker : PlayerUnit, power : int, spell : int = -1) -> void:
 		determine_spell_effects(spell)
 	print("Enemy %s took %d damage!" % [display_name, damage])
 	take_damage(damage)
+
+func determine_attack_hits(defender : BattleUnit) -> bool:
+	return (randf_range(speed, speed * 2.0) - defender.speed / 8.0) / (speed) > 0 or randf() > 0.99

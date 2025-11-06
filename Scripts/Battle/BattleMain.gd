@@ -6,9 +6,7 @@ var victory_state : VictoryState = VictoryState.INIT :
 	set(v):
 		victory_state = v
 		if v == VictoryState.LOSE:
-			var t : Tween = create_tween()
-			t.tween_property($LoseScreen/CanvasGroup, "modulate", Color.WHITE, 2.0).set_trans(Tween.TransitionType.TRANS_SINE)
-			t.play()
+			$LoseScreen.activate()
 		elif v == VictoryState.WIN:
 			SaveData.obols += randi_range(30, 150)
 			Main.i.change_to_overworld_from_battle()

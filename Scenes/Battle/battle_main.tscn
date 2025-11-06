@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpn4jf4yb63oi" path="res://Scenes/Battle/player_display.tscn" id="4_uee53"]
 [ext_resource type="Script" uid="uid://cy5uw7ijrs0q0" path="res://Scripts/Battle/BattleSelector.gd" id="5_afmo2"]
 [ext_resource type="PackedScene" uid="uid://cu63tcrki8836" path="res://Scenes/Battle/battle_menu.tscn" id="5_ms5iv"]
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="10_gu3p6"]
+[ext_resource type="PackedScene" uid="uid://cr8piigg6on3p" path="res://Scenes/Battle/battle_lose_screen.tscn" id="10_gu3p6"]
 
 [sub_resource type="Gradient" id="Gradient_jgkco"]
 interpolation_mode = 2
@@ -94,22 +94,4 @@ offset_bottom = 16.0
 texture = ExtResource("4_kn1ym")
 script = ExtResource("5_afmo2")
 
-[node name="LoseScreen" type="CanvasLayer" parent="."]
-
-[node name="CanvasGroup" type="CanvasGroup" parent="LoseScreen"]
-modulate = Color(1, 1, 1, 0)
-
-[node name="ColorRect" type="ColorRect" parent="LoseScreen/CanvasGroup"]
-offset_right = 640.0
-offset_bottom = 360.0
-color = Color(0.105882354, 0.1254902, 0.14509805, 1)
-
-[node name="Label" type="Label" parent="LoseScreen/CanvasGroup"]
-offset_left = 240.0
-offset_top = 170.0
-offset_right = 400.0
-offset_bottom = 190.0
-theme_override_colors/font_color = Color(0.38431373, 0.12156863, 0.19215687, 1)
-theme_override_fonts/font = ExtResource("10_gu3p6")
-theme_override_font_sizes/font_size = 20
-text = "YOU DIED"
+[node name="LoseScreen" parent="." instance=ExtResource("10_gu3p6")]

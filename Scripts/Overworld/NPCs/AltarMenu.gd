@@ -29,7 +29,6 @@ func init() -> void:
 			await dialogue.speak(SaveData.hunter_name, "... ... ... ... ...")
 			await dialogue.speak(SaveData.hunter_name, "... DONA EIS REQUIEM.")
 		elif option == 1:
-			await MusicStreamPlayer.adjust_volume(0.0, 0.5)
 			Main.i.change_scene("res://Scenes/Overworld/wilds.tscn")
 			return
 	close()

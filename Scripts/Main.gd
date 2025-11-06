@@ -9,15 +9,19 @@ func _ready() -> void:
 	i = self
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	SaveData.load_defaults()
-	call_deferred("change_scene", "res://Scenes/Overworld/town.tscn")
+	call_deferred("change_scene", "res://Scenes/Overworld/town.tscn", 0.0)
 
-func change_scene(file_name : String) -> void:
+func change_scene(file_name : String, in_vol : float = 1.0) -> void:
+	MusicStreamPlayer.adjust_volume(0.0, 0.5)
+	await TransitionScreen.fade_in()
 	last = current
 	if last:
 		remove_child(last)
 	var scene : Node = load(file_name).instantiate()
 	current = scene
 	add_child(current)
+	MusicStreamPlayer.adjust_volume(in_vol, 0.5)
+	await TransitionScreen.fade_out()
 
 func change_to_battle_from_overworld(encounter : Array, song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) -> void:
 	last = current
@@ -33,4 +37,11 @@ func change_to_overworld_from_battle() -> void:
 	remove_child(current)
 	add_child(last)
 	current = last
+	last = null
+
+func die() -> void:
+	SaveData.inventory.lose_monster_parts()
+	SaveData.hunter_unit.health = SaveData.hunter_unit.max_health / 2
+	SaveData.hunter_unit.sharpness -= 30
+	change_scene("res://Scenes/Overworld/town.tscn")
 	last = null

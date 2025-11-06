@@ -46,7 +46,7 @@ func calculate_damage_taken(attacker : BattleUnit, power : int = 0) -> int:
 	return damage
 
 func determine_attack_hits(defender : BattleUnit) -> bool:
-	return (randf_range(speed, speed * 2.0) - defender.speed) / (speed) > 0 or randf() > 0.99
+	return (randf_range(speed, speed * 2.0) - defender.speed * 8) / (speed) > 0 or randf() > 0.99
 
 func take_damage(amount : int) -> void:
 	health = move_toward(health, 0, amount)

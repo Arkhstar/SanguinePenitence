@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3tx428d51ww8"]
+
+[ext_resource type="Script" uid="uid://bicmyiorgl4td" path="res://Scripts/TransitionScreen.gd" id="1_c4g4b"]
+
+[node name="TransitionScreen" type="CanvasLayer"]
+layer = 80
+script = ExtResource("1_c4g4b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.105882354, 0.1254902, 0.14509805, 1)

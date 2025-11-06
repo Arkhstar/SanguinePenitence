@@ -20,6 +20,7 @@ config/icon="uid://1xlf3ok5umne"
 
 FlowerwallCRT="*res://Scenes/flowerwall_crt.tscn"
 MusicStreamPlayer="*res://Scenes/music_stream_player.tscn"
+TransitionScreen="*res://Scenes/transition_screen.tscn"
 
 [debug]
 
