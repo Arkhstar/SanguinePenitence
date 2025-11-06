@@ -76,6 +76,9 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 			await RenderingServer.frame_post_draw
 	
 	continue_texture.show()
+	timer.start()
+	while timer.time_left > 0:
+		await RenderingServer.frame_post_draw
 	while true:
 			if Input.is_action_just_pressed("menu_select"):
 				break

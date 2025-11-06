@@ -6,7 +6,7 @@ extends NPCMenu
 
 func init() -> void:
 	if npc.active:
-		if await dialogue.speak("", "RETURN TO TOWN?", ["NO", "YES"]) == 1:
+		if await dialogue.speak("", "RETURN TO TOWN?", ["YES", "NO"]) == 0:
 			Main.i.change_scene("res://Scenes/Overworld/town.tscn")
 			return
 	else:
