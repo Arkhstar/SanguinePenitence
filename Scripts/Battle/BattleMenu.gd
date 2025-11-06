@@ -4,6 +4,7 @@ extends NinePatchRect
 signal selection
 
 var ignore_input : bool = true
+@onready var timer : Timer = $Timer
 
 @onready var pointer : TextureRect = $Cursor
 @onready var options : Array[Label] = [ $Attack, $Cast, $Reagent, $Item, $Support ]
@@ -25,3 +26,9 @@ func _physics_process(_delta: float) -> void:
 	pointer.position.y = options[index].position.y
 	if Input.is_action_just_pressed("menu_select"):
 		selection.emit(index)
+
+func activate() -> void:
+	timer.start()
+	while timer.time_left > 0:
+		await RenderingServer.frame_post_draw
+	ignore_input = false

@@ -138,6 +138,7 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 	add_child(BattleTimer.i)
 	init_enemies()
 	init_players()
+	MusicStreamPlayer.volume_linear = 1.0
 	MusicStreamPlayer.play_music(song)
 	BattleTimer.i.resync()
 	for u : BattleUnit in units:
@@ -182,4 +183,4 @@ func _physics_process(_delta: float) -> void:
 		menu.index = 0
 		menu.reparent(player_displays[acting], false)
 		menu.show()
-		menu.ignore_input = false
+		menu.activate()

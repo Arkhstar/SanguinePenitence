@@ -19,6 +19,10 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 script = ExtResource("2_fkl7o")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
+
 [node name="Speak" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3sdso")
 bus = &"SFX"

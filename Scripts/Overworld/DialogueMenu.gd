@@ -15,6 +15,8 @@ extends NinePatchRect
 @onready var nav_sfx : AudioStreamPlayer = $Nav
 @onready var select_sfx : AudioStreamPlayer = $Select
 
+@onready var timer : Timer = $Timer
+
 func speak(speaker : String, message : String, responses : PackedStringArray = []) -> int:
 	response_panel.hide()
 	continue_texture.hide()
@@ -56,6 +58,10 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 		response_panel.show()
 		var selection_index : int = 0
 		var response_count : int = responses.size()
+		response_cursor.position.y = selection_index * 10 + 5
+		timer.start()
+		while timer.time_left > 0:
+			await RenderingServer.frame_post_draw
 		while true:
 			if Input.is_action_just_pressed("menu_up") or Input.is_action_just_pressed("menu_left"):
 				selection_index = (selection_index + response_count - 1) % response_count
