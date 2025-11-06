@@ -27,5 +27,5 @@ static func load_defaults() -> void:
 	obols = 0
 	coinpurse = 1000
 	hunter_name = "THE HUNTER"
-	hunter_unit = PlayerUnit.new(hunter_name, 5, 10, 10, 0.01, 1.5, 10, 99)
+	hunter_unit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
 	obelisks = 0

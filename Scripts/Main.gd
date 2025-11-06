@@ -34,10 +34,15 @@ func change_to_battle_from_overworld(encounter : Array, song : MusicStreamPlayer
 	(current as BattleMain).init_combat(song)
 
 func change_to_overworld_from_battle() -> void:
+	MusicStreamPlayer.adjust_volume(0.0, 0.5)
+	await TransitionScreen.fade_in()
 	remove_child(current)
 	add_child(last)
 	current = last
 	last = null
+	MusicStreamPlayer.adjust_volume(1.0, 0.5)
+	await TransitionScreen.fade_out()
+	OverworldPlayer.i.ignore_input = false
 
 func die() -> void:
 	SaveData.inventory.lose_monster_parts()
