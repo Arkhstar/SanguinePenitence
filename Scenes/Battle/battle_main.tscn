@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://b8256cbiq6ert"]
+[gd_scene load_steps=18 format=3 uid="uid://b8256cbiq6ert"]
 
 [ext_resource type="Script" uid="uid://dumqr2w76iscr" path="res://Scripts/Battle/BattleMain.gd" id="1_dqhr1"]
 [ext_resource type="Script" uid="uid://d4khfsrd4rgfk" path="res://Scripts/Battle/PulseVFX.gd" id="2_5rqxd"]
 [ext_resource type="PackedScene" uid="uid://bgygg6h1hrqa3" path="res://Scenes/Battle/enemy_display.tscn" id="2_jgkco"]
+[ext_resource type="Shader" uid="uid://cbb4dolpnae0h" path="res://Shaders/Earthbound-Like Battle Background.gdshader" id="2_k1mlu"]
+[ext_resource type="Texture2D" uid="uid://8n0vuw4ojm2v" path="res://Textures/BattleBackground.png" id="3_ga0jf"]
 [ext_resource type="Texture2D" uid="uid://bpl87qtgwscre" path="res://Textures/UI/MetronomeVFX.png" id="3_s71ft"]
 [ext_resource type="Script" uid="uid://bv8urktg0xrfp" path="res://Scripts/Battle/MetronomeVFX.gd" id="4_4q2wc"]
 [ext_resource type="Texture2D" uid="uid://cebg481cko066" path="res://Textures/UI/SelectorLarge.png" id="4_kn1ym"]
@@ -11,10 +13,35 @@
 [ext_resource type="PackedScene" uid="uid://cu63tcrki8836" path="res://Scenes/Battle/battle_menu.tscn" id="5_ms5iv"]
 [ext_resource type="PackedScene" uid="uid://cr8piigg6on3p" path="res://Scenes/Battle/battle_lose_screen.tscn" id="10_gu3p6"]
 
+[sub_resource type="Gradient" id="Gradient_ga0jf"]
+offsets = PackedFloat32Array(0, 0.07, 0.145, 0.216, 0.79, 0.86, 0.93, 1)
+colors = PackedColorArray(0.05882353, 0.07058824, 0.08627451, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.22352941, 0.2509804, 0.2784314, 1, 0.105882354, 0.1254902, 0.14509805, 1, 0.05882353, 0.07058824, 0.08627451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dlgqw"]
+gradient = SubResource("Gradient_ga0jf")
+width = 32
+height = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga0jf"]
+resource_local_to_scene = true
+shader = ExtResource("2_k1mlu")
+shader_parameter/screen_height = 640.0
+shader_parameter/amplitude = 0.08
+shader_parameter/frequency = 3.0
+shader_parameter/speed = -0.75
+shader_parameter/amplitude_vertical = 0.0
+shader_parameter/frequency_vertical = 0.0
+shader_parameter/speed_vertical = 0.0
+shader_parameter/scroll_direction = Vector2(0, 0)
+shader_parameter/scrolling_speed = 0.08
+shader_parameter/enable_palette_cycling = true
+shader_parameter/palette = SubResource("GradientTexture2D_dlgqw")
+shader_parameter/palette_speed = -0.08
+
 [sub_resource type="Gradient" id="Gradient_jgkco"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.4862745, 0.4862745, 0.4862745, 0, 0.28627452, 0.3137255, 0.34509805, 0.24705882)
+colors = PackedColorArray(0, 0, 0, 0, 0.38431373, 0.12156863, 0.19215687, 0, 0.38431373, 0.12156863, 0.19215687, 0.24705882)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5rqxd"]
 gradient = SubResource("Gradient_jgkco")
@@ -25,6 +52,14 @@ fill_from = Vector2(0.5, 0.5)
 
 [node name="BattleMain" type="Node"]
 script = ExtResource("1_dqhr1")
+
+[node name="BackgroundEffect" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ga0jf")
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("3_ga0jf")
+stretch_mode = 1
 
 [node name="PulseVFX" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)

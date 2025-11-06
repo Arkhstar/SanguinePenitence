@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ijtbfjwtkvkq" path="res://Scripts/Battle/PlayerBattleDisplay.gd" id="2_uyyq0"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_2ctrw"]
 [ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/status_icon.tscn" id="3_uyyq0"]
-[ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1Bit.gdshader" id="4_q1ej7"]
+[ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1-Bit Color Swap.gdshader" id="4_q1ej7"]
 [ext_resource type="Texture2D" uid="uid://dqjket30mlljk" path="res://Textures/UI/ATBBarEmpty.png" id="4_uyyq0"]
 [ext_resource type="Texture2D" uid="uid://bxxg4daw1shba" path="res://Textures/UI/ATBBarFull.png" id="5_q1ej7"]
 [ext_resource type="Texture2D" uid="uid://iwk3jrmjp3jm" path="res://Textures/UI/ATBBarCap.png" id="6_kpfor"]
