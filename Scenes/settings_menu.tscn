@@ -1,14 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbej46e2c7a4t"]
+[gd_scene load_steps=8 format=3 uid="uid://dbej46e2c7a4t"]
 
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/MenuNav.ogg" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://cn28n71olr0wd" path="res://Scripts/SettingsMenu.gd" id="1_h2y1r"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="2_h2y1r"]
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="3_3etfd"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="5_3etfd"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="5_rahb6"]
+[ext_resource type="PackedScene" uid="uid://buynotitau5vj" path="res://Scenes/settings_option.tscn" id="6_rahb6"]
 
 [node name="SettingsMenu" type="CanvasLayer"]
 layer = 20
 script = ExtResource("1_h2y1r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
 
 [node name="Nav" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_7y5a0")
@@ -18,35 +24,101 @@ bus = &"SFX"
 stream = ExtResource("2_h2y1r")
 bus = &"SFX"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Darken" type="ColorRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.11100001, 0.1305, 0.15, 0.49803922)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = 60.0
-offset_top = 60.0
-offset_right = 580.0
-offset_bottom = 300.0
+[node name="Panel" type="NinePatchRect" parent="."]
+offset_left = 155.0
+offset_top = 98.0
+offset_right = 485.0
+offset_bottom = 263.0
 texture = ExtResource("3_3etfd")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
 
-[node name="Cursor" type="TextureRect" parent="NinePatchRect"]
+[node name="Highlight" type="ColorRect" parent="Panel"]
+layout_mode = 1
+offset_left = 29.0
+offset_top = 29.0
+offset_right = 141.0
+offset_bottom = 39.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Cursor" type="TextureRect" parent="Panel/Highlight"]
 layout_mode = 0
-offset_left = 114.0
-offset_top = 5.0
-offset_right = 122.0
-offset_bottom = 13.0
+offset_left = 110.0
+offset_top = 1.0
+offset_right = 118.0
+offset_bottom = 9.0
 texture = ExtResource("5_3etfd")
 
-[node name="Highlight" type="ColorRect" parent="NinePatchRect/Cursor"]
-show_behind_parent = true
-layout_mode = 1
-offset_left = -110.0
-offset_top = -1.0
-offset_right = 2.0
-offset_bottom = 9.0
-color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 85.0
+offset_top = 5.0
+offset_right = 245.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("5_rahb6")
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="VolumeMaster" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 30.0
+offset_right = 138.0
+offset_bottom = 40.0
+
+[node name="VolumeMusic" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 45.0
+offset_right = 138.0
+offset_bottom = 55.0
+
+[node name="VolumeSFX" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 60.0
+offset_right = 138.0
+offset_bottom = 70.0
+
+[node name="WindowMode" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 80.0
+offset_right = 138.0
+offset_bottom = 90.0
+
+[node name="Resolution" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 95.0
+offset_right = 138.0
+offset_bottom = 105.0
+
+[node name="TextSpeed" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 115.0
+offset_right = 138.0
+offset_bottom = 125.0
+
+[node name="PulseEffect" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 135.0
+offset_right = 138.0
+offset_bottom = 145.0
+
+[node name="Metronome" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 150.0
+offset_right = 138.0
+offset_bottom = 160.0

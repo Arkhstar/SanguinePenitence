@@ -7,6 +7,7 @@ var last : Node = null
 
 func _ready() -> void:
 	i = self
+	Config.load_config()
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	call_deferred("load_title")
 
@@ -74,8 +75,12 @@ func open_settings() -> void:
 	current.process_mode = Node.PROCESS_MODE_DISABLED
 	if not SettingsMenu.i:
 		SettingsMenu.i = preload("res://Scenes/settings_menu.tscn").instantiate()
+	else:
+		SettingsMenu.i.reset()
 	add_child(SettingsMenu.i)
+	SettingsMenu.i.ignore_input = false
 
 func close_settings() -> void:
+	Config.save_config()
 	remove_child(SettingsMenu.i)
 	current.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT

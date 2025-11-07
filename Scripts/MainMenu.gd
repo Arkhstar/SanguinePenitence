@@ -29,11 +29,13 @@ func _physics_process(_delta: float) -> void:
 	pointer.position.y = options[index].position.y + 4
 	
 	if Input.is_action_just_pressed("menu_select"):
+		ignore_input = true
 		if index == 1:
 			if SaveData.has_save_file():
 				SaveData.load_save_file()
 				Main.i.change_scene("res://Scenes/Overworld/town.tscn", 1.0 if SaveData.altar_level <= 0 else 1.0)
 			else:
+				ignore_input = false
 				fail_sfx.play()
 				return
 		select_sfx.play()
@@ -42,5 +44,6 @@ func _physics_process(_delta: float) -> void:
 			Main.i.change_scene("res://Scenes/Overworld/town.tscn", 0.0)
 		elif index == 2:
 			Main.i.open_settings()
+			ignore_input = false
 		elif index == 3:
 			get_tree().call_deferred("quit")

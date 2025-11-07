@@ -35,6 +35,7 @@ gdscript/warnings/narrowing_conversion=0
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/resizable=false
 window/size/sharp_corners=true
 window/size/minimize_disabled=true
 window/size/maximize_disabled=true

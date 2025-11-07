@@ -11,14 +11,17 @@
 script = ExtResource("1_28flt")
 
 [node name="Nav" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("2_n45e2")
 bus = &"SFX"
 
 [node name="Select" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_opfnp")
 bus = &"SFX"
 
 [node name="Fail" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("4_opfnp")
 bus = &"SFX"
 
