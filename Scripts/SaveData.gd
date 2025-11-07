@@ -12,12 +12,12 @@ static var coinpurse : int = 1000
 
 static var inventory : Inventory = Inventory.new()
 
-static var hunter_name : String = "THE HUNTER" :
+static var hunter_name : String = "NULL" :
 	set(v):
 		hunter_name = v
 		if hunter_unit:
 			hunter_unit.display_name = hunter_name
-static var hunter_unit : PlayerUnit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
+static var hunter_unit : PlayerUnit = null
 
 static var obelisks : int = 0
 
@@ -28,7 +28,7 @@ static func load_defaults() -> void:
 	coinpurse = 1000
 	inventory = Inventory.new()
 	hunter_name = "THE HUNTER"
-	hunter_unit = PlayerUnit.new(hunter_name, 100, 10, 10, 0.01, 1.5, 10, 99)
+	hunter_unit = PlayerUnit.new(hunter_name, 100, 100, 10, 10, 0.01, 1.5, 10, 99)
 	obelisks = 0
 
 static func has_save_file() -> bool:

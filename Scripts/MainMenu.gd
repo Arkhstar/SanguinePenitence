@@ -40,5 +40,7 @@ func _physics_process(_delta: float) -> void:
 		if index == 0:
 			SaveData.load_defaults()
 			Main.i.change_scene("res://Scenes/Overworld/town.tscn", 0.0)
+		elif index == 2:
+			Main.i.open_settings()
 		elif index == 3:
 			get_tree().call_deferred("quit")

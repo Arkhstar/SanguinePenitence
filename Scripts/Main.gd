@@ -69,3 +69,13 @@ func die() -> void:
 	SaveData.hunter_unit.sharpness -= 30
 	change_scene("res://Scenes/Overworld/town.tscn")
 	last = null
+
+func open_settings() -> void:
+	current.process_mode = Node.PROCESS_MODE_DISABLED
+	if not SettingsMenu.i:
+		SettingsMenu.i = preload("res://Scenes/settings_menu.tscn").instantiate()
+	add_child(SettingsMenu.i)
+
+func close_settings() -> void:
+	remove_child(SettingsMenu.i)
+	current.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
