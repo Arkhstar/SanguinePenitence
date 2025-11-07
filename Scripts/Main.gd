@@ -8,8 +8,24 @@ var last : Node = null
 func _ready() -> void:
 	i = self
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	SaveData.load_defaults()
-	call_deferred("change_scene", "res://Scenes/Overworld/town.tscn", 0.0)
+	call_deferred("load_title")
+
+func load_title() -> void:
+	await TransitionScreen.fade_in(0)
+	var title : MainMenu = preload("res://Scenes/main_menu.tscn").instantiate()
+	current = title
+	add_child(title)
+	MusicStreamPlayer.volume_linear = 0.0
+	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.TITLE)
+	MusicStreamPlayer.adjust_volume(1.0, 3.0)
+	await TransitionScreen.fade_out()
+	title.ignore_input = false
+
+func quit_to_title() -> void:
+	MusicStreamPlayer.adjust_volume(0.0, 0.5)
+	await TransitionScreen.fade_in()
+	last = null
+	await load_title()
 
 func change_scene(file_name : String, in_vol : float = 1.0) -> void:
 	MusicStreamPlayer.adjust_volume(0.0, 0.5)

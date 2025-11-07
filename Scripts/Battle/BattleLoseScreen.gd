@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var timer : Timer = $Timer
 @onready var back : ColorRect = $ColorRect
 @onready var text : TextureRect = $TextureRect
-@onready var game_over : AudioStreamPlayer = $AudioStreamPlayer
+@onready var game_over : AudioStreamPlayer = $GameOverJingle
 
 func activate() -> void:
 	MusicStreamPlayer.adjust_volume(0.0, 3.0)

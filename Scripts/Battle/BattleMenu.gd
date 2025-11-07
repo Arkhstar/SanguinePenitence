@@ -32,3 +32,17 @@ func activate() -> void:
 	while timer.time_left > 0:
 		await RenderingServer.frame_post_draw
 	ignore_input = false
+
+func update_availability(actor : PlayerUnit, allies : bool) -> void:
+	options[1].remove_theme_color_override("font_color")
+	options[2].remove_theme_color_override("font_color")
+	options[3].remove_theme_color_override("font_color")
+	options[4].remove_theme_color_override("font_color")
+	if actor.reagent == 0 or actor.effects[BattleUnit.StatusEffect.FAITHLESS] > 0:
+		options[1].add_theme_color_override("font_color", Color("#0f1216"))
+	if SaveData.inventory.reagents.count(0) == Inventory.ReagentItem.size() or actor.effects[BattleUnit.StatusEffect.GREED] > 0 or actor.effects[BattleUnit.StatusEffect.FAITHLESS] > 0:
+		options[2].add_theme_color_override("font_color", Color("#0f1216"))
+	if SaveData.inventory.consumables.count(0) == Inventory.ConsumableItem.size() or actor.effects[BattleUnit.StatusEffect.GREED] > 0:
+		options[3].add_theme_color_override("font_color", Color("#0f1216"))
+	if not allies:
+		options[4].add_theme_color_override("font_color", Color("#0f1216"))

@@ -9,7 +9,7 @@ func init() -> void:
 		await dialogue.speak("", "ITS WHISPERS FLOW THROUGH THE WIND, PERMEATING YOUR MIND.", [ "PRAY" ])
 		await dialogue.speak("", "A COLD FEELING FLOWS THROUGH YOUR BODY... THOUGH IT IS STRANGELY COMFORTING.")
 		SaveData.altar_level = 1
-		MusicStreamPlayer.adjust_volume(1.0, 15.0)
+		MusicStreamPlayer.adjust_volume(1.0, 8.0)
 	else:
 		var option : int = await dialogue.speak("", "YOU STAND BEFORE THE ALTAR.", [ "PRAY", "HUNT", "EXIT" ])
 		if option == 0:

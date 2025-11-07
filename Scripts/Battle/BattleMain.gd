@@ -67,7 +67,7 @@ func on_atb_timeout(index : int) -> void:
 func menu_selection(option : int) -> void:
 	if option <= 1:
 		if option == 1:
-			if units[acting].reagent <= 0:
+			if units[acting].reagent <= 0 or units[acting].effects[BattleUnit.StatusEffect.FAITHLESS] > 0:
 				menu.fail_sfx.play()
 				return
 		menu.select_sfx.play()
@@ -96,8 +96,11 @@ func menu_selection(option : int) -> void:
 		menu.fail_sfx.play()
 		return
 	else:
-		#TODO: reagent &/| item was chosen
-		menu.fail_sfx.play() # for now, default to failure
+		if (units[acting].effects[BattleUnit.StatusEffect.GREED] <= 0) and (option != 3 or SaveData.inventory.consumables.count(0) < Inventory.ConsumableItem.size()) and (option != 2 or (SaveData.inventory.reagents.count(0) < Inventory.ReagentItem.size() or units[acting].effects[BattleUnit.StatusEffect.FAITHLESS] <= 0)):
+			menu.select_sfx.play()
+			#TODO: reagent / item was chosen
+			return
+		menu.fail_sfx.play()
 		return
 	
 	menu.ignore_input = true
@@ -195,6 +198,7 @@ func _physics_process(_delta: float) -> void:
 		acting = ready_to_act[0]
 		ready_to_act.remove_at(0)
 		menu.index = 0
+		menu.update_availability(units[acting], [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1)
 		menu.reparent(player_displays[acting], false)
 		menu.show()
 		menu.activate()

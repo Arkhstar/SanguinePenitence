@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwfxph7d4jmpq"]
+
+[ext_resource type="Script" uid="uid://daop7mxyflghs" path="res://Scripts/MainMenu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://blxb3x2y8v3mn" path="res://Textures/UI/SelectorAlt.png" id="2_1ehe0"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="2_48xlc"]
+[ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/MenuNav.ogg" id="2_n45e2"]
+[ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="3_opfnp"]
+[ext_resource type="AudioStream" uid="uid://dpgafs08cf4mg" path="res://Audio/SFX/MenuFail.ogg" id="4_opfnp"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_28flt")
+
+[node name="Nav" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_n45e2")
+bus = &"SFX"
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_opfnp")
+bus = &"SFX"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_opfnp")
+bus = &"SFX"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TITLE SCREEN"
+
+[node name="Cursor" type="TextureRect" parent="."]
+offset_left = 413.0
+offset_top = 184.0
+offset_right = 421.0
+offset_bottom = 192.0
+rotation = 1.5707964
+texture = ExtResource("2_1ehe0")
+
+[node name="Highlight" type="ColorRect" parent="Cursor"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -6.0
+offset_top = 6.0
+offset_right = 14.0
+offset_bottom = 186.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Mirror" type="TextureRect" parent="Cursor"]
+layout_mode = 0
+offset_top = 184.0
+offset_right = 8.0
+offset_bottom = 192.0
+texture = ExtResource("2_1ehe0")
+flip_v = true
+
+[node name="New" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 180.0
+offset_right = 400.0
+offset_bottom = 200.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 20
+text = "NEW GAME"
+horizontal_alignment = 1
+
+[node name="Continue" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 204.0
+offset_right = 400.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 20
+text = "CONTINUE"
+horizontal_alignment = 1
+
+[node name="Settings" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 228.0
+offset_right = 400.0
+offset_bottom = 248.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 20
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="Quit" type="Label" parent="."]
+offset_left = 240.0
+offset_top = 252.0
+offset_right = 400.0
+offset_bottom = 272.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 20
+text = "QUIT"
+horizontal_alignment = 1

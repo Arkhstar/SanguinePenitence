@@ -4,9 +4,10 @@ extends BattleUnit
 var sharpness : int
 var reagent : int
 
-func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int) -> void:
+func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int, rgt : int = 0) -> void:
 	super(dname, hp, strg, def, c_chance, c_dmg, spd)
 	sharpness = shrp
+	reagent = rgt
 
 func clone() -> PlayerUnit:
 	return PlayerUnit.new(display_name, max_health, strength, defense, crit_chance, crit_damage, speed, sharpness)
@@ -47,3 +48,9 @@ func is_hit(attacker : EnemyUnit, power : int, spell : int = -1) -> void:
 		determine_spell_effects(spell)
 	print("Player %s took %d damage!" % [display_name, damage])
 	take_damage(damage)
+
+func to_str() -> String:
+	return "UNIT DATA"
+
+static func from_str(data : String) -> PlayerUnit:
+	return PlayerUnit.new("MISSINGDATA", 100, 10, 10, 0.01, 1.5, 10, 99)
