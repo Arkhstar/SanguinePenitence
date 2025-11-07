@@ -32,7 +32,7 @@ func _physics_process(_delta: float) -> void:
 		if index == 1:
 			if SaveData.has_save_file():
 				SaveData.load_save_file()
-				Main.i.change_scene("res://Scenes/Overworld/town.tscn")
+				Main.i.change_scene("res://Scenes/Overworld/town.tscn", 1.0 if SaveData.altar_level <= 0 else 1.0)
 			else:
 				fail_sfx.play()
 				return

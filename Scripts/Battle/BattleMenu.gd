@@ -14,6 +14,8 @@ var index : int = 0
 @onready var select_sfx : AudioStreamPlayer = $Select
 @onready var fail_sfx : AudioStreamPlayer = $Fail
 
+const UNAVAILABLE_COLOR : Color = Color("#0f1216")
+
 func _physics_process(_delta: float) -> void:
 	if ignore_input:
 		return
@@ -39,10 +41,10 @@ func update_availability(actor : PlayerUnit, allies : bool) -> void:
 	options[3].remove_theme_color_override("font_color")
 	options[4].remove_theme_color_override("font_color")
 	if actor.reagent == 0 or actor.effects[BattleUnit.StatusEffect.FAITHLESS] > 0:
-		options[1].add_theme_color_override("font_color", Color("#0f1216"))
+		options[1].add_theme_color_override("font_color", UNAVAILABLE_COLOR)
 	if SaveData.inventory.reagents.count(0) == Inventory.ReagentItem.size() or actor.effects[BattleUnit.StatusEffect.GREED] > 0 or actor.effects[BattleUnit.StatusEffect.FAITHLESS] > 0:
-		options[2].add_theme_color_override("font_color", Color("#0f1216"))
+		options[2].add_theme_color_override("font_color", UNAVAILABLE_COLOR)
 	if SaveData.inventory.consumables.count(0) == Inventory.ConsumableItem.size() or actor.effects[BattleUnit.StatusEffect.GREED] > 0:
-		options[3].add_theme_color_override("font_color", Color("#0f1216"))
+		options[3].add_theme_color_override("font_color", UNAVAILABLE_COLOR)
 	if not allies:
-		options[4].add_theme_color_override("font_color", Color("#0f1216"))
+		options[4].add_theme_color_override("font_color", UNAVAILABLE_COLOR)

@@ -30,6 +30,7 @@ func lose_monster_parts() -> void:
 	for i : int in MonsterPartGrade.size():
 		gathered_monster_parts[i] = 0
 
+#TODO:
 func to_str() -> String:
 	return "INVENTORY DATA"
 

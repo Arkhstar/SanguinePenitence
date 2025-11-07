@@ -49,6 +49,7 @@ func is_hit(attacker : EnemyUnit, power : int, spell : int = -1) -> void:
 	print("Player %s took %d damage!" % [display_name, damage])
 	take_damage(damage)
 
+#TODO:
 func to_str() -> String:
 	return "UNIT DATA"
 
