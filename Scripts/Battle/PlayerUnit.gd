@@ -4,13 +4,14 @@ extends BattleUnit
 var sharpness : int
 var reagent : int
 
-func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int, rgt : int = 0) -> void:
-	super(dname, hp, strg, def, c_chance, c_dmg, spd)
+func _init(dname : String, mhp : int, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int, rgt : int = 0) -> void:
+	super(dname, mhp, strg, def, c_chance, c_dmg, spd)
+	health = hp
 	sharpness = shrp
 	reagent = rgt
 
 func clone() -> PlayerUnit:
-	return PlayerUnit.new(display_name, max_health, strength, defense, crit_chance, crit_damage, speed, sharpness)
+	return PlayerUnit.new(display_name, max_health, health, strength, defense, crit_chance, crit_damage, speed, sharpness)
 
 func get_sharpness_rank() -> int:
 	if sharpness >= 250:
@@ -49,9 +50,36 @@ func is_hit(attacker : EnemyUnit, power : int, spell : int = -1) -> void:
 	print("Player %s took %d damage!" % [display_name, damage])
 	take_damage(damage)
 
-#TODO:
 func to_str() -> String:
-	return "UNIT DATA"
+	var dict : Dictionary = {
+		"name" : display_name,
+		"mxhp" : max_health,
+		"hits" : health,
+		"strn" : strength,
+		"defn" : defense,
+		"crtc" : crit_chance,
+		"crtm" : crit_damage,
+		"sped" : speed,
+		"shrp" : sharpness,
+		"rgnt" : reagent
+	}
+	return JSON.stringify(dict)
 
-static func from_str(data : String) -> PlayerUnit:
-	return PlayerUnit.new("MISSINGDATA", 100, 10, 10, 0.01, 1.5, 10, 99)
+static func from_str(data_str : String) -> PlayerUnit:
+	var json : JSON = JSON.new()
+	if json.parse(data_str) == OK:
+		var data : Variant = json.data
+		if data is Dictionary:
+			return PlayerUnit.new(
+				data["name"],
+				data["mxhp"],
+				data["hits"],
+				data["strn"],
+				data["defn"],
+				data["crtc"],
+				data["crtm"],
+				data["sped"],
+				data["shrp"],
+				data["rgnt"]
+			)
+	return PlayerUnit.new("MISSINGDATA", 100, 100, 10, 10, 0.01, 1.5, 10, 99)

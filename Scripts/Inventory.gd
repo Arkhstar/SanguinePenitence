@@ -30,9 +30,28 @@ func lose_monster_parts() -> void:
 	for i : int in MonsterPartGrade.size():
 		gathered_monster_parts[i] = 0
 
-#TODO:
 func to_str() -> String:
-	return "INVENTORY DATA"
+	var dict : Dictionary = {
+		"qrry" : monster_parts,
+		"qbag" : gathered_monster_parts,
+		"rgnt" : reagents,
+		"cmbl" : consumables
+	}
+	return JSON.stringify(dict)
 
-static func from_str(data : String) -> Inventory:
-	return Inventory.new()
+static func from_str(data_str : String) -> Inventory:
+	var lambda : Callable = func(a : Array, b : Array) -> void:
+		for i : int in a.size():
+			if a[i] is int or a[i] is float:
+				b[i] = a[i]
+		return
+	var inv : Inventory = Inventory.new()
+	var json : JSON = JSON.new()
+	if json.parse(data_str) == OK:
+		var data : Variant = json.data
+		if data is Dictionary:
+			lambda.call(data["qrry"], inv.monster_parts)
+			lambda.call(data["qbag"], inv.gathered_monster_parts)
+			lambda.call(data["rgnt"], inv.reagents)
+			lambda.call(data["cmbl"], inv.consumables)
+	return inv
