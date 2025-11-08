@@ -31,9 +31,9 @@ color = Color(0.11100001, 0.1305, 0.15, 0.49803922)
 
 [node name="Panel" type="NinePatchRect" parent="."]
 offset_left = 155.0
-offset_top = 98.0
+offset_top = 91.0
 offset_right = 485.0
-offset_bottom = 263.0
+offset_bottom = 271.0
 texture = ExtResource("3_3etfd")
 patch_margin_left = 6
 patch_margin_top = 6
@@ -122,3 +122,10 @@ offset_left = 28.0
 offset_top = 150.0
 offset_right = 138.0
 offset_bottom = 160.0
+
+[node name="Chromatic" parent="Panel" instance=ExtResource("6_rahb6")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 165.0
+offset_right = 138.0
+offset_bottom = 175.0

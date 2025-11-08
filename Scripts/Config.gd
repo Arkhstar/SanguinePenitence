@@ -38,6 +38,7 @@ static func load_config() -> void:
 				AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), data["mstv"])
 				AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Music"), data["musv"])
 				AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("SFX"), data["sfxv"])
+				FlowerwallCRT.set_ca(data["cabr"])
 
 static func save_config() -> void:
 	var f : FileAccess = FileAccess.open(_get_path(), FileAccess.WRITE)
@@ -50,7 +51,8 @@ static func save_config() -> void:
 			"rltn" : resolution,
 			"mstv" : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Master")),
 			"musv" : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("Music")),
-			"sfxv" : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("SFX"))
+			"sfxv" : AudioServer.get_bus_volume_linear(AudioServer.get_bus_index("SFX")),
+			"cabr" : FlowerwallCRT.get_ca()
 		}
 		f.store_string(JSON.stringify(dict))
 

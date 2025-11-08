@@ -13,7 +13,8 @@ static var i : SettingsMenu = null
 	$Panel/Resolution,
 	$Panel/TextSpeed,
 	$Panel/PulseEffect,
-	$Panel/Metronome
+	$Panel/Metronome,
+	$Panel/Chromatic
 ]
 
 @onready var cursor : ColorRect = $Panel/Highlight
@@ -28,10 +29,10 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if Input.is_action_just_pressed("menu_left") or Input.is_action_just_pressed("menu_up"):
-		option = (option + 7) % 8
+		option = (option + 8) % 9
 		nav_sfx.play()
 	if Input.is_action_just_pressed("menu_right") or Input.is_action_just_pressed("menu_down"):
-		option = (option + 1) % 8
+		option = (option + 1) % 9
 		nav_sfx.play()
 	cursor.global_position = options[option].global_position - Vector2(1.0, 1.0)
 	if Input.is_action_just_pressed("menu_select"):
@@ -132,6 +133,15 @@ func _ready() -> void:
 		"METRONOME",
 		func() -> bool: return Config.battle_metronome_effect,
 		func(boolean : bool) -> void: Config.battle_metronome_effect = boolean,
+		func(boolean : bool) -> String: return "ENABLED" if boolean else "DISABLED",
+		false, true,
+		func(_boolean : bool) -> bool: return true,
+		func(_boolean : bool) -> bool: return false
+	)
+	options[8].init(
+		"COL. ABERR.",
+		func() -> bool: return FlowerwallCRT.get_ca(),
+		func(boolean : bool) -> void: FlowerwallCRT.set_ca(boolean),
 		func(boolean : bool) -> String: return "ENABLED" if boolean else "DISABLED",
 		false, true,
 		func(_boolean : bool) -> bool: return true,
