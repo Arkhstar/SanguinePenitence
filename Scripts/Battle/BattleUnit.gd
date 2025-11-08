@@ -4,8 +4,8 @@ extends Resource
 signal died
 signal revived
 
-var display_name : String = "UNIT NAME"
-var max_health : int = 500
+@export var display_name : String = "UNIT NAME"
+@export var max_health : int = 500
 var health : int = 500 :
 	set(v):
 		if health <= 0 and v > 0:
@@ -13,11 +13,11 @@ var health : int = 500 :
 		health = v
 		if health <= 0:
 			died.emit()
-var strength : int = 5
-var defense : int
-var crit_chance : float
-var crit_damage : float
-var speed : float = 1.0 :
+@export var strength : int = 5
+@export var defense : int = 5
+@export var crit_chance : float = 0.0
+@export var crit_damage : float = 1.0
+@export var speed : float = 1.0 :
 	get:
 		return speed / (effects[StatusEffect.HEAVY] + 1.0)
 

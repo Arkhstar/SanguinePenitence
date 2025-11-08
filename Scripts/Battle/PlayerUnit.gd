@@ -1,10 +1,10 @@
 class_name PlayerUnit
 extends BattleUnit
 
-var sharpness : int
-var reagent : int
+var sharpness : int = 0
+var reagent : int = 0
 
-func _init(dname : String, mhp : int, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, shrp : int, rgt : int = 0) -> void:
+func _init(dname : String = display_name, mhp : int = max_health, hp : int = health, strg : int = strength, def : int = defense, c_chance : float = crit_chance, c_dmg : float = crit_damage, spd : float = speed, shrp : int = sharpness, rgt : int = reagent) -> void:
 	super(dname, mhp, strg, def, c_chance, c_dmg, spd)
 	health = hp
 	sharpness = shrp

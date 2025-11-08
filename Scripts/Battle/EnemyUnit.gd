@@ -2,13 +2,13 @@ class_name EnemyUnit
 extends BattleUnit
 
 enum TargetingType { RANDOM, LOW_HEALTH, HIGH_HEALTH, LOW_SHARPNESS, HIGH_SHARPNESS, LEAST_EFFECTS, MOST_EFFECTS }
-var targeting : TargetingType = TargetingType.RANDOM
+@export var targeting : TargetingType = TargetingType.RANDOM
 
 var next_target : int = -1
 
-var grade : Inventory.MonsterPartGrade = Inventory.MonsterPartGrade.GRADE_D
+@export var grade : Inventory.MonsterPartGrade = Inventory.MonsterPartGrade.GRADE_D
 
-func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_dmg : float, spd : float, trgt : TargetingType, grd : Inventory.MonsterPartGrade = Inventory.MonsterPartGrade.GRADE_D) -> void:
+func _init(dname : String = display_name, hp : int = health, strg : int = strength, def : int = defense, c_chance : float = crit_chance, c_dmg : float = crit_damage, spd : float = speed, trgt : TargetingType = targeting, grd : Inventory.MonsterPartGrade = grade) -> void:
 	super(dname, hp, strg, def, c_chance, c_dmg, spd)
 	targeting = trgt
 	grade = grd

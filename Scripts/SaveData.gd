@@ -28,7 +28,7 @@ static func load_defaults() -> void:
 	coinpurse = 1000
 	inventory = Inventory.new()
 	hunter_name = "THE HUNTER"
-	hunter_unit = PlayerUnit.new(hunter_name, 100, 100, 10, 10, 0.01, 1.5, 10, 99)
+	hunter_unit = PlayerUnit.new(hunter_name, 30, 30, 10, 6, 0.01, 1.25, 4.0, 25, 0)
 	obelisks = 0
 
 static func has_save_file() -> bool:

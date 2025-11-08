@@ -49,11 +49,15 @@ func on_unit_death(index : int) -> void:
 	timers[index].reset()
 	for i : int in 6:
 		units[index].effects[i] = 0
-	if index >= 4 and units[index].next_target >= 0:
-		player_displays[units[index].next_target].cancel_targeted(index - 4)
+	if index >= 4:
+		if units[index].next_target >= 0:
+			player_displays[units[index].next_target].cancel_targeted(index - 4)
+		enemy_displays[index - 4].unit = null
 
 func on_unit_revive(index : int) -> void:
 	timers[index].allow_update = true
+	if index >= 4:
+		enemy_displays[index - 4].unit = units[index]
 
 func on_atb_timeout(index : int) -> void:
 	units[index].tick_effects()
@@ -71,7 +75,7 @@ func menu_selection(option : int) -> void:
 				menu.fail_sfx.play()
 				return
 		menu.select_sfx.play()
-		if [ not units[4] == null, not units[5] == null, not units[6] == null, not units[7] == null ].filter(func(element : bool) -> bool: return element).size() > 1:
+		if [ units[4] and units[4].health > 0, units[5] and units[5].health > 0, units[6] and units[6].health > 0, units[7] and units[7].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1:
 			selection = option
 			await selector.set_targeting_enemies()
 			selector.show()
@@ -82,7 +86,7 @@ func menu_selection(option : int) -> void:
 				if units[i + 4]:
 					if units[acting].determine_attack_hits(units[i + 4]):
 						print("Hit: %d" % (i + 4))
-						units[i + 4].is_hit(units[acting], 0)
+						units[i + 4].is_hit(units[acting], -1 if option == 0 else units[acting].reagent)
 					else:
 						print("MISS: %d" % (i + 4))
 	elif option == 4:
@@ -105,7 +109,7 @@ func menu_selection(option : int) -> void:
 	
 	menu.ignore_input = true
 	menu.hide()
-	timers[acting].reset() # vary with selected option
+	timers[acting].reset(timers[acting].qte_step, [12.0, 16.0, 6.0, 6.0, 8.0][option]) # vary with selected option
 	BattleTimer.i.paused = false
 	acting = -1
 
@@ -115,7 +119,21 @@ func selector_selection(index : int) -> void:
 		menu.ignore_input = false
 		selector.hide()
 	else:
-		print(index, selection)
+		if selection <= 1:
+			if units[acting].determine_attack_hits(units[index]):
+				print("Hit: %d" % (index))
+				units[index].is_hit(units[acting], -1 if selection == 0 else units[acting].reagent)
+			else:
+				print("MISS: %d" % (index))
+		else:
+			timers[index].value += units[acting].speed * 2.0
+		selector.ignore_input = true
+		menu.ignore_input = true
+		selector.hide()
+		menu.hide()
+		timers[acting].reset(timers[acting].qte_step, [12.0, 16.0, 6.0, 6.0, 8.0][selection]) # vary with selected option
+		BattleTimer.i.paused = false
+		acting = -1
 
 func init_players() -> void:
 	for i : int in 4:
