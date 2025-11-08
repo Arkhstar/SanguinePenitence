@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://boga8fko40rd6"]
+
+[ext_resource type="Texture2D" uid="uid://b2t3wpqim5v3" path="res://Textures/Characters/Humanoid.png" id="1_23mii"]
+[ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="2_sl56v"]
+[ext_resource type="Resource" uid="uid://d2014a24304w5" path="res://Resources/spore_wight.tres" id="3_sl56v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdovv"]
+atlas = ExtResource("1_23mii")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcnx8"]
+atlas = ExtResource("1_23mii")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw2ha"]
+atlas = ExtResource("1_23mii")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37c7k"]
+atlas = ExtResource("1_23mii")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sl56v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdovv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcnx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw2ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37c7k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="HumanoidMonster" instance=ExtResource("2_sl56v")]
+encounter = Array[Array]([[ExtResource("3_sl56v")]])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_sl56v")
+autoplay = "default"

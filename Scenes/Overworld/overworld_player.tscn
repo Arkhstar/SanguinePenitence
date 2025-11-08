@@ -59,6 +59,7 @@ collide_with_areas = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q1fdx")
 autoplay = "default"
+flip_h = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimatedSprite2D"]
 ignore_rotation = false

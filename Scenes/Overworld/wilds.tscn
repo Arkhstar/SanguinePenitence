@@ -1,14 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://cduk5m2h3yvpu"]
+[gd_scene load_steps=15 format=3 uid="uid://cduk5m2h3yvpu"]
 
 [ext_resource type="Script" uid="uid://b8psrvx7ty6vu" path="res://Scripts/Overworld/Wilds.gd" id="1_fetjv"]
 [ext_resource type="PackedScene" uid="uid://blewtsmqtxc4h" path="res://Scenes/Overworld/NPCs/obelisk.tscn" id="1_mphsn"]
 [ext_resource type="Script" uid="uid://cv3w3tcwu0mb8" path="res://Scripts/Overworld/EnvironmentalSFXPlayer.gd" id="2_1w4wh"]
 [ext_resource type="PackedScene" uid="uid://cbtglvvw04xgn" path="res://Scenes/Overworld/overworld_player.tscn" id="2_fetjv"]
-[ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="2_iyytn"]
 [ext_resource type="AudioStream" uid="uid://djcd54onlaf6i" path="res://Audio/SFX/Wind1.ogg" id="3_iyytn"]
 [ext_resource type="Resource" uid="uid://d2014a24304w5" path="res://Resources/spore_wight.tres" id="4_1x38t"]
 [ext_resource type="AudioStream" uid="uid://dlktd8dcqp200" path="res://Audio/SFX/Wind2.ogg" id="4_tekcy"]
 [ext_resource type="AudioStream" uid="uid://bfwid2pinh53g" path="res://Audio/SFX/Wind3.ogg" id="5_vtncx"]
+[ext_resource type="PackedScene" uid="uid://boga8fko40rd6" path="res://Scenes/Overworld/Monsters/humanoid_monster.tscn" id="6_iyytn"]
+[ext_resource type="PackedScene" uid="uid://sparbibfyokp" path="res://Scenes/Overworld/Monsters/animalistic_monster.tscn" id="9_vtncx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5qddd"]
 
@@ -25,16 +26,20 @@ normal = Vector2(-1, 0)
 y_sort_enabled = true
 script = ExtResource("1_fetjv")
 
-[node name="Monster" parent="." instance=ExtResource("2_iyytn")]
-position = Vector2(48, -24)
-encounter = Array[Array]([[ExtResource("4_1x38t")], [ExtResource("4_1x38t"), ExtResource("4_1x38t")]])
-
 [node name="WindSFX" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 script = ExtResource("2_1w4wh")
 sfx_variants = Array[AudioStreamOggVorbis]([ExtResource("3_iyytn"), ExtResource("4_tekcy"), ExtResource("5_vtncx")])
 delay_range = Vector2(2.994, 4.989)
 metadata/_custom_type_script = "uid://cv3w3tcwu0mb8"
+
+[node name="HumanoidMonster" parent="." instance=ExtResource("6_iyytn")]
+position = Vector2(48, -24)
+
+[node name="AnimalisticMonster" parent="." instance=ExtResource("9_vtncx")]
+position = Vector2(96, 48)
+encounter = Array[Array]([[ExtResource("4_1x38t")]])
+theme = 1
 
 [node name="Obelisk" parent="." instance=ExtResource("1_mphsn")]
 

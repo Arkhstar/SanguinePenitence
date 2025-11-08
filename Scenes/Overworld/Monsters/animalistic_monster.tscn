@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://sparbibfyokp"]
+
+[ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="1_m5gw1"]
+[ext_resource type="Texture2D" uid="uid://bt7cplrn7n1qf" path="res://Textures/Characters/Animalistic.png" id="2_3tel1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mljc2"]
+atlas = ExtResource("2_3tel1")
+region = Rect2(0, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo1jb"]
+atlas = ExtResource("2_3tel1")
+region = Rect2(48, 0, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7l8eb"]
+atlas = ExtResource("2_3tel1")
+region = Rect2(0, 40, 48, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f36tr"]
+atlas = ExtResource("2_3tel1")
+region = Rect2(48, 40, 48, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xl14s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mljc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo1jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7l8eb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f36tr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="AnimalisticMonster" instance=ExtResource("1_m5gw1")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_xl14s")
+autoplay = "default"

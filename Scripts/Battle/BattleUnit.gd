@@ -36,12 +36,10 @@ func _init(dname : String, hp : int, strg : int, def : int, c_chance : float, c_
 	effects = [ 0, 0, 0, 0, 0, 0 ]
 
 func calculate_damage_taken(attacker : BattleUnit, power : int = 0) -> int:
-	var damage : int = maxi(randi_range(attacker.strength, attacker.strength * 2 + power) - defense, 0)
+	var damage : int = maxi(randi_range(attacker.strength, attacker.strength * 2 + power) - defense, 1)
 	if randf() < crit_chance:
 		damage += floori((randi_range(attacker.strength, attacker.strength * 2) + power) * crit_damage)
 	if effects[StatusEffect.CURSE] > 0:
-		if damage == 0:
-			damage = 1
 		damage *= (effects[StatusEffect.CURSE] + 1)
 	return damage
 
