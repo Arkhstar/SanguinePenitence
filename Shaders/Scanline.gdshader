@@ -7,9 +7,10 @@ uniform float height = 2;
 void fragment() {
 	vec2 uv = SCREEN_UV;
 	
-	float delta = sin(TIME * speed - uv.y);
+	float delta1 = sin(TIME * speed - uv.y);
+	float delta2 = cos(TIME * speed - uv.y);
 	float h = SCREEN_PIXEL_SIZE.y * height;
-	if (delta > -h && delta < h) {
+	if ((delta1 > -h && delta1 < h) || (delta2 > -h && delta2 < h)) {
 		uv.y -= h;
 	}
 	
