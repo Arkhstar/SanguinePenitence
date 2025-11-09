@@ -45,7 +45,7 @@ func on_pulse() -> void:
 		pulses += 1
 
 func _physics_process(delta: float) -> void:
-	if qte_input >= 0 and Input.is_action_just_pressed("qte_%d" % qte_input):
+	if qte_input >= 0 and Input.is_action_just_pressed("qte_%d" % qte_input) and not BattleTimer.i.paused:
 		qte_input = -1
 		pulses = 0
 		if recency < epsilon:
