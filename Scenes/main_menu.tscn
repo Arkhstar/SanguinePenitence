@@ -32,10 +32,14 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.105882354, 0.1254902, 0.14509805, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TITLE SCREEN"
+[node name="BuildVersion" type="Label" parent="."]
+offset_top = 350.0
+offset_right = 70.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.14509805, 0.1764706, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 10
+text = "VERSION 1.0.0"
 
 [node name="Cursor" type="TextureRect" parent="."]
 offset_left = 413.0

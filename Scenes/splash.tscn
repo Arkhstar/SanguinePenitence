@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgmj887nf2o16"]
+
+[ext_resource type="Texture2D" uid="uid://chsuawosjgtr7" path="res://Textures/Splash.png" id="1_i8nxx"]
+
+[node name="Splash" type="ColorRect"]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.105882354, 0.1254902, 0.14509805, 1)
+
+[node name="Splash" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("1_i8nxx")

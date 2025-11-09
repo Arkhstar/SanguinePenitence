@@ -9,10 +9,22 @@ func _ready() -> void:
 	i = self
 	Config.load_config()
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	call_deferred("load_title")
+	call_deferred("_splash")
+	#call_deferred("load_title")
+
+func _splash() -> void:
+	TransitionScreen.fade_in(0)
+	await get_tree().create_timer(1.0).timeout
+	var splash : ColorRect = preload("res://Scenes/splash.tscn").instantiate()
+	add_child(splash)
+	await TransitionScreen.fade_out(2.0)
+	await get_tree().create_timer(2.0).timeout
+	await TransitionScreen.fade_in(2.0)
+	remove_child(splash)
+	await get_tree().create_timer(3.0).timeout
+	load_title()
 
 func load_title() -> void:
-	await TransitionScreen.fade_in(0)
 	var title : MainMenu = preload("res://Scenes/main_menu.tscn").instantiate()
 	current = title
 	add_child(title)
