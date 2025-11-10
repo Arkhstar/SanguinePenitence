@@ -8,8 +8,7 @@ var victory_state : VictoryState = VictoryState.INIT :
 		if v == VictoryState.LOSE:
 			$LoseScreen.activate()
 		elif v == VictoryState.WIN:
-			SaveData.obols += randi_range(30, 150)
-			Main.i.change_to_overworld_from_battle()
+			win_state()
 
 var units : Array[BattleUnit] = [ SaveData.hunter_unit, null, null, null, null, null, null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
@@ -22,6 +21,8 @@ var selection : int = -1
 @onready var menu : BattleMenu = $BattleMenu
 var ready_to_act : PackedInt32Array = []
 var acting : int = -1
+
+@onready var fanfare : AudioStreamPlayer = $Fanfare
 
 func enemy_ai(acting_index : int) -> void:
 	var actor : EnemyUnit = units[acting_index]
@@ -220,3 +221,16 @@ func _physics_process(_delta: float) -> void:
 		menu.reparent(player_displays[acting], false)
 		menu.show()
 		menu.activate()
+
+func win_state() -> void:
+	MusicStreamPlayer.adjust_volume(0.0, 0.5)
+	var t : Tween = create_tween()
+	t.tween_property(fanfare, "volume_linear", 1.0, 2.0)
+	fanfare.play()
+	t.play()
+	for i : int in 4:
+		if units[i + 4]:
+			SaveData.inventory.gathered_monster_parts[units[i + 4].grade] += randi_range(1, 3)
+	while fanfare.playing:
+		await RenderingServer.frame_post_draw
+	Main.i.change_to_overworld_from_battle()
