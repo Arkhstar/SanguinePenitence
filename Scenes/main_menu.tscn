@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwfxph7d4jmpq"]
+[gd_scene load_steps=12 format=3 uid="uid://bwfxph7d4jmpq"]
 
 [ext_resource type="Script" uid="uid://daop7mxyflghs" path="res://Scripts/MainMenu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://blxb3x2y8v3mn" path="res://Textures/UI/SelectorAlt.png" id="2_1ehe0"]
@@ -6,8 +6,14 @@
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/MenuNav.ogg" id="2_n45e2"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="3_opfnp"]
 [ext_resource type="AudioStream" uid="uid://dpgafs08cf4mg" path="res://Audio/SFX/MenuFail.ogg" id="4_opfnp"]
+[ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Shaders/Format.gdshader" id="5_16hvj"]
+[ext_resource type="Texture2D" uid="uid://emeverf4gwoj" path="res://Textures/Logo.png" id="6_vr1f0"]
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="7_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="8_trj04"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
+shader = ExtResource("5_16hvj")
+shader_parameter/colors = PackedColorArray(0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1)
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_28flt")
@@ -32,6 +38,14 @@ offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.105882354, 0.1254902, 0.14509805, 1)
 
+[node name="Eye" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_t1dhk")
+offset_left = 240.0
+offset_top = 64.0
+offset_right = 400.0
+offset_bottom = 128.0
+texture = ExtResource("6_vr1f0")
+
 [node name="BuildVersion" type="Label" parent="."]
 offset_top = 350.0
 offset_right = 70.0
@@ -43,9 +57,9 @@ text = "VERSION 1.0.0"
 
 [node name="Cursor" type="TextureRect" parent="."]
 offset_left = 413.0
-offset_top = 184.0
+offset_top = 248.0
 offset_right = 421.0
-offset_bottom = 192.0
+offset_bottom = 256.0
 rotation = 1.5707964
 texture = ExtResource("2_1ehe0")
 
@@ -68,9 +82,9 @@ flip_v = true
 
 [node name="New" type="Label" parent="."]
 offset_left = 240.0
-offset_top = 180.0
+offset_top = 244.0
 offset_right = 400.0
-offset_bottom = 200.0
+offset_bottom = 264.0
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
 text = "NEW GAME"
@@ -78,9 +92,9 @@ horizontal_alignment = 1
 
 [node name="Continue" type="Label" parent="."]
 offset_left = 240.0
-offset_top = 204.0
+offset_top = 268.0
 offset_right = 400.0
-offset_bottom = 224.0
+offset_bottom = 288.0
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
 text = "CONTINUE"
@@ -88,9 +102,9 @@ horizontal_alignment = 1
 
 [node name="Settings" type="Label" parent="."]
 offset_left = 240.0
-offset_top = 228.0
+offset_top = 292.0
 offset_right = 400.0
-offset_bottom = 248.0
+offset_bottom = 312.0
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
 text = "SETTINGS"
@@ -98,9 +112,9 @@ horizontal_alignment = 1
 
 [node name="Quit" type="Label" parent="."]
 offset_left = 240.0
-offset_top = 252.0
+offset_top = 316.0
 offset_right = 400.0
-offset_bottom = 272.0
+offset_bottom = 336.0
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 20
 text = "QUIT"
