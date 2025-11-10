@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cgmj887nf2o16"]
 
-[ext_resource type="Texture2D" uid="uid://chsuawosjgtr7" path="res://Textures/Splash.png" id="1_i8nxx"]
+[ext_resource type="Texture2D" uid="uid://cpyjq6okspmvf" path="res://Textures/Splash.png" id="1_i8nxx"]
 
 [node name="Splash" type="ColorRect"]
 offset_right = 640.0
