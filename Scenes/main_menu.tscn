@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwfxph7d4jmpq"]
+[gd_scene load_steps=15 format=3 uid="uid://bwfxph7d4jmpq"]
 
 [ext_resource type="Script" uid="uid://daop7mxyflghs" path="res://Scripts/MainMenu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://blxb3x2y8v3mn" path="res://Textures/UI/SelectorAlt.png" id="2_1ehe0"]
@@ -12,9 +12,17 @@
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="7_yhxw7"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="8_trj04"]
 
+[sub_resource type="Gradient" id="Gradient_vr1f0"]
+offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
+colors = PackedColorArray(0.14509805, 0.1764706, 0.20392157, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.28627452, 0.3137255, 0.34509805, 1, 0.14509805, 0.1764706, 0.20392157, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t1dhk"]
+gradient = SubResource("Gradient_vr1f0")
+height = 360
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dhk"]
 shader = ExtResource("5_16hvj")
-shader_parameter/colors = PackedColorArray(0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1)
+shader_parameter/colors = PackedColorArray(0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1, 0.14509805, 0.1764706, 0.20392157, 1)
 
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_28flt")
@@ -34,10 +42,17 @@ process_mode = 3
 stream = ExtResource("4_opfnp")
 bus = &"SFX"
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0.105882354, 0.1254902, 0.14509805, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 480.0
+offset_bottom = 360.0
+texture = SubResource("GradientTexture2D_t1dhk")
 
 [node name="Eye" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_t1dhk")
@@ -79,7 +94,7 @@ offset_left = -6.0
 offset_top = 6.0
 offset_right = 14.0
 offset_bottom = 186.0
-color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+color = Color(0.14509805, 0.1764706, 0.20392157, 1)
 
 [node name="Mirror" type="TextureRect" parent="Cursor"]
 layout_mode = 0
