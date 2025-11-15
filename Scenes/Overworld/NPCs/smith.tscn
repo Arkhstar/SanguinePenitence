@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbvfmcwgp85h6"]
+[gd_scene load_steps=13 format=3 uid="uid://bbvfmcwgp85h6"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_o4idd"]
 [ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/TheOracle.png" id="2_leh3o"]
 [ext_resource type="Script" uid="uid://cd1h7kfqxl8gq" path="res://Scripts/Overworld/NPCs/SmithMenu.gd" id="3_ul1la"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="4_tn7oc"]
+[ext_resource type="PackedScene" uid="uid://8uvio646p8kq" path="res://Scenes/Overworld/shop_0_menu.tscn" id="5_o4idd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]
 atlas = ExtResource("2_leh3o")
@@ -77,7 +78,6 @@ debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
 position = Vector2(0, -16)
 
 [node name="NPCMenu" type="CanvasLayer" parent="." index="4"]
-visible = false
 script = ExtResource("3_ul1la")
 metadata/_custom_type_script = "uid://bssy0u2hawra7"
 
@@ -86,3 +86,9 @@ offset_left = 64.0
 offset_top = 276.0
 offset_right = 576.0
 offset_bottom = 344.0
+
+[node name="Shop0Menu" parent="NPCMenu" index="1" instance=ExtResource("5_o4idd")]
+offset_left = 145.0
+offset_top = 50.0
+offset_right = 495.0
+offset_bottom = 220.0
