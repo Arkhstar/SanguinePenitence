@@ -66,6 +66,8 @@ func to_str() -> String:
 	return JSON.stringify(dict)
 
 static func from_str(data_str : String) -> PlayerUnit:
+	if data_str == "NIL":
+		return null
 	var json : JSON = JSON.new()
 	if json.parse(data_str) == OK:
 		var data : Variant = json.data

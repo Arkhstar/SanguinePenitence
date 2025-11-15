@@ -20,6 +20,9 @@ static var hunter_name : String = "NULLREF" :
 		if hunter_unit:
 			hunter_unit.display_name = hunter_name
 static var hunter_unit : PlayerUnit = null
+static var merc_0 : PlayerUnit = null
+static var merc_1 : PlayerUnit = null
+static var merc_2 : PlayerUnit = null
 
 static var obelisks : int = 0
 
@@ -57,6 +60,9 @@ static func load_save_file() -> void:
 					hunter_unit = PlayerUnit.from_str(data["hntr"])
 					while hunter_unit.display_name != hunter_name:
 						pass
+					merc_0 = PlayerUnit.from_str(data["untx"])
+					merc_1 = PlayerUnit.from_str(data["unty"])
+					merc_2 = PlayerUnit.from_str(data["untz"])
 					obelisks = data["blsk"]
 					return
 		push_error("Something went wrong loading save file")
@@ -76,6 +82,9 @@ static func to_str() -> String:
 		"invt" : inventory.to_str(),
 		"name" : hunter_name,
 		"hntr" : hunter_unit.to_str(),
+		"untx" : merc_0.to_str() if merc_0 else "NIL",
+		"unty" : merc_1.to_str() if merc_1 else "NIL",
+		"untz" : merc_2.to_str() if merc_2 else "NIL",
 		"blsk" : obelisks
 	}
 	return JSON.stringify(dict)
