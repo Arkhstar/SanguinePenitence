@@ -1,22 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://8uvio646p8kq"]
+[gd_scene load_steps=9 format=3 uid="uid://8uvio646p8kq"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_1ebnk"]
-[ext_resource type="Script" uid="uid://cl1dutmifyckh" path="res://Scripts/Overworld/SellMenu.gd" id="2_vgnuv"]
+[ext_resource type="Script" uid="uid://iapti1sqo7nn" path="res://Scripts/Overworld/Shop0Menu.gd" id="2_1ebnk"]
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/MenuNav.ogg" id="3_3xatm"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="4_7u1p4"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="5_r5agf"]
+[ext_resource type="AudioStream" uid="uid://dpgafs08cf4mg" path="res://Audio/SFX/MenuFail.ogg" id="5_vgnuv"]
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="6_gdre3"]
-[ext_resource type="PackedScene" uid="uid://dpiw2ut8vpe3g" path="res://Scenes/Overworld/sell_option.tscn" id="7_685fp"]
+[ext_resource type="PackedScene" uid="uid://cdavit171j0ge" path="res://Scenes/Overworld/buy_option.tscn" id="7_1ebnk"]
 
 [node name="Shop0Menu" type="NinePatchRect"]
 offset_right = 350.0
-offset_bottom = 170.0
+offset_bottom = 110.0
 texture = ExtResource("1_1ebnk")
 patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
-script = ExtResource("2_vgnuv")
+script = ExtResource("2_1ebnk")
 
 [node name="Nav" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_3xatm")
@@ -24,6 +25,11 @@ bus = &"SFX"
 
 [node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_7u1p4")
+bus = &"SFX"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_vgnuv")
 bus = &"SFX"
 
 [node name="Title" type="Label" parent="."]
@@ -53,80 +59,48 @@ offset_right = 178.0
 offset_bottom = 9.0
 texture = ExtResource("6_gdre3")
 
-[node name="D" parent="." instance=ExtResource("7_685fp")]
+[node name="Strength" parent="." instance=ExtResource("7_1ebnk")]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 30.0
 offset_right = 190.0
 offset_bottom = 40.0
 
-[node name="C" parent="." instance=ExtResource("7_685fp")]
+[node name="Defense" parent="." instance=ExtResource("7_1ebnk")]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 45.0
 offset_right = 190.0
 offset_bottom = 55.0
 
-[node name="B" parent="." instance=ExtResource("7_685fp")]
+[node name="Sharpen" type="Label" parent="."]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 60.0
-offset_right = 190.0
+offset_right = 330.0
 offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("5_r5agf")
+theme_override_font_sizes/font_size = 10
+text = "SHARPEN WEAPON : FREE"
+horizontal_alignment = 1
 
-[node name="A" parent="." instance=ExtResource("7_685fp")]
+[node name="Buy" type="Label" parent="."]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 75.0
-offset_right = 190.0
+offset_right = 330.0
 offset_bottom = 85.0
-
-[node name="S" parent="." instance=ExtResource("7_685fp")]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 90.0
-offset_right = 190.0
-offset_bottom = 100.0
-
-[node name="all" type="Label" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 105.0
-offset_right = 330.0
-offset_bottom = 115.0
 theme_override_fonts/font = ExtResource("5_r5agf")
 theme_override_font_sizes/font_size = 10
-text = "SELECT ALL TO SELL"
-horizontal_alignment = 1
-
-[node name="none" type="Label" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 120.0
-offset_right = 330.0
-offset_bottom = 130.0
-theme_override_fonts/font = ExtResource("5_r5agf")
-theme_override_font_sizes/font_size = 10
-text = "SELECT NONE TO SELL"
-horizontal_alignment = 1
-
-[node name="Sell" type="Label" parent="."]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 135.0
-offset_right = 330.0
-offset_bottom = 145.0
-theme_override_fonts/font = ExtResource("5_r5agf")
-theme_override_font_sizes/font_size = 10
-text = "SELL"
+text = "PURCHASE"
 horizontal_alignment = 1
 
 [node name="Exit" type="Label" parent="."]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 150.0
+offset_top = 90.0
 offset_right = 330.0
-offset_bottom = 160.0
+offset_bottom = 100.0
 theme_override_fonts/font = ExtResource("5_r5agf")
 theme_override_font_sizes/font_size = 10
 text = "EXIT"

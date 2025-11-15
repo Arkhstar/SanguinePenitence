@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdavit171j0ge"]
+
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="1_cxaon"]
+[ext_resource type="Script" uid="uid://bw63s5g7cenkt" path="res://Scripts/Overworld/BuyOption.gd" id="2_cxaon"]
+[ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/MenuSelect.ogg" id="3_2vx7f"]
+[ext_resource type="AudioStream" uid="uid://dpgafs08cf4mg" path="res://Audio/SFX/MenuFail.ogg" id="4_4jwa5"]
+[ext_resource type="Texture2D" uid="uid://dnhify2i0j14h" path="res://Textures/UI/CycleDark.png" id="5_bwex1"]
+
+[node name="BuyOption" type="Label"]
+offset_right = 170.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("1_cxaon")
+theme_override_font_sizes/font_size = 10
+text = "OPTION"
+horizontal_alignment = 1
+script = ExtResource("2_cxaon")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.125
+one_shot = true
+
+[node name="Select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2vx7f")
+bus = &"SFX"
+
+[node name="Fail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4jwa5")
+bus = &"SFX"
+
+[node name="Option" type="Label" parent="."]
+layout_mode = 0
+offset_left = 194.0
+offset_right = 304.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("1_cxaon")
+theme_override_font_sizes/font_size = 10
+text = "VALUE"
+horizontal_alignment = 1
+
+[node name="R" type="TextureRect" parent="Option"]
+layout_mode = 0
+offset_left = 112.0
+offset_right = 120.0
+offset_bottom = 8.0
+texture = ExtResource("5_bwex1")
+
+[node name="L" type="TextureRect" parent="Option"]
+layout_mode = 0
+offset_left = -10.0
+offset_right = -2.0
+offset_bottom = 8.0
+texture = ExtResource("5_bwex1")
+flip_h = true
