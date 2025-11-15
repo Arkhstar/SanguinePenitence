@@ -22,6 +22,7 @@ func close() -> void:
 	ignore_input = true
 	await RenderingServer.frame_post_draw
 	await RenderingServer.frame_post_draw
+	SaveData.write_save_file()
 	OverworldPlayer.i.ignore_input = false
 	hide()
 

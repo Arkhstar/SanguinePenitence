@@ -40,18 +40,13 @@ func to_str() -> String:
 	return JSON.stringify(dict)
 
 static func from_str(data_str : String) -> Inventory:
-	var lambda : Callable = func(a : Array, b : Array) -> void:
-		for i : int in a.size():
-			if a[i] is int or a[i] is float:
-				b[i] = a[i]
-		return
 	var inv : Inventory = Inventory.new()
 	var json : JSON = JSON.new()
 	if json.parse(data_str) == OK:
 		var data : Variant = json.data
 		if data is Dictionary:
-			lambda.call(data["qrry"], inv.monster_parts)
-			lambda.call(data["qbag"], inv.gathered_monster_parts)
-			lambda.call(data["rgnt"], inv.reagents)
-			lambda.call(data["cmbl"], inv.consumables)
+			inv.monster_parts = data["qrry"]
+			inv.gathered_monster_parts = data["qbag"]
+			inv.reagents = data["rgnt"]
+			inv.consumables = data["cmbl"]
 	return inv

@@ -7,7 +7,9 @@ static var altar_level : int = 0 :
 		if altar_level > highest_altar_level:
 			highest_altar_level = altar_level
 static var highest_altar_level : int = 0
-static var obols : int = 0
+static var obols : int = 0 :
+	set(v):
+		obols = clampi(v, 0, coinpurse)
 static var coinpurse : int = 1000
 
 static var inventory : Inventory = Inventory.new()

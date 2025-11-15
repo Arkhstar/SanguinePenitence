@@ -12,10 +12,6 @@
 layer = 20
 script = ExtResource("1_h2y1r")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.125
-one_shot = true
-
 [node name="Nav" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_7y5a0")
 bus = &"SFX"
