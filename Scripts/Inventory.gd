@@ -33,7 +33,6 @@ func lose_monster_parts() -> void:
 func to_str() -> String:
 	var dict : Dictionary = {
 		"qrry" : monster_parts,
-		"qbag" : gathered_monster_parts,
 		"rgnt" : reagents,
 		"cmbl" : consumables
 	}
@@ -46,7 +45,6 @@ static func from_str(data_str : String) -> Inventory:
 		var data : Variant = json.data
 		if data is Dictionary:
 			inv.monster_parts = data["qrry"]
-			inv.gathered_monster_parts = data["qbag"]
 			inv.reagents = data["rgnt"]
 			inv.consumables = data["cmbl"]
 	return inv

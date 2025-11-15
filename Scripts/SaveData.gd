@@ -55,6 +55,8 @@ static func load_save_file() -> void:
 					inventory = Inventory.from_str(data["invt"])
 					hunter_name = data["name"]
 					hunter_unit = PlayerUnit.from_str(data["hntr"])
+					while hunter_unit.display_name != hunter_name:
+						pass
 					obelisks = data["blsk"]
 					return
 		push_error("Something went wrong loading save file")
