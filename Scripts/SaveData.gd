@@ -25,6 +25,7 @@ static var merc_1 : PlayerUnit = null
 static var merc_2 : PlayerUnit = null
 
 static var obelisks : int = 0
+static var townsfolk : int = 0
 
 static func load_defaults() -> void:
 	altar_level = 0
@@ -64,6 +65,7 @@ static func load_save_file() -> void:
 					merc_1 = PlayerUnit.from_str(data["unty"])
 					merc_2 = PlayerUnit.from_str(data["untz"])
 					obelisks = data["blsk"]
+					townsfolk = data["tnfk"]
 					return
 		push_error("Something went wrong loading save file")
 	load_defaults()
@@ -85,7 +87,8 @@ static func to_str() -> String:
 		"untx" : merc_0.to_str() if merc_0 else "NIL",
 		"unty" : merc_1.to_str() if merc_1 else "NIL",
 		"untz" : merc_2.to_str() if merc_2 else "NIL",
-		"blsk" : obelisks
+		"blsk" : obelisks,
+		"tnfk" : townsfolk
 	}
 	return JSON.stringify(dict)
 

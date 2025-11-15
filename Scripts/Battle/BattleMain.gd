@@ -10,7 +10,7 @@ var victory_state : VictoryState = VictoryState.INIT :
 		elif v == VictoryState.WIN:
 			win_state()
 
-var units : Array[BattleUnit] = [ SaveData.hunter_unit, null, null, null, null, null, null, null ]
+var units : Array[BattleUnit] = [ SaveData.hunter_unit, SaveData.merc_0, SaveData.merc_1, SaveData.merc_2, null, null, null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
