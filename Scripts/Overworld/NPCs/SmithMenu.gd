@@ -4,7 +4,7 @@ extends NPCMenu
 @onready var dialogue : DialogueMenu = $DialogueMenu
 
 func init() -> void:
-	if await dialogue.speak("THE SMITH", "HAIL, HUNTER. WHAT WILL IT BE TODAY?", ["SHOP", "EXIT"]) == 0:
+	if await dialogue.speak("THE SMITH", "HAIL, %s. WHAT WILL IT BE TODAY?" % SaveData.hunter_name, ["SHOP", "EXIT"]) == 0:
 		print("SHOP")
 	close()
 
