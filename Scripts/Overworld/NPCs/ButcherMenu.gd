@@ -7,7 +7,7 @@ extends NPCMenu
 func _ready() -> void:
 	sell.exit.connect(func() -> void:
 		sell.close()
-		await dialogue.speak("THE BUTCHER", "... THANKS FOR DOING BUSINESS ...")
+		await dialogue.speak("THE BUTCHER", ["... ASK NO QUESTIONS AND NONE WILL BE ASKED OF YOU ...","... THANKS FOR DOING BUSINESS ..."][randi_range(0,1)])
 		close())
 
 func init() -> void:

@@ -220,3 +220,91 @@ theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 10
 text = "YES"
 horizontal_alignment = 1
+
+[node name="NamePanel" type="NinePatchRect" parent="."]
+visible = false
+offset_left = 185.0
+offset_top = 151.0
+offset_right = 455.0
+offset_bottom = 211.0
+texture = ExtResource("7_yhxw7")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Timer" type="Timer" parent="NamePanel"]
+wait_time = 0.167
+one_shot = true
+
+[node name="Highlight" type="ColorRect" parent="NamePanel"]
+layout_mode = 1
+offset_left = 5.0
+offset_top = 20.0
+offset_right = 265.0
+offset_bottom = 40.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Cursor" type="TextureRect" parent="NamePanel"]
+visible = false
+layout_mode = 0
+offset_left = 129.0
+offset_top = 45.0
+offset_right = 137.0
+offset_bottom = 53.0
+texture = ExtResource("8_trj04")
+
+[node name="Highlight" type="ColorRect" parent="NamePanel/Cursor"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = -110.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 9.0
+color = Color(0.22352941, 0.2509804, 0.2784314, 1)
+
+[node name="Message" type="Label" parent="NamePanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 265.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 10
+text = "WHAT IS YOUR NAME?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Namespace" type="Label" parent="NamePanel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 20.0
+offset_right = 265.0
+offset_bottom = 30.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 20
+text = "............"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Cancel" type="Label" parent="NamePanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 45.0
+offset_right = 130.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 10
+text = "BACK"
+horizontal_alignment = 1
+
+[node name="Continue" type="Label" parent="NamePanel"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 45.0
+offset_right = 250.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("2_48xlc")
+theme_override_font_sizes/font_size = 10
+text = "CONFIRM"
+horizontal_alignment = 1

@@ -14,7 +14,7 @@ static var coinpurse : int = 1000
 
 static var inventory : Inventory = Inventory.new()
 
-static var hunter_name : String = "NULL" :
+static var hunter_name : String = "NULLREF" :
 	set(v):
 		hunter_name = v
 		if hunter_unit:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkwjgxexkkxyx"]
+[gd_scene load_steps=15 format=3 uid="uid://dkwjgxexkkxyx"]
 
 [ext_resource type="Script" uid="uid://cnx6uff6gr3y6" path="res://Scripts/Overworld/Town.gd" id="1_gepc6"]
 [ext_resource type="PackedScene" uid="uid://cbtglvvw04xgn" path="res://Scenes/Overworld/overworld_player.tscn" id="1_ir0rx"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dlktd8dcqp200" path="res://Audio/SFX/Wind2.ogg" id="6_vfogn"]
 [ext_resource type="AudioStream" uid="uid://bfwid2pinh53g" path="res://Audio/SFX/Wind3.ogg" id="7_rrfqv"]
 [ext_resource type="PackedScene" uid="uid://cti0ib52tb2ck" path="res://Scenes/Overworld/NPCs/butcher.tscn" id="7_vfogn"]
+[ext_resource type="PackedScene" uid="uid://bbvfmcwgp85h6" path="res://Scenes/Overworld/NPCs/smith.tscn" id="8_rrfqv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q51a2"]
 
@@ -37,6 +38,9 @@ position = Vector2(-96, -24)
 
 [node name="Butcher" parent="." instance=ExtResource("7_vfogn")]
 position = Vector2(72, 48)
+
+[node name="Smith" parent="." instance=ExtResource("8_rrfqv")]
+position = Vector2(-144, 96)
 
 [node name="Altar" parent="." instance=ExtResource("2_ir0rx")]
 position = Vector2(0, -96)
