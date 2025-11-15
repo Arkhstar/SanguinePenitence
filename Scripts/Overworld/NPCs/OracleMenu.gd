@@ -4,8 +4,8 @@ extends NPCMenu
 @onready var dialogue : DialogueMenu = $DialogueMenu
 
 func init() -> void:
-	await dialogue.speak("FUNKY LITTLE GUY", "WOW. THAT WAS LOWKEY SO FIRE OF YOU TO TALK TO ME LIKE THAT, BUT I DON'T HAVE ANY DIALOGUE YET... SO... WASSUP I GUESS?", ["NOT MUCH", "NOTHING"])
-	await dialogue.speak("FUNKY LITTLE GUY", "EPIC.")
+	await dialogue.speak("THE ORACLE", "MESSAGE", ["ANSWER 1", "ANSWER 2"])
+	await dialogue.speak("THE ORACLE", "PREDETERMINED RESPONSE")
 	close()
 
 func update(_delta : float) -> void:
