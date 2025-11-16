@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsy15aggor000"
-path="res://.godot/imported/SelectorSmall.png-2310244d7772aeb374879dd5f88e2f4e.ctex"
+uid="uid://dcrsol8bp5mc2"
+path="res://.godot/imported/TargetIndicator1.png-77b4623a3193c18b12680d22e866a5c8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/SelectorSmall.png"
-dest_files=["res://.godot/imported/SelectorSmall.png-2310244d7772aeb374879dd5f88e2f4e.ctex"]
+source_file="res://Textures/Battle/TargetIndicator1.png"
+dest_files=["res://.godot/imported/TargetIndicator1.png-77b4623a3193c18b12680d22e866a5c8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fwpsp18mwyrk"
-path="res://.godot/imported/CycleLight.png-fa1e4340dac178c544a8f378e3e35d20.ctex"
+uid="uid://blxb3x2y8v3mn"
+path="res://.godot/imported/SelectorAlt.png-dbb2550b3b7d295d1974db234fd0aa73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/CycleLight.png"
-dest_files=["res://.godot/imported/CycleLight.png-fa1e4340dac178c544a8f378e3e35d20.ctex"]
+source_file="res://Textures/Menu/Selector/SelectorAlt.png"
+dest_files=["res://.godot/imported/SelectorAlt.png-dbb2550b3b7d295d1974db234fd0aa73.ctex"]
 
 [params]
 

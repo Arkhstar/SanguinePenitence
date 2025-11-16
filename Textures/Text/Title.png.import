@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blxb3x2y8v3mn"
-path="res://.godot/imported/SelectorAlt.png-cf2bf6f5ac1c608bfd0229b746c971b3.ctex"
+uid="uid://rvwsj4og8koj"
+path="res://.godot/imported/Title.png-83d93bf7c85299fe4484f4bb39b4245d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/SelectorAlt.png"
-dest_files=["res://.godot/imported/SelectorAlt.png-cf2bf6f5ac1c608bfd0229b746c971b3.ctex"]
+source_file="res://Textures/Text/Title.png"
+dest_files=["res://.godot/imported/Title.png-83d93bf7c85299fe4484f4bb39b4245d.ctex"]
 
 [params]
 

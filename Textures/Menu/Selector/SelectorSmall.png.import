@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cebg481cko066"
-path="res://.godot/imported/SelectorLarge.png-34b18387598aa02c4a497d76e1ba1dd2.ctex"
+uid="uid://dsy15aggor000"
+path="res://.godot/imported/SelectorSmall.png-72bb775c676c84fc161a9549f0dbb6ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/SelectorLarge.png"
-dest_files=["res://.godot/imported/SelectorLarge.png-34b18387598aa02c4a497d76e1ba1dd2.ctex"]
+source_file="res://Textures/Menu/Selector/SelectorSmall.png"
+dest_files=["res://.godot/imported/SelectorSmall.png-72bb775c676c84fc161a9549f0dbb6ab.ctex"]
 
 [params]
 

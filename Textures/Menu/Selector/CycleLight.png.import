@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpl87qtgwscre"
-path="res://.godot/imported/MetronomeVFX.png-c68ea9ff8a2150e9258f449b18f0242f.ctex"
+uid="uid://fwpsp18mwyrk"
+path="res://.godot/imported/CycleLight.png-8ca5afca4b79ccdbd5d3afb59f868974.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/MetronomeVFX.png"
-dest_files=["res://.godot/imported/MetronomeVFX.png-c68ea9ff8a2150e9258f449b18f0242f.ctex"]
+source_file="res://Textures/Menu/Selector/CycleLight.png"
+dest_files=["res://.godot/imported/CycleLight.png-8ca5afca4b79ccdbd5d3afb59f868974.ctex"]
 
 [params]
 

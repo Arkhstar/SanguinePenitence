@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpiw2ut8vpe3g"]
 
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="1_1h4ad"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="1_1h4ad"]
 [ext_resource type="Script" uid="uid://ckscpm7d1hafc" path="res://Scripts/Overworld/NPCs/SellOption.gd" id="2_1h4ad"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/Menu/Select.ogg" id="3_wx751"]
 [ext_resource type="AudioStream" uid="uid://dpgafs08cf4mg" path="res://Audio/SFX/Menu/Fail.ogg" id="4_sbkix"]
-[ext_resource type="Texture2D" uid="uid://dnhify2i0j14h" path="res://Textures/UI/CycleDark.png" id="5_ex3ei"]
+[ext_resource type="Texture2D" uid="uid://dnhify2i0j14h" path="res://Textures/Menu/Selector/CycleDark.png" id="5_ex3ei"]
 
 [node name="SellOption" type="Label"]
 offset_right = 170.0

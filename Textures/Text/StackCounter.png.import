@@ -3,12 +3,12 @@
 importer="font_data_image"
 type="FontFile"
 uid="uid://geqgq2iws2l2"
-path="res://.godot/imported/StackCounter.png-f2bf14991af803a5c09c2187d38b694f.fontdata"
+path="res://.godot/imported/StackCounter.png-1455f317554625acef9a30d4ca03f909.fontdata"
 
 [deps]
 
-source_file="res://Textures/Fonts/StackCounter.png"
-dest_files=["res://.godot/imported/StackCounter.png-f2bf14991af803a5c09c2187d38b694f.fontdata"]
+source_file="res://Textures/Text/StackCounter.png"
+dest_files=["res://.godot/imported/StackCounter.png-1455f317554625acef9a30d4ca03f909.fontdata"]
 
 [params]
 

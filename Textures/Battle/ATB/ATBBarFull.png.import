@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkdxki1mqe2cx"
-path="res://.godot/imported/Cursor.png-a5f5d7c3a59cc4a85ab727a5061bc334.ctex"
+uid="uid://bxxg4daw1shba"
+path="res://.godot/imported/ATBBarFull.png-9da9b491af004f1759ee9bd6dd68a26f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Cursor.png"
-dest_files=["res://.godot/imported/Cursor.png-a5f5d7c3a59cc4a85ab727a5061bc334.ctex"]
+source_file="res://Textures/Battle/ATB/ATBBarFull.png"
+dest_files=["res://.godot/imported/ATBBarFull.png-9da9b491af004f1759ee9bd6dd68a26f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqjket30mlljk"
-path="res://.godot/imported/ATBBarEmpty.png-cb625875e34bf9377d90e64fc51d7e0b.ctex"
+uid="uid://biljb5mp3tm7k"
+path="res://.godot/imported/StatusIcons.png-fd1b615e4c5cca71c17d8665481feb74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/ATBBarEmpty.png"
-dest_files=["res://.godot/imported/ATBBarEmpty.png-cb625875e34bf9377d90e64fc51d7e0b.ctex"]
+source_file="res://Textures/Battle/StatusIcons.png"
+dest_files=["res://.godot/imported/StatusIcons.png-fd1b615e4c5cca71c17d8665481feb74.ctex"]
 
 [params]
 

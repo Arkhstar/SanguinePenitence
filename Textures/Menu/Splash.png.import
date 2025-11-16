@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf5k5nf06d5pp"
-path="res://.godot/imported/Obol.png-43dd1192de651022bec9528bcb0e5495.ctex"
+uid="uid://cpyjq6okspmvf"
+path="res://.godot/imported/Splash.png-f05cd09d5f4b534789d6885703c2b839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/Obol.png"
-dest_files=["res://.godot/imported/Obol.png-43dd1192de651022bec9528bcb0e5495.ctex"]
+source_file="res://Textures/Menu/Splash.png"
+dest_files=["res://.godot/imported/Splash.png-f05cd09d5f4b534789d6885703c2b839.ctex"]
 
 [params]
 

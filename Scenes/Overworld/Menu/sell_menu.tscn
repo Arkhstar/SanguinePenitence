@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://di8cyw3g445r6"]
 
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_dspw8"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/Menu/NinePatch.png" id="1_dspw8"]
 [ext_resource type="Script" uid="uid://cl1dutmifyckh" path="res://Scripts/Overworld/NPCs/SellMenu.gd" id="2_vimx2"]
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/Menu/Navigate.ogg" id="3_mljhi"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/Menu/Select.ogg" id="4_y2tu6"]
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="5_hm26a"]
-[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="6_6kpd1"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="5_hm26a"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Menu/Selector/SelectorSmall.png" id="6_6kpd1"]
 [ext_resource type="PackedScene" uid="uid://dpiw2ut8vpe3g" path="res://Scenes/Overworld/Menu/sell_option.tscn" id="7_susa6"]
 
 [node name="SellMenu" type="NinePatchRect"]

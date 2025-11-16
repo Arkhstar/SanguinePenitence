@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://esibojmj5fdb"]
 
-[ext_resource type="Texture2D" uid="uid://biljb5mp3tm7k" path="res://Textures/UI/StatusIcons.png" id="1_1i7sf"]
+[ext_resource type="Texture2D" uid="uid://biljb5mp3tm7k" path="res://Textures/Battle/StatusIcons.png" id="1_1i7sf"]
 [ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1-Bit Color Swap.gdshader" id="1_6r2cl"]
-[ext_resource type="FontFile" uid="uid://geqgq2iws2l2" path="res://Textures/Fonts/StackCounter.png" id="2_6r2cl"]
+[ext_resource type="FontFile" uid="uid://geqgq2iws2l2" path="res://Textures/Text/StackCounter.png" id="2_6r2cl"]
 [ext_resource type="Script" uid="uid://bju0hsoio3lh8" path="res://Scripts/Battle/Menu/StatusIcon.gd" id="3_0wpg5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0wpg5"]

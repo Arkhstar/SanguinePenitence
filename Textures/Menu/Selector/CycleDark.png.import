@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrsol8bp5mc2"
-path="res://.godot/imported/TargetIndicator1.png-122a3c9785473742cdda3912a712fb80.ctex"
+uid="uid://dnhify2i0j14h"
+path="res://.godot/imported/CycleDark.png-8d90aaa28eb9d6c3e8671e7e3a733051.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/TargetIndicator1.png"
-dest_files=["res://.godot/imported/TargetIndicator1.png-122a3c9785473742cdda3912a712fb80.ctex"]
+source_file="res://Textures/Menu/Selector/CycleDark.png"
+dest_files=["res://.godot/imported/CycleDark.png-8d90aaa28eb9d6c3e8671e7e3a733051.ctex"]
 
 [params]
 

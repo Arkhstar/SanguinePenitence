@@ -3,8 +3,8 @@ extends Label
 
 signal exit
 
-const LIT : Texture = preload("res://Textures/UI/CycleLight.png")
-const UNLIT : Texture = preload("res://Textures/UI/CycleDark.png")
+const LIT : Texture = preload("res://Textures/Menu/Selector/CycleLight.png")
+const UNLIT : Texture = preload("res://Textures/Menu/Selector/CycleDark.png")
 
 var selected : bool = false :
 	set(value):

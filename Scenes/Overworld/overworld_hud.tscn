@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqv1fn4ar3ckj"]
 
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_3w67x"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/Menu/NinePatch.png" id="1_3w67x"]
 [ext_resource type="Script" uid="uid://hoqr571wcast" path="res://Scripts/Overworld/OverworldHUD.gd" id="1_lj55f"]
-[ext_resource type="Texture2D" uid="uid://bf5k5nf06d5pp" path="res://Textures/UI/Obol.png" id="2_3w67x"]
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_rd5xf"]
+[ext_resource type="Texture2D" uid="uid://bf5k5nf06d5pp" path="res://Textures/Menu/Obol.png" id="2_3w67x"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="3_rd5xf"]
 
 [node name="OverworldHUD" type="CanvasLayer"]
 script = ExtResource("1_lj55f")

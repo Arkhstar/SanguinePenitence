@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkcdbxaqepfh8"]
 
-[ext_resource type="Texture2D" uid="uid://dcrsol8bp5mc2" path="res://Textures/UI/TargetIndicator1.png" id="1_cicpw"]
-[ext_resource type="Texture2D" uid="uid://cv1vw3x6seg3g" path="res://Textures/UI/TargetIndicator2.png" id="2_3hbsw"]
+[ext_resource type="Texture2D" uid="uid://dcrsol8bp5mc2" path="res://Textures/Battle/TargetIndicator1.png" id="1_cicpw"]
+[ext_resource type="Texture2D" uid="uid://cv1vw3x6seg3g" path="res://Textures/Battle/TargetIndicator2.png" id="2_3hbsw"]
 [ext_resource type="Script" uid="uid://dbxxh73wqukcc" path="res://Scripts/Battle/Menu/TargetIndicator.gd" id="2_c57rx"]
 
 [sub_resource type="Animation" id="Animation_3hbsw"]

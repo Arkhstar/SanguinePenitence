@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxxg4daw1shba"
-path="res://.godot/imported/ATBBarFull.png-87ec7c19e21a3abdccb814fb2b3dc4c0.ctex"
+uid="uid://b74cx62716tfi"
+path="res://.godot/imported/DialogueContinue.png-a9f818ec004ee3f9f2b0c16c330079d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/UI/ATBBarFull.png"
-dest_files=["res://.godot/imported/ATBBarFull.png-87ec7c19e21a3abdccb814fb2b3dc4c0.ctex"]
+source_file="res://Textures/Menu/Selector/DialogueContinue.png"
+dest_files=["res://.godot/imported/DialogueContinue.png-a9f818ec004ee3f9f2b0c16c330079d6.ctex"]
 
 [params]
 

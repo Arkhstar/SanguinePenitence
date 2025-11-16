@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://7x8rt51478gl"]
 
-[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_yrffc"]
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/Menu/NinePatch.png" id="1_yrffc"]
 [ext_resource type="Script" uid="uid://dp8cy17q7u8ch" path="res://Scripts/Overworld/NPCs/DialogueMenu.gd" id="2_fkl7o"]
-[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_0hb4q"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="3_0hb4q"]
 [ext_resource type="AudioStream" uid="uid://budd0g77uroxe" path="res://Audio/SFX/Menu/TextSpeak.ogg" id="3_3sdso"]
-[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/UI/SelectorSmall.png" id="4_3sdso"]
+[ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Menu/Selector/SelectorSmall.png" id="4_3sdso"]
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/Menu/Navigate.ogg" id="4_ya8kw"]
-[ext_resource type="Texture2D" uid="uid://b74cx62716tfi" path="res://Textures/UI/DialogueContinue.png" id="5_fkl7o"]
+[ext_resource type="Texture2D" uid="uid://b74cx62716tfi" path="res://Textures/Menu/Selector/DialogueContinue.png" id="5_fkl7o"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/Menu/Select.ogg" id="5_ya8kw"]
 
 [node name="DialogueMenu" type="NinePatchRect"]
