@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpujgew3a8rx8"]
 
 [ext_resource type="Script" uid="uid://wfshqry2mg4f" path="res://Scripts/Autoload/FlowerwallCRT.gd" id="1_kdx8r"]
-[ext_resource type="Material" uid="uid://c45ounqnx7c2o" path="res://Plugins/flowerwall_postprocess/shaders/dithering_shader.material" id="1_p34hk"]
-[ext_resource type="Material" uid="uid://2tsdqpogesqb" path="res://Plugins/flowerwall_postprocess/shaders/blurx_shader.material" id="2_v20am"]
-[ext_resource type="Material" uid="uid://bjln2ovgooo2l" path="res://Plugins/flowerwall_postprocess/shaders/blury_shader.material" id="3_51nf0"]
-[ext_resource type="Material" uid="uid://7wl8n2wh5jxt" path="res://Plugins/flowerwall_postprocess/shaders/crt_shader.material" id="4_51nf0"]
-[ext_resource type="Material" uid="uid://qpvyejb5i2sn" path="res://Plugins/flowerwall_postprocess/shaders/bloom_shader.material" id="5_gd5ix"]
-[ext_resource type="Shader" uid="uid://bo2xutr4rnim7" path="res://Shaders/Scanline.gdshader" id="6_crvop"]
+[ext_resource type="Material" uid="uid://c45ounqnx7c2o" path="res://Resources/Shaders/flowerwall_postprocess/dithering_shader.material" id="1_p34hk"]
+[ext_resource type="Material" uid="uid://2tsdqpogesqb" path="res://Resources/Shaders/flowerwall_postprocess/blurx_shader.material" id="2_v20am"]
+[ext_resource type="Material" uid="uid://bjln2ovgooo2l" path="res://Resources/Shaders/flowerwall_postprocess/blury_shader.material" id="3_51nf0"]
+[ext_resource type="Material" uid="uid://7wl8n2wh5jxt" path="res://Resources/Shaders/flowerwall_postprocess/crt_shader.material" id="4_51nf0"]
+[ext_resource type="Material" uid="uid://qpvyejb5i2sn" path="res://Resources/Shaders/flowerwall_postprocess/bloom_shader.material" id="5_gd5ix"]
+[ext_resource type="Shader" uid="uid://bo2xutr4rnim7" path="res://Resources/Shaders/Scanline.gdshader" id="6_crvop"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdx8r"]
 shader = ExtResource("6_crvop")
