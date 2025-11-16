@@ -47,9 +47,8 @@ func init() -> void:
 				if SaveData.altar_level >= 1000 and not (SaveData.townsfolk & 1):
 					await dialogue.speak(display_name, "YOU MUST FORIVE ME, %s. I HAVE FAILED TO INTRODUCE MYSELF AFTER ALL THIS TIME." % SaveData.hunter_name)
 					SaveData.townsfolk |= 1
-					await dialogue.speak(display_name, "MY NAME IS JEROD,")
 					display_name = "JEROD, THE ORACLE"
-					await dialogue.speak(display_name, "IT IS NICE TO FORMALLY MEET YOU, %s. PRAY FORGIVE MY BELATEDNESS." % SaveData.hunter_name)
+					await dialogue.speak(display_name, "MY NAME IS JEROD. IT IS NICE TO FORMALLY MEET YOU, %s. PRAY FORGIVE MY BELATEDNESS." % SaveData.hunter_name)
 				elif SaveData.highest_altar_level >= 750:
 					await dialogue.speak(display_name, "I'M HONORED YOU WOULD ASK AFTER ME AND MINE, BUT I QUESTION WHAT YOU SEEK.")
 					await dialogue.speak(display_name, "IF YOU MEAN TO HAVE ME JOIN IN YOUR GRAND QUEST, FORGIVE ME BUT I MUST DECLINE. MY DAYS OF GLORY HAVE LONG COME AND PAST.")
