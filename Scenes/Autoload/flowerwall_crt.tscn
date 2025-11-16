@@ -92,6 +92,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-
-[node name="BackBufferCopy7" type="BackBufferCopy" parent="."]
-copy_mode = 2
