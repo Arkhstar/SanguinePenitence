@@ -14,12 +14,13 @@ func init() -> void:
 			await shop.exit
 			shop.close()
 			await dialogue.speak(Global.get_smith_name(), "THANKS FOR YOUR BUSINESS.")
-		elif option == 1:
-			if SaveData.altar_level >= 1200 and SaveData.townsfolk & 1 and not (SaveData.townsfolk & 4):
+		else:
+			if SaveData.altar_level >= 1200 and SaveData.townsfolk & 3 and not (SaveData.townsfolk & 4):
 				await dialogue.speak(Global.get_smith_name(), "I SCARCE BELIEVE YOU ARE SOURCE TO OUR BOON OF LIGHT. PERHAPS I HAVE BEEN OVERLY HARSH AGAINST YOU.")
 				SaveData.townsfolk |= 4
 				dialogue.set_image(Global.TEXTURE_SMITH_PORTRAIT, SaveData.townsfolk & 4)
 				await dialogue.speak(Global.get_smith_name(), "I AM KNOWN AS %s, AND IT IS A PLEASURE TO MAKE YOUR ACQUAINTANCE, %s." % [Global.get_smith_name(false), SaveData.hunter_name])
+				await dialogue.speak("", "%s WILL NOW GIVE YOU DISCOUNTS ON PURCHASES!" % Global.get_smith_name(false))
 			elif SaveData.highest_altar_level >= 1200:
 				await dialogue.speak(Global.get_smith_name(), "PRAY FORGIVE MY RUDENESS, %s. HOPE HAS BEEN MADE SCARCE THESE PAST MANY MOONS, AND I HOLD FEAR TO MEET IT ONCE MORE." % SaveData.hunter_name)
 				await dialogue.speak(Global.get_smith_name(), "BUT YOU HAVE BROUGHT FORTH THE LIGHT OF PROVIDENCE, AND HELD ITS GAZE UPON US.")

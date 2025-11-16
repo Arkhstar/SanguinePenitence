@@ -77,8 +77,8 @@ static func write_save_file() -> void:
 
 static func to_str() -> String:
 	var dict : Dictionary = {
-		"clvl" : altar_level,
 		"hlvl" : highest_altar_level,
+		"clvl" : altar_level,
 		"obol" : obols,
 		"cprs" : coinpurse,
 		"invt" : inventory.to_str(),

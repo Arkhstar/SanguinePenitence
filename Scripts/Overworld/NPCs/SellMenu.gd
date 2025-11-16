@@ -61,7 +61,7 @@ func _physics_process(_delta: float) -> void:
 			var profit : int = 0
 			for i : int in 5:
 				var quantity : int = options[i].v
-				var cost : int = [10, 25, 100, 250, 1000][i]
+				var cost : int = [15, 40, 150, 400, 1500][i] if SaveData.townsfolk & 2 else [10, 25, 100, 250, 1000][i]
 				for j : int in quantity:
 					if profit + SaveData.obols >= SaveData.coinpurse:
 						break
