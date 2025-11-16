@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Sanguine Penitence</title>
+        <link rel="icon" href="assets/icon.png" type="image/png">
+        <style>
+            :root {
+                --bg-0: #1b2025;
+                --bg-1: #0f1216;
+                --panel-color: #0f112710;
+                --panel-color-opaque: #0f112740;
+                --panel-color-opaque2: #0f112760;
+                --panel-shadow-color: #202c51;
+                --font-color-1: #eef0f0;
+                --font-color-2: #c2c9ca;
+                --font-color-3: #9ba2a5;
+                --header-line-color: #202c51;
+                --hover-scale: 1.02;
+                --hover-scale-div-2: 0.51;
+                --hover-time: 1s;
+            }
+            html {
+                background: radial-gradient(circle at top, var(--bg-0), var(--bg-1));
+                overscroll-behavior-y: none;
+                overscroll-behavior-x: none;
+
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+            body {
+                background: transparent;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+            }
+            header {
+                position: relative;
+                min-height: 64vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                background: linear-gradient(to bottom, rgba(49, 23, 30, 0.5), transparent),
+                url('assets/header.jpg') center/cover no-repeat fixed;
+                padding-bottom: 1rem;
+                border-radius: 0.5rem;
+            }
+            header .content {
+                position: relative;
+                align-content: center;
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+                display: flex;
+                flex-direction: column;
+            }
+            header .content:hover {
+                transform: scale(var(--hover-scale));
+            }
+            h1 {
+                color: var(--font-color-1);
+                font-size: 3.5rem;
+                justify-self: center;
+                justify-content: center;
+                display: flex;
+                padding: 0.5rem 2rem;
+            }
+            h2 {
+                color: var(--font-color-2);
+                font-size: 2.1rem;
+                justify-self: center;
+                justify-content: center;
+                display: flex;
+                border-bottom: 2px solid var(--header-line-color);
+                min-width: 450px;
+            }
+            h3 {
+                color: var(--font-color-2);
+                font-size: 1.25rem;
+                justify-self: center;
+                text-align: center;
+            }
+            h4 {
+                color: var(--font-color-2);
+                font-size: 1.1rem;
+                text-align: center;
+            }
+            p {
+                color: var(--font-color-3);
+                font-size: 1rem;
+                padding: 0.05rem 0.5rem;
+                text-align: center;
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background-color: var(--panel-color-opaque);
+                text-align: center;
+                color: var(--font-color-3);
+                font-size: 0.8rem;
+                backdrop-filter: blur(5px);
+            }
+            body .vfill {
+                min-height: 5vh;
+            }
+            .one-column {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 5rem;
+                justify-self: center;
+                justify-items: center;
+            }
+            .one-column .panel {
+                background: var(--panel-color);
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                min-width: 400px;
+                max-width: 600px;
+                box-shadow: 0 0 5px var(--panel-shadow-color);
+                text-align: center;
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+            }
+            .one-column .panel:hover {
+                transform: scale(var(--hover-scale));
+                background: var(--panel-color-opaque);
+            }
+            .two-column {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 5rem;
+                justify-self: center;
+                justify-items: center;
+            }
+            .two-column .panel {
+                background: var(--panel-color);
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                min-width: 400px;
+                max-width: 400px;
+                box-shadow: 0 0 5px var(--panel-shadow-color);
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+                align-items: center;
+                align-content: center;
+            }
+            .two-column .panel:hover {
+                transform: scale(var(--hover-scale));
+                background: var(--panel-color-opaque);
+            }
+            .two-column .img {
+                background: var(--panel-color);
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                min-width: 400px;
+                max-width: 400px;
+                box-shadow: 0 0 5px var(--panel-shadow-color);
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+            }
+            .two-column .img:hover {
+                transform: scale(var(--hover-scale));
+                background: var(--panel-color-opaque);
+            }
+            .two-column .img img {
+                border-radius: 1.5rem;
+                justify-self: center;
+                display: flex;
+            }
+            @media (max-width: 900px) {
+                .two-column { grid-template-columns: 1fr; }
+            }
+            @media (max-width: 500px) {
+                h2 { min-width: 350px; }
+                header .content { transform:  scale(0.5); }
+                header .content:hover { transform: scale(var(--hover-scale-div-2));}
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="content">
+                <img src="assets/logo_lit.png", alt="", width="320", style="align-self: center; image-rendering: pixelated;", draggable="false">
+                <img src="assets/title.png", alt="Sanguine Penitence", width="496", style="align-self: center; image-rendering: pixelated;", draggable="false">
+            </div>
+        </header>
+        <section id="play">
+            <h2>Play</h2>
+            <div class="one-column">
+                <div class="panel">
+                    <p>Button Goes Here<br>Link to Download & Stuff</p>
+                </div>
+            </div>
+        </section>
+        <div class="vfill"></div>
+        <section id="about">
+            <h2>About</h2>
+            <div class="one-column">
+                <div class="panel">
+                    <h4>
+                        <i>Sanguine Penitence</i> is a dark fantasy exploration adventure game
+                        where you must wander the wilds hunting cursed beasts to sell for coin.
+                    </h4>
+                </div>
+            </div>
+            <div style="padding-bottom: 5rem;"></div>
+            <div class="two-column">
+                <div class="panel">
+                    <h3>The Realm has Fallen</h3>
+                    <p>
+                        The remnants of an old village endures deep in the cursed
+                        wilds; the final bastion of humanity, saved from oblivion
+                        under the watchful gaze of a long-forgotten deity. <br><br>
+                        Through offering of silver coin, you have the chance to restore
+                        purity and cleanse the world of this terrible rot, and as the
+                        sole hunter, it falls to you to hunt the monsters of the
+                        wilds and pay this noble tithe.
+                    </p>
+                </div>
+                <div class="img">
+                    <img src="assets/screen1.jpg", alt="", width="400px", draggable="false">
+                </div>
+                <div class="img">
+                    <img src="assets/screen2.jpg", alt="", width="400px", draggable="false">
+                </div>
+                <div class="panel">
+                    <h3>Day and Night</h3>
+                    <p>
+                        At the beginning of every day, you have the chance to
+                        explore your village, speak with fellow survivors,
+                        sell your quarry, repair your gear, and make an offering
+                        at the altar.<br><br>
+                        Once you leave town, you wander the wilds, hunting down
+                        cursed monsters through a psuedo-rhythmic ATB system.
+                        The Sun slowly sets on your expedition, revealing more dangerous
+                        and aggresive beasts as Day turns to Night &mdash; but stronger
+                        creatures merit greater rewards.<br><br>
+                        Yet, as time passes, the festering curse crawls closer to the
+                        village, threatening what remains of its sanctity.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="vfill"></div>
+        <section id="credits">
+            <h2>Credits</h2>
+            <div class="one-column">
+                <div class="panel">
+                    <h4>Programming, Art, Music</h4>
+                    <p>Benjamin Coberly</p>
+                    <h4>Flowerwall-CRT Shader &ndash; MIT</h4>
+                    <p>Art-Michel</p>
+                    <h4>Made in Godot</h4>
+                    <h4>Capstone Project for<br>F2025 HON 3210 &dash; The Game Shapes You</h4>
+                </div>
+            </div>
+        </section>
+        <div class="vfill"></div>
+    </body>
+    <footer>
+        &copy; Benjamin Coberly 2025
+    </footer>
+</html>
