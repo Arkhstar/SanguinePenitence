@@ -9,6 +9,8 @@ extends NinePatchRect
 @onready var response_container : VBoxContainer = $Response/VBoxContainer
 @onready var response_option : Label = $Response/VBoxContainer/Option1
 
+@onready var image : Sprite2D = $Image
+
 @onready var continue_texture : TextureRect = $Continue
 
 @onready var speak_sfx : AudioStreamPlayer = $Speak
@@ -16,6 +18,10 @@ extends NinePatchRect
 @onready var select_sfx : AudioStreamPlayer = $Select
 
 @onready var timer : Timer = $Timer
+
+func set_image(tex : Texture2D, unmasked : bool) -> void:
+	image.texture = tex
+	image.frame = 1 if unmasked else 0
 
 func speak(speaker : String, message : String, responses : PackedStringArray = []) -> int:
 	response_panel.hide()
@@ -74,6 +80,7 @@ func speak(speaker : String, message : String, responses : PackedStringArray = [
 			response_cursor.position.y = selection_index * 10 + 5
 			if Input.is_action_just_pressed("menu_select"):
 				select_sfx.play()
+				response_panel.hide()
 				return selection_index
 			await RenderingServer.frame_post_draw
 	

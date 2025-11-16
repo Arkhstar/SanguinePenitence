@@ -113,3 +113,7 @@ offset_top = 54.0
 offset_right = 506.0
 offset_bottom = 62.0
 texture = ExtResource("5_fkl7o")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(112, -96)
+vframes = 2

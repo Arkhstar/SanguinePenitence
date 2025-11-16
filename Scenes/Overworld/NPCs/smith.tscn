@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bbvfmcwgp85h6"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_o4idd"]
-[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/TheOracle.png" id="2_leh3o"]
+[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/Placeholder.png" id="2_leh3o"]
 [ext_resource type="Script" uid="uid://cd1h7kfqxl8gq" path="res://Scripts/Overworld/NPCs/SmithMenu.gd" id="3_ul1la"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="4_tn7oc"]
 [ext_resource type="PackedScene" uid="uid://8uvio646p8kq" path="res://Scenes/Overworld/shop_0_menu.tscn" id="5_o4idd"]
@@ -90,7 +90,7 @@ offset_bottom = 344.0
 
 [node name="Shop0Menu" parent="NPCMenu" index="1" instance=ExtResource("5_o4idd")]
 visible = false
-offset_left = 145.0
-offset_top = 80.0
-offset_right = 495.0
-offset_bottom = 190.0
+offset_left = 226.0
+offset_top = 166.0
+offset_right = 576.0
+offset_bottom = 276.0

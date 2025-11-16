@@ -42,13 +42,7 @@ process_mode = 3
 stream = ExtResource("4_opfnp")
 bus = &"SFX"
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 640.0
-offset_bottom = 360.0
-color = Color(0.105882354, 0.1254902, 0.14509805, 1)
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-layout_mode = 0
+[node name="Background" type="TextureRect" parent="."]
 offset_left = 160.0
 offset_right = 480.0
 offset_bottom = 360.0
