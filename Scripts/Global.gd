@@ -22,8 +22,8 @@ static func get_oracle_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 1:
 		return "THE ORACLE"
 	if title:
-		return "JEROD, THE ORACLE"
-	return "JEROD"
+		return "YEROD, THE ORACLE"
+	return "YEROD"
 
 static func get_butcher_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 2:
@@ -43,8 +43,8 @@ static func get_sorcerer_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 8:
 		return "THE SORCERER"
 	if title:
-		return "NEHZARA, THE SORCERER"
-	return "NEHZARA"
+		return "NEHZAYA, THE SORCERER"
+	return "NEHZAYA"
 
 static func get_alchemist_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 16:
