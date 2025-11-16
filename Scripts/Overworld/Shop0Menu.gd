@@ -37,8 +37,8 @@ func _physics_process(_delta: float) -> void:
 		cursor.global_position = options[option].global_position - Vector2(1.0, 1.0)
 		cursor.size.x = 172.0
 	else:
-		cursor.global_position = options[option].global_position + Vector2(49.0, -1.0)
-		cursor.size.x = 212.0
+		cursor.global_position = options[option].global_position + Vector2(44.0, -1.0)
+		cursor.size.x = 222.0
 	cursor_indicator.position.x = cursor.size.x - 2
 	if Input.is_action_just_pressed("menu_select"):
 		if option < 2:
@@ -61,8 +61,14 @@ func _physics_process(_delta: float) -> void:
 				_update_sharpen_label()
 		elif option == 3:
 			select_sfx.play()
-			SaveData.hunter_unit.strength += randi_range(options[0].o, 2 * options[0].o) 
-			SaveData.hunter_unit.defense += randi_range(options[1].o, 2 * options[1].o)
+			if SaveData.hunter_unit.strength < 99:
+				SaveData.hunter_unit.strength += randi_range(options[0].o, 2 * options[0].o)
+			else:
+				SaveData.hunter_unit.strength += randi_range(0, ceili(0.5 * options[0].o))
+			if SaveData.hunter_unit.defense < 99:
+				SaveData.hunter_unit.defense += randi_range(options[1].o, 2 * options[1].o)
+			else:
+				SaveData.hunter_unit.defense += randi_range(0, ceili(0.5 * options[1].o))
 			for i : int in 2:
 				SaveData.obols -= options[i].o * options[i].cost
 				options[i].cp = 0
@@ -101,8 +107,8 @@ func reset() -> void:
 	_update_sharpen_label()
 
 func _ready() -> void:
-	options[0].init("STRENGTHEN WEAPON", 100, cost)
-	options[1].init("STRENGTHEN ARMOR", 150, cost)
+	options[0].init("TEMPER WEAPON", 100, cost)
+	options[1].init("TEMPER ARMOR", 150, cost)
 	
 	for i : int in 2:
 		options[i].exit.connect(return_from_setting)
@@ -120,7 +126,7 @@ func close() -> void:
 
 func _update_sharpen_label() -> void:
 	var sharpen_cost : int = _get_sharpen_cost()
-	options[2].text = "SHARPEN WEAPON : %s" % ["FREE" if sharpen_cost == 0 else str(sharpen_cost)]
+	options[2].text = "SHARPEN WEAPON -%s-: %s" % [ SaveData.hunter_unit.sharpness_rank_as_char(),"FREE" if sharpen_cost == 0 else str(sharpen_cost) ]
 	if SaveData.obols < sharpen_cost:
 		options[2].add_theme_color_override("font_color", Color("#0f1216"))
 

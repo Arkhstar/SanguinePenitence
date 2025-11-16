@@ -18,7 +18,9 @@ func init() -> void:
 					await dialogue.speak(display_name, "ZEPHYR WINDS WILL BLOW ONCE MORE, YET I SHAN'T CHANCE HOPE THEY BLOW ANON.")
 					await dialogue.speak(display_name, "YOUR EFFORT HAS BROUGHT GRAND SALVATION TO OUR VILLAGE, BUT OUR HOLY LIGHT SHINES DULL AGAINST THE WICKED PITCH.")
 					await dialogue.speak(display_name, "I BESEECH THEE: FEED THE WANING FLAME, THAT THROUGH SILVER SACRIFICE WE CHANCE MAY BE GRACED WITH DAWN ONCE MORE.")
-					await dialogue.speak(display_name, "MAY GODS HAVE MERCY ON YOUR SOUL, FAIR %s. DONA EIS REQUIEM." % SaveData.hunter_name)
+					if SaveData.townsfolk & 1:
+						await dialogue.speak(display_name, "MAY GODS HAVE MERCY ON YOUR SOUL, FAIR %s. DONA EIS REQUIEM." % SaveData.hunter_name)
+						await dialogue.speak(SaveData.hunter_name, "DONA EIS REQUIEM.")
 				elif SaveData.highest_altar_level >= 1000:
 					await dialogue.speak(display_name, "SPARSE WORD HAS TRAVELLED THE BLACKENED PLAINS AND FOUND ITS WAY HERE, AND ALL WINDS THAT BLOW CARRY ILL TIDINGS.")
 					await dialogue.speak(display_name, "YET, DO NOT SUCCUMB TO FEAR AND DARKNESS. YOUR TRIUMPH HAS LINGERED LONG AND TRUE - I HAVE NO DOUBT YOU MIGHT FIND VICTORY ETERNAL, AND SAVE US FROM THIS HELLISH PLAGUE.")
@@ -45,10 +47,10 @@ func init() -> void:
 					await dialogue.speak(display_name, "THEY WILL COME TO REASON. WE NEED ONLY LIGHT THE PATH.")
 			elif option == 2: # THE ORACLE
 				if SaveData.altar_level >= 1000 and not (SaveData.townsfolk & 1):
-					await dialogue.speak(display_name, "YOU MUST FORIVE ME, %s. I HAVE FAILED TO INTRODUCE MYSELF AFTER ALL THIS TIME." % SaveData.hunter_name)
+					await dialogue.speak(display_name, "YOU MUST FORGIVE ME. I HAVE FAILED TO INTRODUCE MYSELF AFTER ALL THIS TIME.")
 					SaveData.townsfolk |= 1
 					display_name = "JEROD, THE ORACLE"
-					await dialogue.speak(display_name, "MY NAME IS JEROD. IT IS NICE TO FORMALLY MEET YOU, %s. PRAY FORGIVE MY BELATEDNESS." % SaveData.hunter_name)
+					await dialogue.speak(display_name, "MY NAME IS JEROD. IT IS NICE TO FORMALLY MEET YOU, %s. PRAY FORGIVE MY BELATEDNESS IN INTRODUCTION." % SaveData.hunter_name)
 				elif SaveData.highest_altar_level >= 750:
 					await dialogue.speak(display_name, "I'M HONORED YOU WOULD ASK AFTER ME AND MINE, BUT I QUESTION WHAT YOU SEEK.")
 					await dialogue.speak(display_name, "IF YOU MEAN TO HAVE ME JOIN IN YOUR GRAND QUEST, FORGIVE ME BUT I MUST DECLINE. MY DAYS OF GLORY HAVE LONG COME AND PAST.")
@@ -57,7 +59,7 @@ func init() -> void:
 					await dialogue.speak(display_name, "AS DID YOU, I FOLLOWED AN AUSPICIOUS CALLING FROM THIS QUEER ALTAR.")
 					await dialogue.speak(display_name, "IT'S EMBLEM I FAIL TO RECALL, BUT I KNOW ITS CAUSE TO BE JUST: BY SACRIFICE OF SILVER WILL WE BE GRANTED PURITY, AND SAVED FROM THIS FELL CURSE.")
 					await dialogue.speak(display_name, "YOU ARE MARKED ITS BLADE, AND I ITS MOUTH.")
-			option = await dialogue.speak(display_name, "MAY THERE BE AUGHT ELSE YOU INQUIRE AFTER?", dialogue_options)
+			option = await dialogue.speak(display_name, "MAY THERE BE AUGHT ELSE YOU SEEK TO INQUIRE AFTER?", dialogue_options)
 		await dialogue.speak(display_name, "FARE THEE WELL, %s, AND MAY YOU STAY IN SIGHT." % SaveData.hunter_name)
 	else:
 		await dialogue.speak(display_name, "KEEP WARY, NOBLE HUNTER. IN THESE DARK DAYS, FEW ARE THOSE WHO MEAN YOU NO HARM.")
