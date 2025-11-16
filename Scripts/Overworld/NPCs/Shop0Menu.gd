@@ -128,7 +128,7 @@ func _update_sharpen_label() -> void:
 	var sharpen_cost : int = _get_sharpen_cost()
 	options[2].text = "SHARPEN WEAPON -%s-: %s" % [ SaveData.hunter_unit.sharpness_rank_as_char(),"FREE" if sharpen_cost == 0 else str(sharpen_cost) ]
 	if SaveData.obols < sharpen_cost:
-		options[2].add_theme_color_override("font_color", Color("#0f1216"))
+		options[2].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
 
 func _get_sharpen_cost() -> int:
 	var hunter_sharpness : int = SaveData.hunter_unit.get_sharpness_rank()

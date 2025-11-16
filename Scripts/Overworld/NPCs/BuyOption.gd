@@ -3,9 +3,6 @@ extends Label
 
 signal exit
 
-const LIT : Texture = preload("res://Textures/Menu/Selector/CycleLight.png")
-const UNLIT : Texture = preload("res://Textures/Menu/Selector/CycleDark.png")
-
 var selected : bool = false
 
 @onready var timer : Timer = $Timer
@@ -26,13 +23,13 @@ func update_option(s : int) -> void:
 	q = s
 	option.text = "%2d:%5d" % [q, q * cost]
 	if q == 0:
-		l.texture = UNLIT
+		l.texture = Global.TEXTURE_OPTION_CYCLE_OFF
 	else:
-		l.texture = LIT
+		l.texture = Global.TEXTURE_OPTION_CYCLE_ON
 	if q * cost + cost + cp > SaveData.obols:
-		r.texture = UNLIT
+		r.texture = Global.TEXTURE_OPTION_CYCLE_OFF
 	else:
-		r.texture = LIT
+		r.texture = Global.TEXTURE_OPTION_CYCLE_ON
 
 func reset(o_val : int) -> void:
 	o = o_val

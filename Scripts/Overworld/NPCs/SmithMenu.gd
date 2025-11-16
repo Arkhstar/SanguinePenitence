@@ -13,7 +13,7 @@ func _ready() -> void:
 		close())
 
 func init() -> void:
-	dialogue.set_image(preload("res://Textures/Characters/Smith/Portrait.png"), SaveData.townsfolk & 4)
+	dialogue.set_image(Global.TEXTURE_SMITH_PORTRAIT, SaveData.townsfolk & 4)
 	if SaveData.townsfolk & 4:
 		display_name = "GAVEIRAH, THE SMITH"
 	if await dialogue.speak(display_name, "HAIL, %s. WHAT WILL IT BE TODAY?" % SaveData.hunter_name, ["SHOP", "EXIT"]) == 0:

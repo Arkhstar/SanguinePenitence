@@ -3,9 +3,6 @@ extends Label
 
 signal exit
 
-const LIT : Texture = preload("res://Textures/Menu/Selector/CycleLight.png")
-const UNLIT : Texture = preload("res://Textures/Menu/Selector/CycleDark.png")
-
 var selected : bool = false :
 	set(value):
 		selected = value
@@ -29,13 +26,13 @@ func update_option(s : int) -> void:
 	v = clampi(s, 0, SaveData.inventory.monster_parts[i])
 	option.text = "%4d/%4d" % [v, SaveData.inventory.monster_parts[i]]
 	if v == 0:
-		l.texture = UNLIT
+		l.texture = Global.TEXTURE_OPTION_CYCLE_OFF
 	else:
-		l.texture = LIT
+		l.texture = Global.TEXTURE_OPTION_CYCLE_ON
 	if v == SaveData.inventory.monster_parts[i]:
-		r.texture = UNLIT
+		r.texture = Global.TEXTURE_OPTION_CYCLE_OFF
 	else:
-		r.texture = LIT
+		r.texture = Global.TEXTURE_OPTION_CYCLE_ON
 
 func reset(o_val : int) -> void:
 	o = o_val

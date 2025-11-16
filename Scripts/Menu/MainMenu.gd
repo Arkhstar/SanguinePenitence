@@ -23,11 +23,9 @@ var np_index : int = -1
 @onready var np_textedit : Label = $NamePanel/Namespace
 @onready var np_options : Array[Label] = [ $NamePanel/Cancel, $NamePanel/Continue ]
 
-const BAD_COLOR : Color = Color("#0f1216")
-
 func _ready() -> void:
 	if not SaveData.has_save_file():
-		options[1].add_theme_color_override("font_color", BAD_COLOR)
+		options[1].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
 
 func _physics_process(_delta: float) -> void:
 	if ignore_input:
@@ -37,7 +35,7 @@ func _physics_process(_delta: float) -> void:
 		if np_textedit.text.count(".") < 12:
 			np_options[1].remove_theme_color_override("font_color")
 		else:
-			np_options[1].add_theme_color_override("font_color", BAD_COLOR)
+			np_options[1].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
 		if np_index > 0:
 			for i : int in 26:
 				if Input.is_key_pressed(KEY_A + i) and np_timer.time_left == 0:

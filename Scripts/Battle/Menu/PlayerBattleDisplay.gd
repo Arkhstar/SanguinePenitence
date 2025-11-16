@@ -32,9 +32,9 @@ func update() -> void:
 	for i : int in 6:
 		_icons[i].set_stack_text(unit.effects[i])
 		if unit.effects[i] > 0:
-			_icons[i].set_icon_colors(Color("8a9094"), Color("495058"))
+			_icons[i].set_icon_colors(Global.COLOR_GRAY_0, Global.COLOR_GRAY_1)
 		else:
-			_icons[i].set_icon_colors(Color("394047"), Color.TRANSPARENT)
+			_icons[i].set_icon_colors(Global.COLOR_GRAY_2, Global.COLOR_GRAY_3)
 	_timer.max_value = atb.maximum
 	_timer.value = atb.value
 
