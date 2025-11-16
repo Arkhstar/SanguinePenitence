@@ -10,8 +10,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kdx8r"]
 shader = ExtResource("6_crvop")
-shader_parameter/speed = 0.15
-shader_parameter/height = 1.5
+shader_parameter/delay = 0.0499999988824
+shader_parameter/height = 0.999999977648
+shader_parameter/speed = 0.10000000475
 
 [node name="ScreenShaders" type="CanvasLayer"]
 layer = 100
