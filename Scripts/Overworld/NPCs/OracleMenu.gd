@@ -4,6 +4,7 @@ extends NPCMenu
 @onready var dialogue : DialogueMenu = $DialogueMenu
 
 func init() -> void:
+	dialogue.set_image(Global.TEXTURE_ORACLE_PORTRAIT, SaveData.townsfolk & 1)
 	if await dialogue.speak(Global.get_oracle_name(), "HARKEN UNTO ME, MY CHILD: EVENTIDE HATH COME.", ["TALK", "EXIT"]) == 0:
 		await dialogue.speak(SaveData.hunter_name, "I COME TO SPEAK WITH YOU.")
 		var dialogue_options : PackedStringArray = ["THE REALM", "THE TOWN", "THE ORACLE", "EXIT"]
@@ -45,6 +46,7 @@ func init() -> void:
 				if SaveData.altar_level >= 1000 and not (SaveData.townsfolk & 1):
 					await dialogue.speak(Global.get_oracle_name(), "YOU MUST FORGIVE ME. I HAVE FAILED TO INTRODUCE MYSELF AFTER ALL THIS TIME.")
 					SaveData.townsfolk |= 1
+					dialogue.set_image(Global.TEXTURE_ORACLE_PORTRAIT, SaveData.townsfolk & 1)
 					await dialogue.speak(Global.get_oracle_name(), "MY NAME IS %s. IT IS NICE TO FORMALLY MEET YOU, %s. PRAY FORGIVE MY BELATEDNESS IN INTRODUCTION." % [Global.get_oracle_name(false), SaveData.hunter_name])
 				elif SaveData.highest_altar_level >= 750:
 					await dialogue.speak(Global.get_oracle_name(), "I'M HONORED YOU WOULD ASK AFTER ME AND MINE, BUT I QUESTION WHAT YOU SEEK.")

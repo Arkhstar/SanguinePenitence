@@ -1,7 +1,11 @@
 class_name Global
 extends Resource
 
+const TEXTURE_ORACLE_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
+const TEXTURE_BUTCHER_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
 const TEXTURE_SMITH_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
+const TEXTURE_SORCERER_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
+const TEXTURE_ALCHEMIST_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
 
 const TEXTURE_OPTION_CYCLE_ON : Texture2D = preload("res://Textures/Menu/Selector/CycleLight.png")
 const TEXTURE_OPTION_CYCLE_OFF : Texture2D = preload("res://Textures/Menu/Selector/CycleDark.png")
@@ -43,8 +47,8 @@ static func get_sorcerer_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 8:
 		return "THE SORCERER"
 	if title:
-		return "NEHZAYA, THE SORCERER"
-	return "NEHZAYA"
+		return "NEHZAIA, THE SORCERER"
+	return "NEHZAIA"
 
 static func get_alchemist_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 16:

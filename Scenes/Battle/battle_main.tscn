@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8256cbiq6ert"]
+[gd_scene load_steps=20 format=3 uid="uid://b8256cbiq6ert"]
 
 [ext_resource type="Script" uid="uid://dumqr2w76iscr" path="res://Scripts/Battle/BattleMain.gd" id="1_dqhr1"]
 [ext_resource type="Script" uid="uid://d4khfsrd4rgfk" path="res://Scripts/Battle/VFX/PulseVFX.gd" id="2_5rqxd"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cy5uw7ijrs0q0" path="res://Scripts/Battle/Menu/BattleSelector.gd" id="5_afmo2"]
 [ext_resource type="PackedScene" uid="uid://cu63tcrki8836" path="res://Scenes/Battle/Menu/battle_menu.tscn" id="5_ms5iv"]
 [ext_resource type="PackedScene" uid="uid://cr8piigg6on3p" path="res://Scenes/Battle/Menu/battle_lose_screen.tscn" id="10_gu3p6"]
+[ext_resource type="PackedScene" uid="uid://ceq0iwod816oh" path="res://Scenes/Battle/Menu/battle_item_menu.tscn" id="11_1idwx"]
 
 [sub_resource type="Gradient" id="Gradient_ga0jf"]
 offsets = PackedFloat32Array(0, 0.07, 0.145, 0.216, 0.79, 0.86, 0.93, 1)
@@ -127,6 +128,12 @@ layout_mode = 2
 visible = false
 offset_top = -82.0
 offset_bottom = -24.0
+
+[node name="BattleItemMenu" parent="BattleMenu" instance=ExtResource("11_1idwx")]
+visible = false
+layout_mode = 0
+offset_top = -58.0
+offset_bottom = 0.0
 
 [node name="Selector" type="TextureRect" parent="."]
 visible = false

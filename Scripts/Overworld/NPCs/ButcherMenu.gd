@@ -5,7 +5,7 @@ extends NPCMenu
 @onready var sell : SellMenu = $SellMenu
 
 func init() -> void:
-	#dialogue.set_image(Global.TEXTURE_BUTCHER_PORTRAIT, SaveData.townsfolk & 2)
+	dialogue.set_image(Global.TEXTURE_BUTCHER_PORTRAIT, SaveData.townsfolk & 2)
 	var dialogue_options : PackedStringArray = ["SELL", "TALK", "EXIT"]
 	var option : int = await dialogue.speak(Global.get_butcher_name(), "... WHAT ARE YOU OFFERING? ...", dialogue_options)
 	while option != 2:
@@ -22,7 +22,7 @@ func init() -> void:
 			if SaveData.altar_level >= 600 and not SaveData.townsfolk & 2:
 				await dialogue.speak(Global.get_butcher_name(), "... YOU COME HERE OFTEN, ... BEARING FRUITS ... OF LABOR ...")
 				SaveData.townsfolk |= 2
-				#dialogue.set_image(Global.TEXTURE_BUTCHER_PORTRAIT, SaveData.townsfolk & 2)
+				dialogue.set_image(Global.TEXTURE_BUTCHER_PORTRAIT, SaveData.townsfolk & 2)
 				await dialogue.speak(Global.get_butcher_name(), "... YOU MAY CALL ME ... %s, ... FRIEND ..." % Global.get_butcher_name(false))
 				await dialogue.speak("", "%s WILL NOW BUY FROM YOU AT A HIGHER RATE!" % Global.get_butcher_name(false))
 			elif SaveData.highest_altar_level >= 2000:

@@ -12,6 +12,7 @@ var victory_state : VictoryState = VictoryState.INIT :
 
 var units : Array[BattleUnit] = [ SaveData.hunter_unit, SaveData.merc_0, SaveData.merc_1, SaveData.merc_2, null, null, null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
+const act_time_cost : Array[float] = [12.0, 16.0, 6.0, 6.0, 8.0]
 
 @onready var player_displays : Array[PlayerBattleDisplay] = [ $PlayerDisplays/PlayerDisplay1, $PlayerDisplays/PlayerDisplay2, $PlayerDisplays/PlayerDisplay3, $PlayerDisplays/PlayerDisplay4 ]
 @onready var enemy_displays : Array[EnemyBattleDisplay] = [ $EnemyDisplays/EnemyDisplay1, $EnemyDisplays/EnemyDisplay2, $EnemyDisplays/EnemyDisplay3, $EnemyDisplays/EnemyDisplay4 ]
@@ -19,6 +20,7 @@ var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null 
 var selection : int = -1
 
 @onready var menu : BattleMenu = $BattleMenu
+@onready var item_menu : BattleItemMenu = $BattleMenu/BattleItemMenu
 var ready_to_act : PackedInt32Array = []
 var acting : int = -1
 
@@ -91,7 +93,7 @@ func menu_selection(option : int) -> void:
 					else:
 						print("MISS: %d" % (i + 4))
 	elif option == 4:
-		if [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1:
+		if has_living_allies():
 			menu.select_sfx.play()
 			selection = option
 			await selector.set_targeting_players()
@@ -101,23 +103,79 @@ func menu_selection(option : int) -> void:
 		menu.fail_sfx.play()
 		return
 	else:
-		if (units[acting].effects[BattleUnit.StatusEffect.GREED] <= 0) and (option != 3 or SaveData.inventory.consumables.count(0) < Inventory.ConsumableItem.size()) and (option != 2 or (SaveData.inventory.reagents.count(0) < Inventory.ReagentItem.size() or units[acting].effects[BattleUnit.StatusEffect.FAITHLESS] <= 0)):
-			menu.select_sfx.play()
-			#TODO: reagent / item was chosen
-			return
+		if units[acting].effects[BattleUnit.StatusEffect.GREED] <= 0:
+			if option == 2 and SaveData.inventory.reagents.count(0) < Inventory.ReagentItem.size() and units[acting].effects[BattleUnit.StatusEffect.FAITHLESS] <= 0:
+				menu.ignore_input = true
+				menu.select_sfx.play()
+				selection = option
+				item_menu.show()
+				item_menu.activate(false)
+				return
+			elif option == 3 and SaveData.inventory.consumables.count(0) < Inventory.ConsumableItem.size():
+				menu.ignore_input = true
+				menu.select_sfx.play()
+				selection = option
+				item_menu.show()
+				item_menu.activate(true)
+				return
 		menu.fail_sfx.play()
 		return
 	
 	menu.ignore_input = true
 	menu.hide()
-	timers[acting].reset(timers[acting].qte_step, [12.0, 16.0, 6.0, 6.0, 8.0][option]) # vary with selected option
+	timers[acting].reset(timers[acting].qte_step, act_time_cost[option]) # vary with selected option
 	BattleTimer.i.paused = false
 	acting = -1
+
+func item_menu_selection(index : int) -> void:
+	item_menu.ignore_input = true
+	if index == -1:
+		menu.ignore_input = false
+		item_menu.hide()
+	else:
+		if selection == 3:
+			if SaveData.inventory.consumables[index] > 0:
+				if has_living_allies():
+					await selector.set_targeting_players()
+					selector.show()
+				else:
+					apply_item(index, units[acting])
+					menu.ignore_input = true
+					item_menu.ignore_input = true
+					item_menu.hide()
+					menu.hide()
+					timers[acting].reset(timers[acting].qte_step, act_time_cost[selection]) # vary with selected option
+					BattleTimer.i.paused = false
+					acting = -1
+			else:
+				item_menu.ignore_input = false
+				item_menu.fail_sfx.play()
+				return
+		else:
+			if SaveData.inventory.reagents[index] > 0 and units[acting].reagent - 1 != index:
+				if units[acting].reagent > 0:
+					SaveData.inventory.reagents[units[acting].reagent - 1] += 1
+				SaveData.inventory.reagents[index] -= 1
+				units[acting].reagent = index + 1
+				menu.ignore_input = true
+				item_menu.ignore_input = true
+				item_menu.hide()
+				menu.hide()
+				timers[acting].reset(timers[acting].qte_step, act_time_cost[selection]) # vary with selected option
+				BattleTimer.i.paused = false
+				acting = -1
+			else:
+				item_menu.ignore_input = false
+				item_menu.fail_sfx.play()
+				return
 
 func selector_selection(index : int) -> void:
 	if index == -1:
 		selector.ignore_input = true
-		menu.ignore_input = false
+		if selection <= 1 or selection > 3:
+			menu.ignore_input = false
+		else:
+			item_menu.ignore_input = false
 		selector.hide()
 	else:
 		if selection <= 1:
@@ -126,13 +184,16 @@ func selector_selection(index : int) -> void:
 				units[index].is_hit(units[acting], -1 if selection == 0 else units[acting].reagent)
 			else:
 				print("MISS: %d" % (index))
+		elif selection == 3:
+			apply_item(index, units[acting])
+			item_menu.ignore_input = true
 		else:
 			timers[index].value += units[acting].speed * 2.0
 		selector.ignore_input = true
 		menu.ignore_input = true
 		selector.hide()
 		menu.hide()
-		timers[acting].reset(timers[acting].qte_step, [12.0, 16.0, 6.0, 6.0, 8.0][selection]) # vary with selected option
+		timers[acting].reset(timers[acting].qte_step, act_time_cost[selection]) # vary with selected option
 		BattleTimer.i.paused = false
 		acting = -1
 
@@ -192,6 +253,7 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 func _ready() -> void:
 	menu.selection.connect(menu_selection)
 	selector.selection.connect(selector_selection)
+	item_menu.selection.connect(item_menu_selection)
 
 func _process(_delta: float) -> void:
 	for display : PlayerBattleDisplay in player_displays:
@@ -234,3 +296,24 @@ func win_state() -> void:
 	while fanfare.playing:
 		await RenderingServer.frame_post_draw
 	Main.i.change_to_overworld_from_battle()
+
+func has_living_allies() -> bool:
+	return [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1
+
+func apply_item(item_id : int, target : PlayerUnit) -> void:
+	if item_id == Inventory.ConsumableItem.HEALTH_POTION:
+		target.health = mini(target.health + randi_range(45, 55), target.max_health)
+	elif item_id == Inventory.ConsumableItem.WHETSTONE:
+		target.sharpness += randi_range(40, 60)
+	elif item_id == Inventory.ConsumableItem.CURE_BURN:
+		target.effects[BattleUnit.StatusEffect.BURN] = 0
+	elif item_id == Inventory.ConsumableItem.CURE_BLEED:
+		target.effects[BattleUnit.StatusEffect.BLEED] = 0
+	elif item_id == Inventory.ConsumableItem.CURE_CURSE:
+		target.effects[BattleUnit.StatusEffect.CURSE] = 0
+	elif item_id == Inventory.ConsumableItem.CURE_GREED:
+		target.effects[BattleUnit.StatusEffect.GREED] = 0
+	elif item_id == Inventory.ConsumableItem.CURE_FAITH:
+		target.effects[BattleUnit.StatusEffect.FAITHLESS] = 0
+	elif item_id == Inventory.ConsumableItem.CURE_HEAVY:
+		target.effects[BattleUnit.StatusEffect.HEAVY] = 0
