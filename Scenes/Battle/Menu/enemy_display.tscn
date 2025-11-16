@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://bgygg6h1hrqa3"]
+
+[ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/UI/NinePatch.png" id="1_bpscj"]
+[ext_resource type="Script" uid="uid://ckqc8hbb0qk6m" path="res://Scripts/Battle/Menu/EnemyBattleDisplay.gd" id="2_g6r1n"]
+[ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Fonts/MainFont.png" id="3_bpscj"]
+[ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/Menu/status_icon.tscn" id="4_01v7x"]
+[ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Shaders/1-Bit Color Swap.gdshader" id="5_aldi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpscj"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g6r1n"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ll04k"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_01v7x"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aldi4"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y085o"]
+resource_local_to_scene = true
+shader = ExtResource("5_aldi4")
+shader_parameter/off = Color(0, 0, 0, 1)
+shader_parameter/on = Color(1, 1, 1, 1)
+
+[node name="EnemyDisplay" type="NinePatchRect"]
+custom_minimum_size = Vector2(120, 35)
+offset_right = 120.0
+offset_bottom = 35.0
+texture = ExtResource("1_bpscj")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+script = ExtResource("2_g6r1n")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 115.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("3_bpscj")
+theme_override_font_sizes/font_size = 10
+text = "PLACEHOLDER"
+horizontal_alignment = 1
+
+[node name="StatusIcon1" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_bpscj")
+position = Vector2(15, 23)
+
+[node name="StatusIcon2" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_g6r1n")
+position = Vector2(33, 23)
+frame = 1
+
+[node name="StatusIcon3" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_ll04k")
+position = Vector2(51, 23)
+frame = 2
+
+[node name="StatusIcon4" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_01v7x")
+position = Vector2(69, 23)
+frame = 3
+
+[node name="StatusIcon5" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_aldi4")
+position = Vector2(87, 23)
+frame = 4
+
+[node name="StatusIcon6" parent="." instance=ExtResource("4_01v7x")]
+material = SubResource("ShaderMaterial_y085o")
+position = Vector2(105, 23)
+frame = 5

@@ -25,7 +25,7 @@ func _splash() -> void:
 	load_title()
 
 func load_title() -> void:
-	var title : MainMenu = preload("res://Scenes/main_menu.tscn").instantiate()
+	var title : MainMenu = preload("res://Scenes/Menu/main_menu.tscn").instantiate()
 	current = title
 	add_child(title)
 	MusicStreamPlayer.volume_linear = 0.0
@@ -80,13 +80,13 @@ func die() -> void:
 	SaveData.inventory.lose_monster_parts()
 	SaveData.hunter_unit.health = SaveData.hunter_unit.max_health / 2
 	SaveData.hunter_unit.sharpness -= 30
-	change_scene("res://Scenes/Overworld/town.tscn")
+	change_scene("res://Scenes/Overworld/Map/town.tscn")
 	last = null
 
 func open_settings() -> void:
 	current.process_mode = Node.PROCESS_MODE_DISABLED
 	if not SettingsMenu.i:
-		SettingsMenu.i = preload("res://Scenes/settings_menu.tscn").instantiate()
+		SettingsMenu.i = preload("res://Scenes/Menu/settings_menu.tscn").instantiate()
 	else:
 		SettingsMenu.i.reset()
 	add_child(SettingsMenu.i)

@@ -7,7 +7,7 @@ extends NPCMenu
 func init() -> void:
 	if npc.active:
 		if await dialogue.speak("", "RETURN TO TOWN?", ["YES", "NO"]) == 0:
-			Main.i.change_scene("res://Scenes/Overworld/town.tscn")
+			Main.i.change_scene("res://Scenes/Overworld/Map/town.tscn")
 			return
 	else:
 		if await dialogue.speak("", "A FAINT HUM CAN BE HEARD FROM THE STONE OBELISK...", [] if SaveData.obols < 50 else ["PAY 50 OBOLS", "EXIT"]) == 0:

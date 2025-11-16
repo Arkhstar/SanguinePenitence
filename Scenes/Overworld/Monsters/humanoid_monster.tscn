@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://boga8fko40rd6"]
 
-[ext_resource type="Texture2D" uid="uid://b2t3wpqim5v3" path="res://Textures/Characters/Humanoid.png" id="1_23mii"]
+[ext_resource type="Texture2D" uid="uid://b2t3wpqim5v3" path="res://Textures/Characters/Monsters/Humanoid.png" id="1_23mii"]
 [ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="2_sl56v"]
-[ext_resource type="Resource" uid="uid://d2014a24304w5" path="res://Resources/spore_wight.tres" id="3_sl56v"]
+[ext_resource type="Resource" uid="uid://d2014a24304w5" path="res://Resources/Units/spore_wight.tres" id="3_sl56v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdovv"]
 atlas = ExtResource("1_23mii")

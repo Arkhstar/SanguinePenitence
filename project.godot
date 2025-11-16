@@ -22,11 +22,15 @@ boot_splash/bg_color=Color(1, 1, 1, 1)
 boot_splash/show_image=false
 config/icon="uid://1xlf3ok5umne"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/default_bus_layout.tres"
+
 [autoload]
 
-FlowerwallCRT="*res://Scenes/flowerwall_crt.tscn"
-MusicStreamPlayer="*res://Scenes/music_stream_player.tscn"
-TransitionScreen="*res://Scenes/transition_screen.tscn"
+FlowerwallCRT="*res://Scenes/Autoload/flowerwall_crt.tscn"
+MusicStreamPlayer="*res://Scenes/Autoload/music_stream_player.tscn"
+TransitionScreen="*res://Scenes/Autoload/transition_screen.tscn"
 
 [debug]
 
@@ -45,6 +49,17 @@ window/size/maximize_disabled=true
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 window/max_fps=60
+
+[file_customization]
+
+folder_colors={
+"res://Textures/Characters/Alchemist/": "orange",
+"res://Textures/Characters/Butcher/": "blue",
+"res://Textures/Characters/Oracle/": "purple",
+"res://Textures/Characters/Player/": "gray",
+"res://Textures/Characters/Smith/": "red",
+"res://Textures/Characters/Sorcerer/": "green"
+}
 
 [input]
 

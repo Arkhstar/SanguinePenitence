@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://sparbibfyokp"]
 
 [ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="1_m5gw1"]
-[ext_resource type="Texture2D" uid="uid://bt7cplrn7n1qf" path="res://Textures/Characters/Animalistic.png" id="2_3tel1"]
+[ext_resource type="Texture2D" uid="uid://bt7cplrn7n1qf" path="res://Textures/Characters/Monsters/Animalistic.png" id="2_3tel1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mljc2"]
 atlas = ExtResource("2_3tel1")

@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_bm4a8"]
 [ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/Placeholder.png" id="2_pv3ek"]
 [ext_resource type="Script" uid="uid://dr7msotyoffhs" path="res://Scripts/Overworld/NPCs/ButcherMenu.gd" id="3_bm4a8"]
-[ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/dialogue_menu.tscn" id="4_b2q6m"]
-[ext_resource type="PackedScene" uid="uid://di8cyw3g445r6" path="res://Scenes/Overworld/sell_menu.tscn" id="5_pv3ek"]
+[ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/Menu/dialogue_menu.tscn" id="4_b2q6m"]
+[ext_resource type="PackedScene" uid="uid://di8cyw3g445r6" path="res://Scenes/Overworld/Menu/sell_menu.tscn" id="5_pv3ek"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]
 atlas = ExtResource("2_pv3ek")
