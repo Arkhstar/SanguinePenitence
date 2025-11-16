@@ -18,7 +18,6 @@ var ignore_input : bool = true
 var option : int = 0
 
 var cost : int = 0
-
 @onready var nav_sfx : AudioStreamPlayer = $Nav
 @onready var select_sfx : AudioStreamPlayer = $Select
 @onready var fail_sfx : AudioStreamPlayer = $Fail
@@ -99,6 +98,8 @@ func return_from_setting() -> void:
 func reset() -> void:
 	option = 0
 	cost = 0
+	options[0].init("TEMPER WEAPON", 75 if SaveData.townsfolk & 4 else 100, cost)
+	options[1].init("TEMPER ARMOR", 100 if SaveData.townsfolk & 4 else 150, cost)
 	cursor.global_position = options[option].global_position - Vector2(1.0, 1.0)
 	cursor.size.x = 172.0
 	cursor_indicator.show()
@@ -107,9 +108,6 @@ func reset() -> void:
 	_update_sharpen_label()
 
 func _ready() -> void:
-	options[0].init("TEMPER WEAPON", 100, cost)
-	options[1].init("TEMPER ARMOR", 150, cost)
-	
 	for i : int in 2:
 		options[i].exit.connect(return_from_setting)
 	
@@ -132,4 +130,5 @@ func _update_sharpen_label() -> void:
 
 func _get_sharpen_cost() -> int:
 	var hunter_sharpness : int = SaveData.hunter_unit.get_sharpness_rank()
-	return 0 if hunter_sharpness == 0x46 else (50 if hunter_sharpness == 0x44 else (100 if hunter_sharpness == 0x43 else (175 if hunter_sharpness == 0x42 else (250 if hunter_sharpness == 0x41 else 500))))
+	hunter_sharpness = 0 if hunter_sharpness == 0x46 else (50 if hunter_sharpness == 0x44 else (100 if hunter_sharpness == 0x43 else (175 if hunter_sharpness == 0x42 else (250 if hunter_sharpness == 0x41 else 500))))
+	return ceili(hunter_sharpness / 2.0) if SaveData.townsfolk & 4 else hunter_sharpness

@@ -52,8 +52,8 @@ static func load_save_file() -> void:
 			if json.parse(contents) == OK:
 				var data : Variant = json.data
 				if data is Dictionary:
-					altar_level = data["clvl"]
 					highest_altar_level = data["hlvl"]
+					altar_level = data["clvl"]
 					obols = data["obol"]
 					coinpurse = data["cprs"]
 					inventory = Inventory.from_str(data["invt"])

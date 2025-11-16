@@ -17,3 +17,38 @@ const COLOR_GRAY_1 : Color = Color("495058")
 const COLOR_GRAY_2 : Color = Color("394047")
 const COLOR_GRAY_3 : Color = Color("1b2025")
 const COLOR_GRAY_4 : Color = Color("0f1216")
+
+static func get_oracle_name(title : bool = true) -> String:
+	if not SaveData.townsfolk & 1:
+		return "THE ORACLE"
+	if title:
+		return "JEROD, THE ORACLE"
+	return "JEROD"
+
+static func get_butcher_name(title : bool = true) -> String:
+	if not SaveData.townsfolk & 2:
+		return "THE BUTCHER"
+	if title:
+		return "HESSYN, THE BUTCHER"
+	return "HESSYN"
+
+static func get_smith_name(title : bool = true) -> String:
+	if not SaveData.townsfolk & 4:
+		return "THE SMITH"
+	if title:
+		return "GAVEIRAH, THE SMITH"
+	return "GAVEIRAH"
+
+static func get_sorcerer_name(title : bool = true) -> String:
+	if not SaveData.townsfolk & 8:
+		return "THE SORCERER"
+	if title:
+		return "NEHZARA, THE SORCERER"
+	return "NEHZARA"
+
+static func get_alchemist_name(title : bool = true) -> String:
+	if not SaveData.townsfolk & 16:
+		return "THE ALCHEMIST"
+	if title:
+		return "HOFRYN, THE ALCHEMIST"
+	return "HOFRYN"
