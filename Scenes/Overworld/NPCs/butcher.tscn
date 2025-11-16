@@ -90,7 +90,7 @@ offset_bottom = 344.0
 
 [node name="SellMenu" parent="NPCMenu" index="1" instance=ExtResource("5_pv3ek")]
 visible = false
-offset_left = 145.0
-offset_top = 50.0
-offset_right = 495.0
-offset_bottom = 220.0
+offset_left = 226.0
+offset_top = 106.0
+offset_right = 576.0
+offset_bottom = 276.0

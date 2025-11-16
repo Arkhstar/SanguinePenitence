@@ -64,7 +64,17 @@ func activate(consumables_or_reagents : bool) -> void:
 func update() -> void:
 	if _is_cmbl:
 		for i : int in 5:
-			options[i].text = "%s: %2d" % [["HP POTN","WHTSTN ", "C BURN ", "C BLEED", "C CURSE", "C GREED", "C FTHLS", "C HEAVY"][i + page], SaveData.inventory.consumables[i + page]]
+			var quantity : int = SaveData.inventory.consumables[i + page]
+			options[i].text = "%s: %2d" % [["HP POTN","WHTSTN ", "C BURN ", "C BLEED", "C CURSE", "C GREED", "C FTHLS", "C HEAVY"][i + page], quantity]
+			if quantity <= 0:
+				options[i].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
+			else:
+				options[i].remove_theme_color_override("font_color")
 	else:
 		for i : int in 5:
-			options[i].text = "%d,%d" % [i + page, SaveData.inventory.reagents[i + page]]
+			var quantity : int = SaveData.inventory.reagents[i + page]
+			options[i].text = "%d,%d" % [i + page, quantity]
+			if quantity <= 0:
+				options[i].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
+			else:
+				options[i].remove_theme_color_override("font_color")

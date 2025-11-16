@@ -29,6 +29,8 @@ func _physics_process(_delta: float) -> void:
 
 func activate() -> void:
 	timer.start()
+	index = 0
+	pointer.position.y = options[index].position.y
 	while timer.time_left > 0:
 		await RenderingServer.frame_post_draw
 	ignore_input = false

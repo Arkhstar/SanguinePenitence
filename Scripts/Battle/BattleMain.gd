@@ -108,15 +108,15 @@ func menu_selection(option : int) -> void:
 				menu.ignore_input = true
 				menu.select_sfx.play()
 				selection = option
-				item_menu.show()
 				item_menu.activate(false)
+				item_menu.show()
 				return
 			elif option == 3 and SaveData.inventory.consumables.count(0) < Inventory.ConsumableItem.size():
 				menu.ignore_input = true
 				menu.select_sfx.play()
 				selection = option
-				item_menu.show()
 				item_menu.activate(true)
+				item_menu.show()
 				return
 		menu.fail_sfx.play()
 		return
@@ -185,13 +185,14 @@ func selector_selection(index : int) -> void:
 			else:
 				print("MISS: %d" % (index))
 		elif selection == 3:
-			apply_item(index, units[acting])
+			apply_item(item_menu.index, units[index])
 			item_menu.ignore_input = true
 		else:
 			timers[index].value += units[acting].speed * 2.0
 		selector.ignore_input = true
 		menu.ignore_input = true
 		selector.hide()
+		item_menu.hide()
 		menu.hide()
 		timers[acting].reset(timers[acting].qte_step, act_time_cost[selection]) # vary with selected option
 		BattleTimer.i.paused = false
@@ -278,11 +279,10 @@ func _physics_process(_delta: float) -> void:
 		BattleTimer.i.paused = true
 		acting = ready_to_act[0]
 		ready_to_act.remove_at(0)
-		menu.index = 0
 		menu.update_availability(units[acting], [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1)
 		menu.reparent(player_displays[acting], false)
-		menu.show()
 		menu.activate()
+		menu.show()
 
 func win_state() -> void:
 	MusicStreamPlayer.adjust_volume(0.0, 0.5)
@@ -301,6 +301,8 @@ func has_living_allies() -> bool:
 	return [ units[0] and units[0].health > 0, units[1] and units[1].health > 0, units[2] and units[2].health > 0, units[3] and units[3].health > 0 ].filter(func(element : bool) -> bool: return element).size() > 1
 
 func apply_item(item_id : int, target : PlayerUnit) -> void:
+	SaveData.inventory.consumables[item_id] -= 1
+	print("used %d on %s" % [item_id, target.display_name])
 	if item_id == Inventory.ConsumableItem.HEALTH_POTION:
 		target.health = mini(target.health + randi_range(45, 55), target.max_health)
 	elif item_id == Inventory.ConsumableItem.WHETSTONE:
