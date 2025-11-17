@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="color-scheme" content="dark">
         <title>Sanguine Penitence</title>
         <link rel="icon" href="assets/icon.png" type="image/png">
         <style>
@@ -11,8 +12,10 @@
                 --bg-1: #0f1216;
                 --panel-color: #0f112710;
                 --panel-color-opaque: #0f112740;
-                --panel-color-opaque2: #0f112760;
                 --panel-shadow-color: #202c51;
+                --button-color: #31171e10;
+                --button-color-opaque: #31171e40;
+                --button-shadow-color: #431925;
                 --font-color-1: #eef0f0;
                 --font-color-2: #c2c9ca;
                 --font-color-3: #9ba2a5;
@@ -20,6 +23,7 @@
                 --hover-scale: 1.02;
                 --hover-scale-div-2: 0.51;
                 --hover-time: 1s;
+                color-scheme: dark;
             }
             html {
                 background: radial-gradient(circle at top, var(--bg-0), var(--bg-1));
@@ -59,6 +63,42 @@
             }
             header .content:hover {
                 transform: scale(var(--hover-scale));
+            }
+            .button {
+                display: inline-block;
+                background: var(--button-color);
+                padding: 0.5rem 1rem;
+                border-radius: 1.5rem;
+                min-width: 200px;
+                max-width: 400px;
+                min-height: 4rem;
+                text-decoration: none;
+                box-shadow: 0 0 5px var(--button-shadow-color);
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+                text-align: center;
+                align-content: center;
+                color: var(--font-color-2);
+                font-size: 1.25rem;
+            }
+            .button:hover {
+                transform: scale(var(--hover-scale));
+                background: var(--button-color-opaque);
+		color: var(--font-color-1);
+            }
+            .back-button {
+                display: inline-block;
+                position: fixed;
+                top: 1vh;
+                left: 1vw;
+                text-decoration: none;
+                color: var(--font-color-2);
+                font-size: 4vw;
+                rotate: 315deg;
+                transition: var(--hover-time) ease, filter var(--hover-time) ease;
+            }
+            .back-button:hover {
+                transform: scale(1.05);
+		color: var(--font-color-1);
             }
             h1 {
                 color: var(--font-color-1);
@@ -181,6 +221,7 @@
     </head>
     <body>
         <header>
+            <a href=".." class="back-button">&#8682;</a>
             <div class="content">
                 <img src="assets/logo_lit.png", alt="", width="320", style="align-self: center; image-rendering: pixelated;", draggable="false">
                 <img src="assets/title.png", alt="Sanguine Penitence", width="496", style="align-self: center; image-rendering: pixelated;", draggable="false">
@@ -188,10 +229,9 @@
         </header>
         <section id="play">
             <h2>Play</h2>
-            <div class="one-column">
-                <div class="panel">
-                    <p>Button Goes Here<br>Link to Download & Stuff</p>
-                </div>
+            <div class="two-column">
+                <a href="./play/" class="button">Play in Browser</a>
+                <a href="https://github.com/Arkhstar/SanguinePenitence/releases" class="button">Download via GitHub</a>
             </div>
         </section>
         <div class="vfill"></div>
