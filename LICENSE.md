@@ -15,7 +15,7 @@ The source code of this project is licensed under the GNU General Public License
 
 SPDX-License-Identifier: CC-BY-SA-4.0
 
-All additional materials included in this project are licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). A copy of the license is included in the project. The full license text is available at https://creativecommons.org/licenses/by-sa/4.0/.
+All additional, non Third-Party materials included in this project are licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0). A copy of the license is included in the project. The full license text is available at https://creativecommons.org/licenses/by-sa/4.0/.
 
 ### 3. Third-Party Material
 
