@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d4khfsrd4rgfk" path="res://Scripts/Battle/VFX/PulseVFX.gd" id="2_5rqxd"]
 [ext_resource type="AudioStream" uid="uid://bybncdfvgwbyd" path="res://Audio/Music/Battle/Fanfare.ogg" id="2_dlgqw"]
 [ext_resource type="PackedScene" uid="uid://bgygg6h1hrqa3" path="res://Scenes/Battle/Menu/enemy_display.tscn" id="2_jgkco"]
-[ext_resource type="Shader" uid="uid://cbb4dolpnae0h" path="res://Resources/Shaders/Earthbound-Like Battle Background.gdshader" id="2_k1mlu"]
+[ext_resource type="Shader" uid="uid://cbb4dolpnae0h" path="res://ThirdParty/Shaders/Earthbound-Like Battle Background.gdshader" id="2_k1mlu"]
 [ext_resource type="Texture2D" uid="uid://8n0vuw4ojm2v" path="res://Textures/Battle/BattleBackground.png" id="3_ga0jf"]
 [ext_resource type="Texture2D" uid="uid://bpl87qtgwscre" path="res://Textures/Battle/MetronomeVFX.png" id="3_s71ft"]
 [ext_resource type="Script" uid="uid://bv8urktg0xrfp" path="res://Scripts/Battle/VFX/MetronomeVFX.gd" id="4_4q2wc"]
