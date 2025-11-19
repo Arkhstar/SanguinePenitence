@@ -73,7 +73,7 @@ func update() -> void:
 	else:
 		for i : int in 5:
 			var quantity : int = SaveData.inventory.reagents[i + page]
-			options[i].text = "%s: %d" % [["BURN 1 ", "BURN 2 ", "BLEED 1", "BLEED 2", "CURSE 1", "HEAVY 1", "DOT 1  "][i + page], quantity]
+			options[i].text = "%s: %2d" % [["B. ASH ", "W. ASH ", "NEEDLE ", "BLEED 2", "BNE CHP", "IRON RD", "DOT 1  "][i + page], quantity]
 			if quantity <= 0:
 				options[i].add_theme_color_override("font_color", Global.COLOR_GRAY_4)
 			else:
