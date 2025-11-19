@@ -89,7 +89,7 @@ func menu_selection(option : int) -> void:
 				if units[i + 4]:
 					if units[acting].determine_attack_hits(units[i + 4]):
 						print("Hit: %d" % (i + 4))
-						units[i + 4].is_hit(units[acting], -1 if option == 0 else units[acting].reagent)
+						units[i + 4].is_hit(units[acting], 0 if option == 0 else Inventory.SPELL_POWER[units[acting].reagent], -1 if option == 0 else units[acting].reagent)
 					else:
 						print("MISS: %d" % (i + 4))
 	elif option == 4:
@@ -181,7 +181,7 @@ func selector_selection(index : int) -> void:
 		if selection <= 1:
 			if units[acting].determine_attack_hits(units[index]):
 				print("Hit: %d" % (index))
-				units[index].is_hit(units[acting], -1 if selection == 0 else units[acting].reagent)
+				units[index].is_hit(units[acting], 0 if selection == 0 else Inventory.SPELL_POWER[units[acting].reagent], -1 if selection == 0 else units[acting].reagent)
 			else:
 				print("MISS: %d" % (index))
 		elif selection == 3:

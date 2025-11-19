@@ -61,4 +61,18 @@ func tick_effects() -> void:
 		effects[effect] = maxi(effects[effect] / 2, 0)
 
 func determine_spell_effects(spell_id : int) -> void:
-	print(spell_id) #TODO
+	if spell_id == Inventory.ReagentItem.BURN_1:
+		apply_effect(StatusEffect.BURN, randi_range(1, 3))
+	elif spell_id == Inventory.ReagentItem.BURN_2:
+		apply_effect(StatusEffect.BURN, randi_range(2, 5))
+	elif spell_id == Inventory.ReagentItem.BLEED_1:
+		apply_effect(StatusEffect.BLEED, randi_range(2,4))
+	elif spell_id == Inventory.ReagentItem.BLEED_2:
+		apply_effect(StatusEffect.BLEED, randi_range(3,6))
+	elif spell_id == Inventory.ReagentItem.CURSE_1:
+		apply_effect(StatusEffect.CURSE, randi_range(1, 2))
+	elif spell_id == Inventory.ReagentItem.HEAVY_1:
+		apply_effect(StatusEffect.HEAVY, randi_range(1, 2))
+	elif spell_id == Inventory.ReagentItem.DOT_1:
+		apply_effect(StatusEffect.BURN, randi_range(0, 1))
+		apply_effect(StatusEffect.BLEED, randi_range(1,3))

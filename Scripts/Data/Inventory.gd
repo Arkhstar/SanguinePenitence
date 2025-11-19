@@ -5,8 +5,9 @@ enum MonsterPartGrade { GRADE_S, GRADE_A, GRADE_B, GRADE_C, GRADE_D }
 var monster_parts : PackedInt32Array = []
 var gathered_monster_parts : PackedInt32Array = []
 
-enum ReagentItem { FIREBALL, A,B,C,D,E,F,G }
+enum ReagentItem { BURN_1, BURN_2, BLEED_1, BLEED_2, CURSE_1, HEAVY_1, DOT_1 }
 var reagents : PackedInt32Array = []
+const SPELL_POWER : PackedInt32Array = []
 
 enum ConsumableItem { HEALTH_POTION, WHETSTONE, CURE_BURN, CURE_BLEED, CURE_CURSE, CURE_GREED, CURE_FAITH, CURE_HEAVY }
 var consumables : PackedInt32Array = []
