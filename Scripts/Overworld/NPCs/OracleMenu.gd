@@ -59,7 +59,10 @@ func init() -> void:
 			option = await dialogue.speak(Global.get_oracle_name(), "MAY THERE BE AUGHT ELSE YOU SEEK TO INQUIRE AFTER?", dialogue_options)
 		await dialogue.speak(Global.get_oracle_name(), "FARE THEE WELL, %s, AND MAY YOU STAY IN SIGHT." % SaveData.hunter_name)
 	else:
-		await dialogue.speak(Global.get_oracle_name(), "KEEP WARY, NOBLE HUNTER. IN THESE DARK DAYS, FEW ARE THOSE WHO MEAN YOU NO HARM.")
+		if SaveData.townsfolk & 1:
+			await dialogue.speak(Global.get_oracle_name(), "KEEP WARY, %s. YOU BRING HOPE TO MANY - YOU CANNOT LOSE NOW." % SaveData.hunter_name)
+		else:
+			await dialogue.speak(Global.get_oracle_name(), "KEEP WARY, NOBLE HUNTER. IN THESE DARK DAYS, FEW ARE THOSE WHO MEAN YOU NO HARM.")
 	close()
 
 func update(_delta : float) -> void:

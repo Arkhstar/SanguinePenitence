@@ -4,6 +4,10 @@ extends NPCMenu
 @onready var dialogue : DialogueMenu = $DialogueMenu
 @onready var shop : Shop0Menu = $Shop0Menu
 
+func _ready() -> void:
+	if SaveData.townsfolk & 4:
+		$"../AnimatedSprite2D".animation = "alt"
+
 func init() -> void:
 	dialogue.set_image(Global.TEXTURE_SMITH_PORTRAIT, SaveData.townsfolk & 4)
 	var dialogue_options : PackedStringArray = ["SHOP", "TALK", "EXIT"]

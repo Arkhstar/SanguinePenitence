@@ -78,7 +78,8 @@ func _physics_process(_delta: float) -> void:
 						select_sfx.play()
 						ignore_input = true
 						SaveData.load_defaults()
-						SaveData.hunter_name = np_textedit.text.replace('.','')
+						SaveData.hunter_unit.display_name = np_textedit.text.replace('.','')
+						SaveData.hunter_name = SaveData.hunter_unit.display_name
 						Main.i.change_scene("res://Scenes/Overworld/Map/town.tscn", 0.0)
 						return
 					fail_sfx.play()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rf5u6c82a2ah"
-path="res://.godot/imported/Portrait.png-3142d1b0dc56e2c38775418835637ca5.ctex"
+uid="uid://ch3vufbaocqkr"
+path="res://.godot/imported/Overworld.png-992375a28be8ebaf0cb1ed3860800a83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/Characters/Smith/Portrait.png"
-dest_files=["res://.godot/imported/Portrait.png-3142d1b0dc56e2c38775418835637ca5.ctex"]
+source_file="res://Textures/Characters/Smith/Overworld.png"
+dest_files=["res://.godot/imported/Overworld.png-992375a28be8ebaf0cb1ed3860800a83.ctex"]
 
 [params]
 

@@ -1,41 +1,74 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbvfmcwgp85h6"]
+[gd_scene load_steps=17 format=3 uid="uid://bbvfmcwgp85h6"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_o4idd"]
-[ext_resource type="Texture2D" uid="uid://dmugsosqi1is3" path="res://Textures/Characters/Placeholder.png" id="2_leh3o"]
+[ext_resource type="Texture2D" uid="uid://ch3vufbaocqkr" path="res://Textures/Characters/Smith/Overworld.png" id="2_o4idd"]
 [ext_resource type="Script" uid="uid://cd1h7kfqxl8gq" path="res://Scripts/Overworld/NPCs/SmithMenu.gd" id="3_ul1la"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/Menu/dialogue_menu.tscn" id="4_tn7oc"]
 [ext_resource type="PackedScene" uid="uid://8uvio646p8kq" path="res://Scenes/Overworld/Menu/shop_0_menu.tscn" id="5_o4idd"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bbirl"]
-atlas = ExtResource("2_leh3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_leh3o"]
+atlas = ExtResource("2_o4idd")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h32u7"]
+atlas = ExtResource("2_o4idd")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn7oc"]
+atlas = ExtResource("2_o4idd")
+region = Rect2(0, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oskgy"]
+atlas = ExtResource("2_o4idd")
+region = Rect2(24, 72, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iet4q"]
+atlas = ExtResource("2_o4idd")
 region = Rect2(0, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n671y"]
-atlas = ExtResource("2_leh3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yeta"]
+atlas = ExtResource("2_o4idd")
 region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfn4u"]
-atlas = ExtResource("2_leh3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_agnn4"]
+atlas = ExtResource("2_o4idd")
 region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7abx"]
-atlas = ExtResource("2_leh3o")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7appd"]
+atlas = ExtResource("2_o4idd")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2lgdb"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_sj513"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bbirl")
+"texture": SubResource("AtlasTexture_leh3o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n671y")
+"texture": SubResource("AtlasTexture_h32u7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mfn4u")
+"texture": SubResource("AtlasTexture_tn7oc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j7abx")
+"texture": SubResource("AtlasTexture_oskgy")
+}],
+"loop": true,
+"name": &"alt",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iet4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yeta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agnn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7appd")
 }],
 "loop": true,
 "name": &"default",
@@ -52,7 +85,7 @@ size = Vector2(16, 16)
 menu = NodePath("NPCMenu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
-sprite_frames = SubResource("SpriteFrames_2lgdb")
+sprite_frames = SubResource("SpriteFrames_sj513")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]

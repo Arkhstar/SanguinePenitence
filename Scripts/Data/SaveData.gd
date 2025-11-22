@@ -14,11 +14,7 @@ static var coinpurse : int = 1000
 
 static var inventory : Inventory = Inventory.new()
 
-static var hunter_name : String = "NULLREF" :
-	set(v):
-		hunter_name = v
-		if hunter_unit:
-			hunter_unit.display_name = hunter_name
+static var hunter_name : String = "NULLREF"
 static var hunter_unit : PlayerUnit = null
 static var merc_0 : PlayerUnit = null
 static var merc_1 : PlayerUnit = null
@@ -57,10 +53,8 @@ static func load_save_file() -> void:
 					obols = data["obol"]
 					coinpurse = data["cprs"]
 					inventory = Inventory.from_str(data["invt"])
-					hunter_name = data["name"]
 					hunter_unit = PlayerUnit.from_str(data["hntr"])
-					while hunter_unit.display_name != hunter_name:
-						pass
+					hunter_name = hunter_unit.display_name
 					merc_0 = PlayerUnit.from_str(data["untx"])
 					merc_1 = PlayerUnit.from_str(data["unty"])
 					merc_2 = PlayerUnit.from_str(data["untz"])
@@ -82,7 +76,6 @@ static func to_str() -> String:
 		"obol" : obols,
 		"cprs" : coinpurse,
 		"invt" : inventory.to_str(),
-		"name" : hunter_name,
 		"hntr" : hunter_unit.to_str(),
 		"untx" : merc_0.to_str() if merc_0 else "NIL",
 		"unty" : merc_1.to_str() if merc_1 else "NIL",
