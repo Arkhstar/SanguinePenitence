@@ -40,6 +40,8 @@ func _physics_process(_delta: float) -> void:
 				sprite.flip_h = false
 			if check_for_collision_by_ray(direction):
 				move(direction)
+	if Input.is_action_just_pressed("pause"):
+		Main.i.open_settings()
 
 func _ready() -> void:
 	i = self

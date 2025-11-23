@@ -17,11 +17,11 @@ func _splash() -> void:
 	await get_tree().create_timer(1.0).timeout
 	var splash : ColorRect = preload("res://Scenes/splash.tscn").instantiate()
 	add_child(splash)
-	await TransitionScreen.fade_out(2.0)
-	await get_tree().create_timer(2.0).timeout
-	await TransitionScreen.fade_in(2.0)
+	await TransitionScreen.fade_out(1.0)
+	await get_tree().create_timer(1.0).timeout
+	await TransitionScreen.fade_in(1.0)
 	remove_child(splash)
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	load_title()
 
 func load_title() -> void:

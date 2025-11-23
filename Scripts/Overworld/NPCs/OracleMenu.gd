@@ -6,9 +6,8 @@ extends NPCMenu
 func init() -> void:
 	dialogue.set_image(Global.TEXTURE_ORACLE_PORTRAIT, SaveData.townsfolk & 1)
 	if await dialogue.speak(Global.get_oracle_name(), "HARKEN UNTO ME, MY CHILD: EVENTIDE HATH COME.", ["TALK", "EXIT"]) == 0:
-		await dialogue.speak(SaveData.hunter_name, "I COME TO SPEAK WITH YOU.")
 		var dialogue_options : PackedStringArray = ["THE REALM", "THE TOWN", "THE ORACLE", "EXIT"]
-		var option : int = await dialogue.speak(Global.get_oracle_name(), "AND I WILL GRANT YOU AUDIENCE. YOU, NOBLE HUNTER, MAY KNOW ALL THAT YOU REQUIRE.", dialogue_options)
+		var option : int = await dialogue.speak(Global.get_oracle_name(), "I WILL GRANT YOU AUDIENCE. YOU, NOBLE HUNTER, MAY KNOW ALL THAT YOU REQUIRE.", dialogue_options)
 		while option != 3:
 			if option == 0: # THE REALM
 				if SaveData.highest_altar_level >= 2500:
