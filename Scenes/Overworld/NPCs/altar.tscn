@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_4lteb"]
 [ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Resources/Shaders/Format.gdshader" id="1_fqxwd"]
-[ext_resource type="Texture2D" uid="uid://ci8dhi6oxa3ho" path="res://Textures/Overworld/Altar.png" id="2_4lteb"]
+[ext_resource type="Texture2D" uid="uid://c1tbbrynii1hc" path="res://Textures/Overworld/Altar.png" id="3_676cc"]
 [ext_resource type="Script" uid="uid://b3b3jpl85x3yu" path="res://Scripts/Overworld/NPCs/AltarMenu.gd" id="4_difho"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/Menu/dialogue_menu.tscn" id="8_trp3a"]
 
@@ -22,7 +22,7 @@ menu = NodePath("NPCMenu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_hmw6v")
-texture = ExtResource("2_4lteb")
+texture = ExtResource("3_676cc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_fqxwd")

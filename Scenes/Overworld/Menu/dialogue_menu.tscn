@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7x8rt51478gl"]
+[gd_scene load_steps=11 format=3 uid="uid://7x8rt51478gl"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/Menu/NinePatch.png" id="1_yrffc"]
 [ext_resource type="Script" uid="uid://dp8cy17q7u8ch" path="res://Scripts/Overworld/NPCs/DialogueMenu.gd" id="2_fkl7o"]
@@ -8,6 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/Menu/Navigate.ogg" id="4_ya8kw"]
 [ext_resource type="Texture2D" uid="uid://b74cx62716tfi" path="res://Textures/Menu/Selector/DialogueContinue.png" id="5_fkl7o"]
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/Menu/Select.ogg" id="5_ya8kw"]
+
+[sub_resource type="Gradient" id="Gradient_01fkl"]
+colors = PackedColorArray(0.105882354, 0.1254902, 0.14509805, 1, 0.105882354, 0.1254902, 0.14509805, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8roww"]
+gradient = SubResource("Gradient_01fkl")
+width = 32
 
 [node name="DialogueMenu" type="NinePatchRect"]
 offset_right = 512.0
@@ -34,6 +41,14 @@ bus = &"SFX"
 [node name="Select" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ya8kw")
 bus = &"SFX"
+
+[node name="Fade" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 34.0
+offset_bottom = 508.0
+rotation = 4.712389
+texture = SubResource("GradientTexture1D_8roww")
 
 [node name="Speaker" type="Label" parent="."]
 layout_mode = 0
