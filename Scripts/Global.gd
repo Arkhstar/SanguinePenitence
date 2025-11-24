@@ -2,7 +2,7 @@ class_name Global
 extends Resource
 
 const TEXTURE_ORACLE_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
-const TEXTURE_BUTCHER_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
+const TEXTURE_BUTCHER_PORTRAIT : Texture2D = preload("res://Textures/Characters/Butcher/Portrait.png")
 const TEXTURE_SMITH_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
 const TEXTURE_SORCERER_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
 const TEXTURE_ALCHEMIST_PORTRAIT : Texture2D = preload("res://Textures/Characters/Smith/Portrait.png")
