@@ -19,7 +19,7 @@ func play_music(music : Song) -> void:
 	var intro_seconds : float = 0.0
 	
 	if music == Song.TITLE:
-		audio_stream = preload("res://Audio/Music/Title.ogg")
+		audio_stream = preload("res://Audio/Music/Prelude.ogg")
 		intro_seconds = 3.194
 	elif music == Song.BATTLE:
 		audio_stream = preload("res://Audio/Music/Battle/Wyrmchaser.ogg")
@@ -30,10 +30,10 @@ func play_music(music : Song) -> void:
 	elif music == Song.BATTLE3:
 		audio_stream = preload("res://Audio/Music/Battle/𝛂∧𝛚.ogg")
 	elif music == Song.TOWN:
-		audio_stream = preload("res://Audio/Music/Environmental/Town.ogg")
+		audio_stream = preload("res://Audio/Music/Environmental/False Security.ogg")
 		intro_seconds = 3.194
 	elif music == Song.FOREST:
-		audio_stream = preload("res://Audio/Music/Environmental/Forest.ogg")
+		audio_stream = preload("res://Audio/Music/Environmental/The Lost Lands.ogg")
 		intro_seconds = 2.662
 	
 	if not audio_stream == null:
