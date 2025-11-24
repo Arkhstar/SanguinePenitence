@@ -21,6 +21,7 @@ const COLOR_GRAY_1 : Color = Color("495058")
 const COLOR_GRAY_2 : Color = Color("394047")
 const COLOR_GRAY_3 : Color = Color("1b2025")
 const COLOR_GRAY_4 : Color = Color("0f1216")
+const COLOR_GRAY_5 : Color = Color("252d34")
 
 static func get_oracle_name(title : bool = true) -> String:
 	if not SaveData.townsfolk & 1:

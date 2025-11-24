@@ -10,7 +10,7 @@ var victory_state : VictoryState = VictoryState.INIT :
 		elif v == VictoryState.WIN:
 			win_state()
 
-var units : Array[BattleUnit] = [ SaveData.hunter_unit, SaveData.merc_0, SaveData.merc_1, SaveData.merc_2, null, null, null, null ]
+var units : Array[BattleUnit] = [ SaveData.hunter_unit, SaveData.tif, SaveData.bin, SaveData.cho, null, null, null, null ]
 var timers : Array[ATBTimer] = [ null, null, null, null, null, null, null, null ]
 const act_time_cost : Array[float] = [12.0, 16.0, 6.0, 6.0, 8.0]
 

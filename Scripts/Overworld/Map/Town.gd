@@ -12,10 +12,10 @@ func _ready() -> void:
 func _enter_tree() -> void:
 	MusicStreamPlayer.play_music(MusicStreamPlayer.Song.TOWN)
 	SaveData.inventory.obtain_monster_parts()
-	if SaveData.merc_0 and SaveData.merc_0.health <= 0:
-		SaveData.merc_0 = null
-	if SaveData.merc_1 and SaveData.merc_1.health <= 0:
-		SaveData.merc_1 = null
-	if SaveData.merc_2 and SaveData.merc_2.health <= 0:
-		SaveData.merc_2 = null
+	if SaveData.tif and SaveData.tif.health <= 0:
+		SaveData.tif = null
+	if SaveData.bin and SaveData.bin.health <= 0:
+		SaveData.bin = null
+	if SaveData.cho and SaveData.cho.health <= 0:
+		SaveData.cho = null
 	SaveData.write_save_file()

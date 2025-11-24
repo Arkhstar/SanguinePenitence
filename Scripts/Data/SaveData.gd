@@ -16,9 +16,9 @@ static var inventory : Inventory = Inventory.new()
 
 static var hunter_name : String = "NULLREF"
 static var hunter_unit : PlayerUnit = null
-static var merc_0 : PlayerUnit = null
-static var merc_1 : PlayerUnit = null
-static var merc_2 : PlayerUnit = null
+static var tif : PlayerUnit = null
+static var bin : PlayerUnit = null
+static var cho : PlayerUnit = null
 
 static var obelisks : int = 0
 static var townsfolk : int = 0
@@ -55,9 +55,9 @@ static func load_save_file() -> void:
 					inventory = Inventory.from_str(data["invt"])
 					hunter_unit = PlayerUnit.from_str(data["hntr"])
 					hunter_name = hunter_unit.display_name
-					merc_0 = PlayerUnit.from_str(data["untx"])
-					merc_1 = PlayerUnit.from_str(data["unty"])
-					merc_2 = PlayerUnit.from_str(data["untz"])
+					tif = PlayerUnit.from_str(data["untx"])
+					bin = PlayerUnit.from_str(data["unty"])
+					cho = PlayerUnit.from_str(data["untz"])
 					obelisks = data["blsk"]
 					townsfolk = data["tnfk"]
 					return
@@ -77,9 +77,9 @@ static func to_str() -> String:
 		"cprs" : coinpurse,
 		"invt" : inventory.to_str(),
 		"hntr" : hunter_unit.to_str(),
-		"untx" : merc_0.to_str() if merc_0 else "NIL",
-		"unty" : merc_1.to_str() if merc_1 else "NIL",
-		"untz" : merc_2.to_str() if merc_2 else "NIL",
+		"untx" : tif.to_str() if tif else "NIL",
+		"unty" : bin.to_str() if bin else "NIL",
+		"untz" : cho.to_str() if cho else "NIL",
 		"blsk" : obelisks,
 		"tnfk" : townsfolk
 	}
