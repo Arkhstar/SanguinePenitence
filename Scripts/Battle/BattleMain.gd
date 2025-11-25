@@ -246,7 +246,8 @@ func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) 
 				return)
 	BattleTimer.i.static_pulse.connect($PulseVFX.pulse)
 	BattleTimer.i.static_pulse.connect(selector.pulse_anim)
-	BattleTimer.i.static_pulse.connect($MetronomeVFX.pulse)
+	BattleTimer.i.static_pulse.connect($MetronomeVFX.anim_in)
+	BattleTimer.i.half_pulse.connect($MetronomeVFX.anim_out)
 	selector.displays = [ player_displays[0], player_displays[1], player_displays[2], player_displays[3], enemy_displays[0], enemy_displays[1], enemy_displays[2], enemy_displays[3] ]
 	victory_state = VictoryState.UNDETERMINED
 	TransitionScreen.fade_out(0.25)

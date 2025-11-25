@@ -43,7 +43,7 @@ shader_parameter/palette_speed = -0.08
 [sub_resource type="Gradient" id="Gradient_jgkco"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.38431373, 0.12156863, 0.19215687, 0, 0.38431373, 0.12156863, 0.19215687, 0.24705882)
+colors = PackedColorArray(0, 0, 0, 0, 0.38431373, 0.12156863, 0.19215687, 0, 0.38, 0.121599995, 0.19050658, 0.49803922)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5rqxd"]
 gradient = SubResource("Gradient_jgkco")

@@ -17,6 +17,10 @@ static var momentum : float = 0.0 :
 	set(v):
 		momentum = clampf(v, 0.0, 1000.0)
 
+func _ready() -> void:
+	super()
+	epsilon = BattleTimer.i.tempo / 2.0
+
 func reset(s : float = qte_step, m : float = maximum) -> void:
 	super(step, m)
 	qte_input = -1

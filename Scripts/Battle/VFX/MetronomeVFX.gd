@@ -6,9 +6,9 @@ var current_frame : int
 func _ready() -> void:
 	visible = Config.battle_metronome_effect
 
-func pulse() -> void:
-	current_frame = (current_frame + 1) & 3
-	if current_frame & 1:
-		frame = ((current_frame & 2) >> 1) + 1
-	else:
-		frame = 0
+func anim_in() -> void:
+	frame = 0
+	current_frame = (current_frame + 1) & 1
+
+func anim_out() -> void:
+	frame = current_frame + 1

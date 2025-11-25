@@ -3,6 +3,7 @@ extends Node
 
 signal pulse
 signal static_pulse
+signal half_pulse
 
 static var i : BattleTimer
 
@@ -17,6 +18,8 @@ func resync() -> void:
 
 func _physics_process(delta: float) -> void:
 	time_left -= delta
+	if time_left <= tempo / 2.0:
+		half_pulse.emit()
 	while time_left <= 0:
 		time_left += tempo
 		static_pulse.emit()

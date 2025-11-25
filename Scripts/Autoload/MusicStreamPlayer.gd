@@ -26,7 +26,7 @@ func play_music(music : Song) -> void:
 		intro_seconds = 5.324
 	elif music == Song.BATTLE2:
 		audio_stream = preload("res://Audio/Music/Battle/Dona eis Requiem.ogg")
-		intro_seconds = 2.928
+		intro_seconds = 5.857
 	elif music == Song.BATTLE3:
 		audio_stream = preload("res://Audio/Music/Battle/𝛂∧𝛚.ogg")
 	elif music == Song.TOWN:
