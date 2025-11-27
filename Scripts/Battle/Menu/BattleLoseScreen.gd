@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var game_over : AudioStreamPlayer = $GameOverJingle
 
 func activate() -> void:
+	await get_tree().create_timer(1.0).timeout
 	MusicStreamPlayer.adjust_volume(0.0, 3.0)
 	
 	var t1 : Tween = create_tween()

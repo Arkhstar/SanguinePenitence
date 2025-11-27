@@ -1,10 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgygg6h1hrqa3"]
+[gd_scene load_steps=16 format=3 uid="uid://bgygg6h1hrqa3"]
 
 [ext_resource type="Texture2D" uid="uid://bhvg0b8hfxaut" path="res://Textures/Menu/NinePatch.png" id="1_bpscj"]
 [ext_resource type="Script" uid="uid://ckqc8hbb0qk6m" path="res://Scripts/Battle/Menu/EnemyBattleDisplay.gd" id="2_g6r1n"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="3_bpscj"]
 [ext_resource type="PackedScene" uid="uid://esibojmj5fdb" path="res://Scenes/Battle/Menu/status_icon.tscn" id="4_01v7x"]
+[ext_resource type="Shader" uid="uid://b71rhh2rnueck" path="res://ThirdParty/Shaders/Dissolve.gdshader" id="4_15ant"]
+[ext_resource type="Texture2D" uid="uid://cpwibvlcowyur" path="res://Textures/Battle/AttackVFX.png" id="5_1wx3f"]
 [ext_resource type="Shader" uid="uid://77k3ihnf5mbk" path="res://Resources/Shaders/1-Bit Color Swap.gdshader" id="5_aldi4"]
+[ext_resource type="SpriteFrames" uid="uid://uwtxd3f5wi6d" path="res://Resources/attack_vfx.tres" id="6_0ie8m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ej6n5"]
+shader = ExtResource("4_15ant")
+shader_parameter/sensitivity = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bpscj"]
 resource_local_to_scene = true
@@ -63,6 +70,18 @@ theme_override_fonts/font = ExtResource("3_bpscj")
 theme_override_font_sizes/font_size = 10
 text = "PLACEHOLDER"
 horizontal_alignment = 1
+
+[node name="Unit" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ej6n5")
+position = Vector2(60, 85)
+texture = ExtResource("5_1wx3f")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="AttackVFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 85)
+sprite_frames = ExtResource("6_0ie8m")
 
 [node name="StatusIcon1" parent="." instance=ExtResource("4_01v7x")]
 material = SubResource("ShaderMaterial_bpscj")

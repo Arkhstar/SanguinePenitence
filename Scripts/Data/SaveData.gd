@@ -50,8 +50,8 @@ static func load_save_file() -> void:
 				if data is Dictionary:
 					highest_altar_level = data["hlvl"]
 					altar_level = data["clvl"]
-					obols = data["obol"]
 					coinpurse = data["cprs"]
+					obols = data["obol"]
 					inventory = Inventory.from_str(data["invt"])
 					hunter_unit = PlayerUnit.from_str(data["hntr"])
 					hunter_name = hunter_unit.display_name

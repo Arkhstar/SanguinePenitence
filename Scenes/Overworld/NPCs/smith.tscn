@@ -1,10 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbvfmcwgp85h6"]
+[gd_scene load_steps=19 format=3 uid="uid://bbvfmcwgp85h6"]
 
 [ext_resource type="PackedScene" uid="uid://bcey3mxb68md1" path="res://Scenes/Overworld/NPCs/npc.tscn" id="1_o4idd"]
+[ext_resource type="Shader" uid="uid://k6gkmqqq87nj" path="res://ThirdParty/Shaders/Pixel Outline.gdshader" id="2_leh3o"]
 [ext_resource type="Texture2D" uid="uid://ch3vufbaocqkr" path="res://Textures/Characters/Smith/Overworld.png" id="2_o4idd"]
 [ext_resource type="Script" uid="uid://cd1h7kfqxl8gq" path="res://Scripts/Overworld/NPCs/SmithMenu.gd" id="3_ul1la"]
 [ext_resource type="PackedScene" uid="uid://7x8rt51478gl" path="res://Scenes/Overworld/Menu/dialogue_menu.tscn" id="4_tn7oc"]
 [ext_resource type="PackedScene" uid="uid://8uvio646p8kq" path="res://Scenes/Overworld/Menu/shop_0_menu.tscn" id="5_o4idd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h32u7"]
+shader = ExtResource("2_leh3o")
+shader_parameter/clr = Color(0.29, 0.42, 0.5, 0.5)
+shader_parameter/type = 1
+shader_parameter/thickness = 1.0
+shader_parameter/blink_rate = 0.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_leh3o"]
 atlas = ExtResource("2_o4idd")
@@ -85,6 +93,7 @@ size = Vector2(16, 16)
 menu = NodePath("NPCMenu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_h32u7")
 sprite_frames = SubResource("SpriteFrames_sj513")
 autoplay = "default"
 

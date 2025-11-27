@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cr8piigg6on3p"]
+[gd_scene load_steps=7 format=3 uid="uid://cr8piigg6on3p"]
 
 [ext_resource type="Script" uid="uid://c8ue7kd3xebp4" path="res://Scripts/Battle/Menu/BattleLoseScreen.gd" id="1_7gd5p"]
 [ext_resource type="AudioStream" uid="uid://c0mjc6h36kgy2" path="res://Audio/Music/Battle/Game Over.ogg" id="2_bbyrh"]
 [ext_resource type="Texture2D" uid="uid://ciuv830bmq40e" path="res://Textures/Text/GameOver.png" id="3_8d5bh"]
+[ext_resource type="Shader" uid="uid://15fmh2tvigsh" path="res://Resources/Shaders/Format.gdshader" id="4_5uuga"]
+[ext_resource type="Texture2D" uid="uid://emeverf4gwoj" path="res://Textures/Menu/Logo.png" id="5_symhq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_itpp5"]
+shader = ExtResource("4_5uuga")
+shader_parameter/colors = PackedColorArray(0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1, 0.05882353, 0.07058824, 0.08627451, 1)
 
 [node name="LoseScreen" type="CanvasLayer"]
 script = ExtResource("1_7gd5p")
@@ -28,3 +34,12 @@ offset_top = 170.0
 offset_right = 400.0
 offset_bottom = 190.0
 texture = ExtResource("3_8d5bh")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_itpp5")
+layout_mode = 0
+offset_top = -26.0
+offset_right = 160.0
+offset_bottom = 38.0
+texture = ExtResource("5_symhq")

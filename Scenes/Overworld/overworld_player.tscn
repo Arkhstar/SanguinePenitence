@@ -1,11 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbtglvvw04xgn"]
+[gd_scene load_steps=12 format=3 uid="uid://cbtglvvw04xgn"]
 
 [ext_resource type="Script" uid="uid://dvme00jwhh4lx" path="res://Scripts/Overworld/OverworldPlayer.gd" id="1_vcsme"]
+[ext_resource type="Shader" uid="uid://k6gkmqqq87nj" path="res://ThirdParty/Shaders/Pixel Outline.gdshader" id="2_ki5gr"]
 [ext_resource type="PackedScene" uid="uid://cqv1fn4ar3ckj" path="res://Scenes/Overworld/overworld_hud.tscn" id="2_q1fdx"]
 [ext_resource type="Texture2D" uid="uid://li373h7krvu3" path="res://Textures/Characters/Player/Overworld.png" id="2_t5fdh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t5fdh"]
 radius = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dojy3"]
+shader = ExtResource("2_ki5gr")
+shader_parameter/clr = Color(0.29, 0.42, 0.5, 0.5)
+shader_parameter/type = 1
+shader_parameter/thickness = 1.0
+shader_parameter/blink_rate = 0.25
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q1fdx"]
 atlas = ExtResource("2_t5fdh")
@@ -57,6 +65,7 @@ collision_mask = 9
 collide_with_areas = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_dojy3")
 sprite_frames = SubResource("SpriteFrames_q1fdx")
 autoplay = "default"
 flip_h = true

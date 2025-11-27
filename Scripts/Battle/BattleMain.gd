@@ -26,6 +26,8 @@ var acting : int = -1
 
 @onready var fanfare : AudioStreamPlayer = $Fanfare
 
+enum AttackType { SLASH, SWIPE }
+
 func enemy_ai(acting_index : int) -> void:
 	var actor : EnemyUnit = units[acting_index]
 	var player_units : Array[PlayerUnit] = [ units[0], units[1], units[2], units[3] ]
@@ -34,6 +36,7 @@ func enemy_ai(acting_index : int) -> void:
 	
 	if actor.next_target >= 0 and actor.next_target < 4:
 		player_displays[actor.next_target].release_targeted(acting_index - 4)
+		player_displays[actor.next_target].damage_effect(AttackType.SWIPE)
 		if actor.determine_attack_hits(units[actor.next_target]):
 			print("Hit: %d" % actor.next_target)
 			units[actor.next_target].is_hit(actor, 0) #TODO: make variable attack type & power
@@ -56,6 +59,10 @@ func on_unit_death(index : int) -> void:
 		if units[index].next_target >= 0:
 			player_displays[units[index].next_target].cancel_targeted(index - 4)
 		enemy_displays[index - 4].unit = null
+		await enemy_displays[index - 4].death_anim()
+		enemy_displays[index - 4].hide()
+	else:
+		player_displays[index].death_anim()
 
 func on_unit_revive(index : int) -> void:
 	timers[index].allow_update = true
@@ -87,6 +94,7 @@ func menu_selection(option : int) -> void:
 		else:
 			for i : int in 4:
 				if units[i + 4]:
+					enemy_displays[i].damage_effect(AttackType.SLASH)
 					if units[acting].determine_attack_hits(units[i + 4]):
 						print("Hit: %d" % (i + 4))
 						units[i + 4].is_hit(units[acting], 0 if option == 0 else Inventory.SPELL_POWER[units[acting].reagent], -1 if option == 0 else units[acting].reagent)
@@ -211,6 +219,10 @@ func init_players() -> void:
 			units[i].died.connect(on_unit_death.bind(i))
 			units[i].revived.connect(on_unit_revive.bind(i))
 			add_child(timers[i])
+			if units[i].health <= 0:
+				player_displays[i].death_anim()
+		else:
+			player_displays[i].hide()
 		player_displays[i].atb = timers[i]
 
 func init_enemies() -> void:
@@ -223,6 +235,8 @@ func init_enemies() -> void:
 			timers[i + 4].timeout.connect(on_atb_timeout.bind(i + 4))
 			units[i + 4].died.connect(on_unit_death.bind(i + 4))
 			add_child(timers[i + 4])
+		else:
+			enemy_displays[i].hide()
 
 func init_combat(song : MusicStreamPlayer.Song = MusicStreamPlayer.Song.BATTLE) -> void:
 	ATBTimerQTE.momentum = 0.0
@@ -286,6 +300,7 @@ func _physics_process(_delta: float) -> void:
 		menu.show()
 
 func win_state() -> void:
+	await get_tree().create_timer(1.0).timeout
 	MusicStreamPlayer.adjust_volume(0.0, 0.5)
 	var t : Tween = create_tween()
 	t.tween_property(fanfare, "volume_linear", 1.0, 2.0)

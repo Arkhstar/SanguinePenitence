@@ -10,11 +10,16 @@
 [ext_resource type="AudioStream" uid="uid://0daxo7fi7a3b" path="res://Audio/SFX/Menu/Select.ogg" id="5_ya8kw"]
 
 [sub_resource type="Gradient" id="Gradient_01fkl"]
+interpolation_mode = 2
+interpolation_color_space = 2
 colors = PackedColorArray(0.105882354, 0.1254902, 0.14509805, 1, 0.105882354, 0.1254902, 0.14509805, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_8roww"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8roww"]
 gradient = SubResource("Gradient_01fkl")
-width = 32
+width = 508
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0)
 
 [node name="DialogueMenu" type="NinePatchRect"]
 offset_right = 512.0
@@ -44,11 +49,11 @@ bus = &"SFX"
 
 [node name="Fade" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 2.0
-offset_right = 34.0
-offset_bottom = 508.0
-rotation = 4.712389
-texture = SubResource("GradientTexture1D_8roww")
+offset_left = 510.0
+offset_right = 1018.0
+offset_bottom = 32.0
+rotation = 3.1415927
+texture = SubResource("GradientTexture2D_8roww")
 
 [node name="Speaker" type="Label" parent="."]
 layout_mode = 0
