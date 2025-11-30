@@ -20,12 +20,26 @@ func init() -> void:
 					if option == 0:
 						SaveData.altar_level += SaveData.obols
 						SaveData.obols = 0
-						await dialogue.speak("", "THAT SAME COMFORTING FEELING FLOWS THROUGH YOUR BODY, REVITALIZING YOUR BODY AND MIND.")
+						SaveData.hunter_unit.health = SaveData.hunter_unit.max_health
+						if SaveData.tif:
+							SaveData.tif.health = SaveData.tif.max_health
+						if SaveData.bin:
+							SaveData.bin.health = SaveData.bin.max_health
+						if SaveData.cho:
+							SaveData.cho.health = SaveData.cho.max_health
+						await dialogue.speak("", "THAT SAME COMFORTING FEELING FLOWS THROUGH YOUR BODY STRONGLY, REVITALIZING YOUR BODY AND MIND.")
 					elif option == 1:
 						option = ceili(SaveData.obols / 2.0)
 						SaveData.altar_level += option
 						SaveData.obols -= option
-						await dialogue.speak("", "THAT SAME COMFORTING FEELING FLOWS THROUGH YOUR BODY, REVITALIZING YOUR BODY AND MIND.")
+						SaveData.hunter_unit.health = mini(SaveData.hunter_unit.health + SaveData.hunter_unit.max_health / 2, SaveData.hunter_unit.max_health)
+						if SaveData.tif:
+							SaveData.tif.health = mini(SaveData.tif.health + SaveData.tif.max_health / 2, SaveData.tif.max_health)
+						if SaveData.bin:
+							SaveData.bin.health = mini(SaveData.bin.health + SaveData.bin.max_health / 2, SaveData.bin.max_health)
+						if SaveData.cho:
+							SaveData.cho.health = mini(SaveData.cho.health + SaveData.cho.max_health / 2, SaveData.cho.max_health)
+						await dialogue.speak("", "THAT SAME COMFORTING FEELING FLOWS THROUGH YOUR BODY FAINTLY, REVITALIZING YOUR BODY AND MIND.")
 			await dialogue.speak(SaveData.hunter_name, "... ... ... ... ...")
 			await dialogue.speak(SaveData.hunter_name, "... DONA EIS REQUIEM.")
 		elif option == 1:
