@@ -1,6 +1,8 @@
 class_name OverworldPlayer
 extends CharacterBody2D
 
+const _R2 : float = sqrt(2.0)
+
 static var i : OverworldPlayer
 
 var ignore_input : bool = false
@@ -19,7 +21,7 @@ func move(offset : Vector2i) -> void:
 	is_moving = true
 	var sprite_position : Vector2 = sprite.global_position
 	var t : Tween = create_tween()
-	t.tween_property(sprite, "position", Vector2.ZERO, 0.15 if Input.is_action_pressed("sprint") else 0.2)
+	t.tween_property(sprite, "position", Vector2.ZERO, (0.15 if Input.is_action_pressed("sprint") else 0.2) * (_R2 if offset.x != 0 and offset.y != 0 else 1.0))
 	position += 24.0 * offset
 	sprite.global_position = sprite_position
 	t.play()
