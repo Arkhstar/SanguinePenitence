@@ -63,13 +63,14 @@ menu = NodePath("NPCMenu")
 material = SubResource("ShaderMaterial_b2q6m")
 sprite_frames = SubResource("SpriteFrames_2lgdb")
 autoplay = "default"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_pv3ek")
 debug_color = Color(0.15025258, 0.5402352, 0.9324259, 0.41960785)
 
 [node name="Front" type="CollisionShape2D" parent="InteractArea" index="0"]
-position = Vector2(24, 0)
+position = Vector2(-24, 0)
 shape = SubResource("RectangleShape2D_gkcru")
 debug_color = Color(0.2510868, 0.6233789, 0.36287415, 0.41960785)
 

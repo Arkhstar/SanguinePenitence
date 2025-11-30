@@ -26,10 +26,9 @@ func init() -> void:
 				await dialogue.speak(Global.get_butcher_name(), "... YOU MAY CALL ME ... %s, ... FRIEND ..." % Global.get_butcher_name(false))
 				await dialogue.speak("", "%s WILL NOW BUY FROM YOU AT A HIGHER RATE!" % Global.get_butcher_name(false))
 			elif SaveData.highest_altar_level >= 2000:
-				await dialogue.speak(Global.get_butcher_name(), "... DO YOU WONDER ... WHERE THE COIN COMES FROM? ...")
-				await dialogue.speak(Global.get_butcher_name(), "... THERE ARE NO MERCHANTS ... TO TRADE, ... AND SILVER IS ... FOREIGN TO THE BODY ...")
+				await dialogue.speak(Global.get_butcher_name(), "... SILVER IS ... FOREIGN TO THE BODY ...")
 				await dialogue.speak(Global.get_butcher_name(), "... YET I PULL IT ... FROM THE FLESH ...")
-				await dialogue.speak(Global.get_butcher_name(), "... I KNOW NOT OF ... ITS ORIGIN ...")
+				await dialogue.speak(Global.get_butcher_name(), "... I KNOW NOT OF ... ITS ORIGIN ... ONLY ITS PURPOSE ...")
 				await dialogue.speak(Global.get_butcher_name(), "... ... ...")
 			elif SaveData.highest_altar_level >= 350:
 				await dialogue.speak(Global.get_butcher_name(), "... THE FOREST IS ... QUIET ... IT IS STILL ...")
