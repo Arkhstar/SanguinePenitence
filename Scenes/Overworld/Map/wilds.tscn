@@ -53,10 +53,10 @@ metadata/_custom_type_script = "uid://cv3w3tcwu0mb8"
 [node name="ColorRect" type="ColorRect" parent="BloodRiver"]
 z_index = -4
 material = SubResource("ShaderMaterial_eo3og")
-offset_left = -1874.0
-offset_top = -2530.0
-offset_right = 1131.0
-offset_bottom = 816.5425
+offset_left = -1881.0
+offset_top = -2499.0
+offset_right = 1119.0
+offset_bottom = 501.0
 color = Color(0.19215687, 0.09019608, 0.11764706, 1)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BloodRiver"]
