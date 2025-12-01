@@ -24,7 +24,7 @@ func _init() -> void:
 
 func obtain_monster_parts() -> void:
 	for i : int in MonsterPartGrade.size():
-		monster_parts[i] += gathered_monster_parts[i]
+		monster_parts[i] = clampi(monster_parts[i] + gathered_monster_parts[i], 0, 10)
 		gathered_monster_parts[i] = 0
 
 func lose_monster_parts() -> void:
