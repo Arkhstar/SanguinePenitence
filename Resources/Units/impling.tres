@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyUnit" load_steps=2 format=3 uid="uid://bpavb0e5dw0r1"]
+
+[ext_resource type="Script" uid="uid://dgwiv6qvrod7y" path="res://Scripts/Battle/Units/EnemyUnit.gd" id="1_6dwsq"]
+
+[resource]
+script = ExtResource("1_6dwsq")
+targeting = 3
+grade = 3
+display_name = "IMPLING"
+max_health = 30
+crit_chance = -1.0
+speed = 5.0
+metadata/_custom_type_script = "uid://dgwiv6qvrod7y"

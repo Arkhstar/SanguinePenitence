@@ -43,6 +43,7 @@ func init() -> void:
 			await dialogue.speak(SaveData.hunter_name, "... ... ... ... ...")
 			await dialogue.speak(SaveData.hunter_name, "... DONA EIS REQUIEM.")
 		elif option == 1:
+			Wilds.time = 0.0
 			Main.i.change_scene("res://Scenes/Overworld/Map/wilds.tscn")
 			return
 	close()

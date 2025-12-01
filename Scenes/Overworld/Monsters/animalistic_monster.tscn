@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://sparbibfyokp"]
+[gd_scene load_steps=9 format=3 uid="uid://sparbibfyokp"]
 
 [ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="1_m5gw1"]
 [ext_resource type="Texture2D" uid="uid://bt7cplrn7n1qf" path="res://Textures/Characters/Monsters/Animalistic.png" id="2_3tel1"]
+[ext_resource type="Resource" uid="uid://bocq85j8g5658" path="res://Resources/Units/fell_elk.tres" id="2_mljc2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mljc2"]
 atlas = ExtResource("2_3tel1")
@@ -40,8 +41,19 @@ animations = [{
 }]
 
 [node name="AnimalisticMonster" instance=ExtResource("1_m5gw1")]
+encounter = Array[Array]([[ExtResource("2_mljc2")]])
+theme = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="1"]
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+position = Vector2(0, -8)
+enabled = false
+collision_mask = 15
+collide_with_areas = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_xl14s")
 autoplay = "default"

@@ -72,16 +72,13 @@ text = "PLACEHOLDER"
 horizontal_alignment = 1
 
 [node name="Unit" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_ej6n5")
 position = Vector2(60, 85)
 texture = ExtResource("5_1wx3f")
 hframes = 3
 vframes = 4
 frame = 9
-
-[node name="AttackVFX" type="AnimatedSprite2D" parent="."]
-position = Vector2(60, 85)
-sprite_frames = ExtResource("6_0ie8m")
 
 [node name="StatusIcon1" parent="." instance=ExtResource("4_01v7x")]
 material = SubResource("ShaderMaterial_bpscj")
@@ -111,3 +108,7 @@ frame = 4
 material = SubResource("ShaderMaterial_y085o")
 position = Vector2(105, 23)
 frame = 5
+
+[node name="AttackVFX" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 18)
+sprite_frames = ExtResource("6_0ie8m")

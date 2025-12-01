@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://boga8fko40rd6"]
+[gd_scene load_steps=12 format=3 uid="uid://boga8fko40rd6"]
 
 [ext_resource type="Texture2D" uid="uid://b2t3wpqim5v3" path="res://Textures/Characters/Monsters/Humanoid.png" id="1_23mii"]
+[ext_resource type="Resource" uid="uid://bpveaxfh3hm7l" path="res://Resources/Units/red_woodman.tres" id="2_rdovv"]
 [ext_resource type="PackedScene" uid="uid://co8q15ud217x1" path="res://Scenes/Overworld/Monsters/monster.tscn" id="2_sl56v"]
 [ext_resource type="Resource" uid="uid://d2014a24304w5" path="res://Resources/Units/spore_wight.tres" id="3_sl56v"]
+[ext_resource type="Resource" uid="uid://cneurfteeephb" path="res://Resources/Units/dark_knight.tres" id="4_tcnx8"]
+[ext_resource type="Resource" uid="uid://bpavb0e5dw0r1" path="res://Resources/Units/impling.tres" id="5_bw2ha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rdovv"]
 atlas = ExtResource("1_23mii")
@@ -41,8 +44,17 @@ animations = [{
 }]
 
 [node name="HumanoidMonster" instance=ExtResource("2_sl56v")]
-encounter = Array[Array]([[ExtResource("3_sl56v")]])
+encounter = Array[Array]([[ExtResource("3_sl56v")], [ExtResource("3_sl56v"), ExtResource("3_sl56v")], [ExtResource("2_rdovv")], [ExtResource("3_sl56v"), ExtResource("2_rdovv")], [ExtResource("3_sl56v"), ExtResource("2_rdovv"), ExtResource("3_sl56v")], [ExtResource("4_tcnx8")], [ExtResource("5_bw2ha"), ExtResource("5_bw2ha")], [ExtResource("2_rdovv"), ExtResource("4_tcnx8")]])
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1"]
+[node name="Timer" type="Timer" parent="." index="1"]
+one_shot = true
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+enabled = false
+collision_mask = 15
+collide_with_areas = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
 sprite_frames = SubResource("SpriteFrames_sl56v")
 autoplay = "default"

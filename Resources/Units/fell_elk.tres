@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyUnit" load_steps=2 format=3 uid="uid://bocq85j8g5658"]
+
+[ext_resource type="Script" uid="uid://dgwiv6qvrod7y" path="res://Scripts/Battle/Units/EnemyUnit.gd" id="1_dxkvj"]
+
+[resource]
+script = ExtResource("1_dxkvj")
+grade = 2
+display_name = "FELL ELK"
+max_health = 120
+strength = 40
+defense = 60
+crit_chance = 0.01
+crit_damage = 1.1
+metadata/_custom_type_script = "uid://dgwiv6qvrod7y"
