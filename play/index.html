@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>SANGUINE PENITENCE</title>
+     <link rel="icon" href="Web.icon.png" type="image/png">
+    <style>
+        :root {
+		--loader-bg-color: #1b2025;
+		--loader-text-color: #eef0f0;
+		--bar-bg-color: #1b2025;
+		--bar-fill-color: #6c7479;
+		--bar-border-color: #83888e;
+		--bar-height: 24px;
+		--font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		--border-size: 5px;
+        }
+
+        body {
+        	margin: 0;
+		background-color: var(--loader-bg-color);
+        	color: var(--loader-text-color);
+        	font-family: var(--font-family);
+        	display: flex;
+        	justify-content: center;
+        	align-items: center;
+        	height: 100vh;
+        }
+        
+        #loader {
+        	text-align: center;
+        	width: 60%;
+        	max-width: 500px;
+        }
+        
+        #status-text {
+        	margin-bottom: 1em;
+        	font-size: 1.2em;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		pointer-events: none;
+        }
+        
+        #status-progress {
+        	width: 100%;
+        	background-color: var(--bar-bg-color);
+        	border-radius: 8px;
+		box-shadow: 0 0 var(--border-size) var(--bar-border-color);
+		position: relative;
+        }
+        
+        #status-progress-bar {
+        	width: 0%;
+        	height: var(--bar-height);
+        	background-color: var(--bar-fill-color);
+        	transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <div id="status-progress">
+        	<div id="status-progress-bar"></div>
+		<div id="status-text"></div>
+        </div>
+    </div>
+    
+    <script src="godot.loader.js"></script>
+    <script>
+	const engine = new Engine();
+        engine.startGame({
+        canvas: document.getElementById("canvas"),
+        onProgress: function (current, total) {
+        	const bar = document.getElementById("status-progress-bar");
+		const text = document.getElementById("status-text");
+		const pcnt = Math.floor(current / total * 100);
+                bar.style.width = pcnt + "%";
+		text.textContent = "Loading (" + pcnt + "%)";
+        },
+        onComplete: function () {
+            	document.getElementById("loader").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
