@@ -71,7 +71,7 @@ offset_bottom = 360.0
 theme_override_colors/font_color = Color(0.14509805, 0.1764706, 0.20392157, 1)
 theme_override_fonts/font = ExtResource("2_48xlc")
 theme_override_font_sizes/font_size = 10
-text = "V 1.0.0-ALPHA"
+text = "V 1.0.1-ALPHA"
 
 [node name="Cursor" type="TextureRect" parent="."]
 offset_left = 413.0
