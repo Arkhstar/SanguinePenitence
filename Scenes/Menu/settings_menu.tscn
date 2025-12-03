@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbej46e2c7a4t"]
+[gd_scene load_steps=9 format=3 uid="uid://dbej46e2c7a4t"]
 
 [ext_resource type="AudioStream" uid="uid://cme4tdvjcxb2g" path="res://Audio/SFX/Menu/Navigate.ogg" id="1_7y5a0"]
 [ext_resource type="Script" uid="uid://cn28n71olr0wd" path="res://Scripts/Menu/SettingsMenu.gd" id="1_h2y1r"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dsy15aggor000" path="res://Textures/Menu/Selector/SelectorSmall.png" id="5_3etfd"]
 [ext_resource type="FontFile" uid="uid://sfccyaw2qoa0" path="res://Textures/Text/MainFont.png" id="5_rahb6"]
 [ext_resource type="PackedScene" uid="uid://buynotitau5vj" path="res://Scenes/Menu/settings_option.tscn" id="6_rahb6"]
+[ext_resource type="Script" uid="uid://d2jx65nlyb211" path="res://Scripts/Menu/WebSettingsOption.gd" id="8_2fhcc"]
 
 [node name="SettingsMenu" type="CanvasLayer"]
 layer = 20
@@ -91,6 +92,7 @@ offset_left = 28.0
 offset_top = 80.0
 offset_right = 138.0
 offset_bottom = 90.0
+script = ExtResource("8_2fhcc")
 
 [node name="Resolution" parent="Panel" instance=ExtResource("6_rahb6")]
 layout_mode = 0
@@ -98,6 +100,7 @@ offset_left = 28.0
 offset_top = 95.0
 offset_right = 138.0
 offset_bottom = 105.0
+script = ExtResource("8_2fhcc")
 
 [node name="TextSpeed" parent="Panel" instance=ExtResource("6_rahb6")]
 layout_mode = 0
