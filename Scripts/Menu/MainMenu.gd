@@ -126,7 +126,11 @@ func _physics_process(_delta: float) -> void:
 				Main.i.open_settings()
 				ignore_input = false
 			elif index == 3:
-				get_tree().call_deferred("quit")
+				if OS.get_name() == "Web":
+					fail_sfx.play()
+				else:
+					select_sfx.play()
+					get_tree().call_deferred("quit")
 	else:
 		if Input.is_action_just_pressed("menu_up") or Input.is_action_just_pressed("menu_left") or Input.is_action_just_pressed("menu_down") or Input.is_action_just_pressed("menu_right"):
 			index = ((index - 1) & 1) - 2

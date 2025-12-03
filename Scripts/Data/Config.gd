@@ -8,7 +8,7 @@ static var text_speed : int = 2
 static var window_mode : int = 0 :
 	set(v):
 		window_mode = v
-		if window_mode < 0:
+		if v < 0 or window_mode < 0:
 			return
 		if window_mode < 2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
