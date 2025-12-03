@@ -128,6 +128,7 @@ func _physics_process(_delta: float) -> void:
 			elif index == 3:
 				if OS.has_feature("web"):
 					fail_sfx.play()
+					ignore_input = false
 				else:
 					select_sfx.play()
 					get_tree().call_deferred("quit")
