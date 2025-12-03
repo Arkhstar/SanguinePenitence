@@ -22,6 +22,7 @@
                 --header-line-color: #202c51;
                 --hover-scale: 1.02;
                 --hover-scale-div-2: 0.51;
+		--hover-scale-mul-2: 2.04;
                 --hover-time: 1s;
                 color-scheme: dark;
             }
@@ -92,7 +93,7 @@
                 left: 1vw;
                 text-decoration: none;
                 color: var(--font-color-2);
-                font-size: 4vw;
+                font-size: 32px;
                 rotate: 315deg;
                 transition: var(--hover-time) ease, filter var(--hover-time) ease;
             }
@@ -199,6 +200,8 @@
                 max-width: 400px;
                 box-shadow: 0 0 5px var(--panel-shadow-color);
                 transition: var(--hover-time) ease, filter var(--hover-time) ease;
+		justify-content: center;
+		align-content: center;
             }
             .two-column .img:hover {
                 transform: scale(var(--hover-scale));
@@ -209,6 +212,10 @@
                 justify-self: center;
                 display: flex;
             }
+	    @media (min-width: 900px) {
+		header .content { transform:  scale(2); }
+		header .content:hover { transform: scale(var(--hover-scale-mul-2));}
+	    }
             @media (max-width: 900px) {
                 .two-column { grid-template-columns: 1fr; }
             }
@@ -229,9 +236,8 @@
         </header>
         <section id="play">
             <h2>Play</h2>
-            <div class="two-column">
+            <div class="one-column">
                 <a href="./play/" class="button">Play in Browser</a>
-                <a href="https://github.com/Arkhstar/SanguinePenitence/releases" class="button">Download via GitHub</a>
             </div>
         </section>
         <div class="vfill"></div>
@@ -260,10 +266,10 @@
                     </p>
                 </div>
                 <div class="img">
-                    <img src="assets/screen1.jpg", alt="", width="400px", draggable="false">
+                    <img src="assets/screen1.png", alt="", width="425px", draggable="false">
                 </div>
                 <div class="img">
-                    <img src="assets/screen2.jpg", alt="", width="400px", draggable="false">
+                    <img src="assets/screen2.png", alt="", width="425px", draggable="false">
                 </div>
                 <div class="panel">
                     <h3>The Hunt Begins</h3>
