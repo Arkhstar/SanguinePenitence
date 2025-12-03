@@ -25,6 +25,14 @@
         	align-items: center;
         	height: 100vh;
         }
+
+	#canvas {
+		display: block;
+	}
+
+	#canvas:focus {
+		outline: none;
+	}
         
         #loader {
         	text-align: center;
@@ -59,12 +67,20 @@
     </style>
 </head>
 <body>
+	<canvas id="canvas">
+		Your browser does not support the canvas tag.
+	</canvas>
+
+	<noscript>
+		Your browser does not support JavaScript.
+	</noscript>
+
 	<div id="loader">
         <div id="status-progress">
         	<div id="status-progress-bar"></div>
 		<div id="status-text"></div>
         </div>
-    </div>
+    	</div>
     
     <script src="Web.js"></script>
     <script>
