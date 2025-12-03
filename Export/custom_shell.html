@@ -17,6 +17,7 @@
 
         body {
         	margin: 0;
+		padding: 0;
 		background-color: var(--loader-bg-color);
         	color: var(--loader-text-color);
         	font-family: var(--font-family);
@@ -24,10 +25,13 @@
         	justify-content: center;
         	align-items: center;
         	height: 100vh;
+		overflow: hidden;
         }
 
 	#canvas {
 		display: block;
+		width: 100% !important;
+		height: 100% !important;
 	}
 
 	#canvas:focus {
@@ -35,6 +39,10 @@
 	}
         
         #loader {
+		position: absolute;
+		left: 50%;
+		right: 50%;
+		transform: translate(-50%, -50%);
         	text-align: center;
         	width: 60%;
         	max-width: 500px;
@@ -62,6 +70,7 @@
         	width: 0%;
         	height: var(--bar-height);
         	background-color: var(--bar-fill-color);
+		border-raidus: 8px;
         	transition: width 0.3s ease;
         }
     </style>
