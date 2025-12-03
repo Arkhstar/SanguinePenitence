@@ -36,7 +36,7 @@ func _physics_process(_delta: float) -> void:
 		nav_sfx.play()
 	cursor.global_position = options[option].global_position - Vector2(1.0, 1.0)
 	if Input.is_action_just_pressed("menu_select"):
-		if OS.get_name() == "Web" and options[option] is WebSettingsOption:
+		if OS.has_feature("web") and options[option] is WebSettingsOption:
 			return
 		select_sfx.play()
 		ignore_input = true

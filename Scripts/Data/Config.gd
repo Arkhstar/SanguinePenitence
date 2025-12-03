@@ -8,7 +8,7 @@ static var text_speed : int = 2
 static var window_mode : int = 0 :
 	set(v):
 		window_mode = v
-		if v < 0 or window_mode < 0:
+		if OS.has_feature("web"):
 			return
 		if window_mode < 2:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -19,7 +19,7 @@ static var window_mode : int = 0 :
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 static var resolution : int = 0 :
 	set(v):
-		if v < 0 or resolution < 0:
+		if OS.has_feature("web"):
 			return
 		if resolution != v:
 			Main.i.get_window().position -= Vector2i(320 * (v - resolution), 180 * (v - resolution))

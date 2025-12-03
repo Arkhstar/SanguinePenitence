@@ -126,7 +126,7 @@ func _physics_process(_delta: float) -> void:
 				Main.i.open_settings()
 				ignore_input = false
 			elif index == 3:
-				if OS.get_name() == "Web":
+				if OS.has_feature("web"):
 					fail_sfx.play()
 				else:
 					select_sfx.play()

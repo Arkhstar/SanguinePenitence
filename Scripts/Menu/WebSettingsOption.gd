@@ -2,7 +2,7 @@ class_name WebSettingsOption
 extends SettingsOption
 
 func _physics_process(delta: float) -> void:
-	if OS.get_name() == "Web":
+	if OS.has_feature("web"):
 		l.hide()
 		r.hide()
 		option.text = "FIXED"
