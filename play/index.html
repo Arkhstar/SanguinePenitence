@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8"/>
     <title>SANGUINE PENITENCE</title>
-     <link rel="icon" href="Web.icon.png" type="image/png">
     <style>
         :root {
 		--loader-bg-color: #1b2025;
@@ -60,28 +59,31 @@
     </style>
 </head>
 <body>
-    <div id="loader">
+	<div id="loader">
         <div id="status-progress">
         	<div id="status-progress-bar"></div>
 		<div id="status-text"></div>
         </div>
     </div>
     
-    <script src="godot.loader.js"></script>
+    <script src="Web.js"></script>
     <script>
-	const engine = new Engine();
-        engine.startGame({
-        canvas: document.getElementById("canvas"),
-        onProgress: function (current, total) {
-        	const bar = document.getElementById("status-progress-bar");
-		const text = document.getElementById("status-text");
-		const pcnt = Math.floor(current / total * 100);
-                bar.style.width = pcnt + "%";
-		text.textContent = "Loading (" + pcnt + "%)";
-        },
-        onComplete: function () {
-            	document.getElementById("loader").style.display = "none";
-        }
+	const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"Web","experimentalVK":false,"fileSizes":{"Web.pck":43202816,"Web.wasm":38057390},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+	const engine = new Engine(GODOT_CONFIG);
+
+	(function () {
+		engine.startGame({
+			'onProgress': function (current, total) {
+			const bar = document.getElementById("status-progress-bar");
+			const text = document.getElementById("status-text");
+			const pcnt = Math.floor(current / total * 100);
+               		bar.style.width = pcnt + "%";
+			text.textContent = "Loading (" + pcnt + "%)";
+			},
+		}).then(() => {
+			document.getElementById("loader").style.display = "none";
+		});
+	}());
     </script>
 </body>
 </html>
