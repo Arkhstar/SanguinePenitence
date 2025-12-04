@@ -22,7 +22,6 @@
                 --header-line-color: #202c51;
                 --hover-scale: 1.02;
                 --hover-scale-div-2: 0.51;
-		--hover-scale-mul-2: 2.04;
                 --hover-time: 1s;
                 color-scheme: dark;
             }
@@ -212,10 +211,6 @@
                 justify-self: center;
                 display: flex;
             }
-	    @media (min-width: 900px) {
-		header .content { transform:  scale(2); }
-		header .content:hover { transform: scale(var(--hover-scale-mul-2));}
-	    }
             @media (max-width: 900px) {
                 .two-column { grid-template-columns: 1fr; }
             }
