@@ -1,0 +1,137 @@
+:root {
+    --background-color-dark: #0f1216;
+    --background-color-light: #1b2025;
+    --title-color: #eef0f0;
+    --text-color: #c2c9ca;
+    --article-color: #0f112740;
+    --border-color: #202c51;
+    --button-color: #31171e40;
+    --button-border-color: #431925;
+}
+
+html {
+    background: var(--background-color-dark);
+}
+
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6;
+    background: radial-gradient(circle at top, var(--background-color-light), var(--background-color-dark));
+    color: var(--text-color);
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+    margin: 0 0 0.5rem;
+    font-weight: 600;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header {
+    background: linear-gradient(to bottom, rgba(49, 23, 30, 0.5), transparent);
+    min-height: 64vh;
+    padding: 1rem 0;
+    padding-top: 2rem;
+}
+
+.hero {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.pixel-art {
+    align-self: center;
+    image-rendering: pixelated;
+}
+
+.logo {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.screenshot {
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 12.5%;
+}
+
+.back-button {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--text-color);
+    transform: rotate(315deg);
+
+}
+
+.section {
+    padding: 1rem 1rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+}
+
+.panel {
+    background: var(--article-color);
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.button {
+    background: var(--button-color);
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border: 1px solid var(--button-border-color);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.title::before, .title::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid var(--border-color);
+    margin: 0 0.5em;
+}
+
+.footer {
+    background: var(--article-color);
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 0;
+    margin-top: 2rem;
+    text-align: center;
+}
