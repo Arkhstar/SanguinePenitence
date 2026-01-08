@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmdwvimu4fngf"]
+
+[ext_resource type="Script" uid="uid://d2kcawde18dtv" path="res://Scripts/TextPanel.gd" id="1_vo3py"]
+[ext_resource type="Texture2D" uid="uid://davosrif7wga8" path="res://Textures/panel.png" id="2_6faym"]
+[ext_resource type="PackedScene" uid="uid://brlejs45q0noi" path="res://Scenes/glyph_label.tscn" id="3_6hacf"]
+[ext_resource type="Texture2D" uid="uid://ceb5kyxybmxoa" path="res://Textures/text-throbber.png" id="4_6faym"]
+[ext_resource type="Texture2D" uid="uid://cx0rtru2xwonq" path="res://Textures/panel-shadow.png" id="5_6hacf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6faym"]
+atlas = ExtResource("4_6faym")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hacf"]
+atlas = ExtResource("4_6faym")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olre8"]
+atlas = ExtResource("4_6faym")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifj6c"]
+atlas = ExtResource("4_6faym")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fom1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6faym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hacf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olre8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifj6c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="TextPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vo3py")
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -288.0
+offset_top = -48.0
+offset_right = 288.0
+offset_bottom = 48.0
+texture = ExtResource("2_6faym")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GlyphLabel" parent="Panel" instance=ExtResource("3_6hacf")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 568.0
+offset_bottom = 88.0
+
+[node name="Throbber" type="AnimatedSprite2D" parent="Panel"]
+visible = false
+position = Vector2(564, 84)
+sprite_frames = SubResource("SpriteFrames_fom1r")
+
+[node name="Shadow" type="NinePatchRect" parent="Panel"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 600.0
+offset_bottom = 120.0
+texture = ExtResource("5_6hacf")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Speaker" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -280.0
+offset_top = -68.0
+offset_right = -8.0
+offset_bottom = -44.0
+texture = ExtResource("2_6faym")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="GlyphLabel" parent="Speaker" instance=ExtResource("3_6hacf")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 264.0
+offset_bottom = 16.0

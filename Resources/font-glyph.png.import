@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://rj65iff52h0e"
+path="res://.godot/imported/font-glyph.png-355774d0945c50b33a2df3a61906c6ba.fontdata"
+
+[deps]
+
+source_file="res://Resources/font-glyph.png"
+dest_files=["res://.godot/imported/font-glyph.png-355774d0945c50b33a2df3a61906c6ba.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("65-90", "97", "46", "44", "63", "32")
+kerning_pairs=PackedStringArray()
+columns=10
+rows=4
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[Resource("uid://bhqqihktwv53k", "res://Resources/font-ascii.png")]
+compress=true
+scaling_mode=2
