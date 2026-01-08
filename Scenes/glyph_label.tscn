@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://brlejs45q0noi"]
+
+[ext_resource type="Script" uid="uid://wx37ac6nmbjo" path="res://Scripts/GlyphLabel.gd" id="1_tjbwj"]
+
+[node name="GlyphLabel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tjbwj")
+
+[node name="Raw" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+visible_characters_behavior = 1
+
+[node name="Trans" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+visible_characters_behavior = 1
